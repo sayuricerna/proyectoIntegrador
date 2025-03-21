@@ -30,23 +30,18 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDpt = new System.Windows.Forms.TextBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAddPosition = new System.Windows.Forms.Button();
+            this.pnlPosition = new System.Windows.Forms.Panel();
             this.cmbDpt = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSalary = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnCancelPosition = new System.Windows.Forms.Button();
+            this.btnSavePosition = new System.Windows.Forms.Button();
             this.txtPosition = new System.Windows.Forms.TextBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.dgvPosDpt = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.dgvPosition = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -54,10 +49,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlUser = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
@@ -74,27 +69,42 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAddDpt = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dgvDpt = new System.Windows.Forms.DataGridView();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pnlDpt = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDpt = new System.Windows.Forms.TextBox();
+            this.btnCancelDpt = new System.Windows.Forms.Button();
+            this.btnSaveDpt = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPosDpt)).BeginInit();
+            this.pnlPosition.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnlDpt.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,11 +116,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.button12);
-            this.tabPage1.Controls.Add(this.dgvPosDpt);
+            this.tabPage1.Controls.Add(this.btnAddPosition);
+            this.tabPage1.Controls.Add(this.pnlPosition);
+            this.tabPage1.Controls.Add(this.btnSearch);
+            this.tabPage1.Controls.Add(this.dgvPosition);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.txtSearch);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -118,77 +127,33 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1635, 820);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Departamentos y Cargos";
+            this.tabPage1.Text = "Cargos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // btnAddPosition
             // 
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.txtDpt);
-            this.panel4.Controls.Add(this.button15);
-            this.panel4.Controls.Add(this.button16);
-            this.panel4.Location = new System.Drawing.Point(169, 55);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(654, 221);
-            this.panel4.TabIndex = 104;
+            this.btnAddPosition.Location = new System.Drawing.Point(1259, 307);
+            this.btnAddPosition.Name = "btnAddPosition";
+            this.btnAddPosition.Size = new System.Drawing.Size(215, 44);
+            this.btnAddPosition.TabIndex = 108;
+            this.btnAddPosition.Text = "Agregar Pos";
+            this.btnAddPosition.UseVisualStyleBackColor = true;
+            this.btnAddPosition.Click += new System.EventHandler(this.btnAddPosition_Click);
             // 
-            // label5
+            // pnlPosition
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(54, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 20);
-            this.label5.TabIndex = 99;
-            this.label5.Text = "Nombre del departamento";
-            // 
-            // txtDpt
-            // 
-            this.txtDpt.Location = new System.Drawing.Point(287, 75);
-            this.txtDpt.Name = "txtDpt";
-            this.txtDpt.Size = new System.Drawing.Size(289, 27);
-            this.txtDpt.TabIndex = 98;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(345, 152);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(231, 44);
-            this.button15.TabIndex = 97;
-            this.button15.Text = "Cancelar";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(94, 152);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(231, 44);
-            this.button16.TabIndex = 96;
-            this.button16.Text = "Guardar";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1259, 307);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 44);
-            this.button1.TabIndex = 107;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cmbDpt);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.txtSalary);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.txtPosition);
-            this.panel2.Location = new System.Drawing.Point(829, 56);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(645, 221);
-            this.panel2.TabIndex = 102;
+            this.pnlPosition.Controls.Add(this.cmbDpt);
+            this.pnlPosition.Controls.Add(this.label1);
+            this.pnlPosition.Controls.Add(this.label10);
+            this.pnlPosition.Controls.Add(this.label11);
+            this.pnlPosition.Controls.Add(this.txtSalary);
+            this.pnlPosition.Controls.Add(this.btnCancelPosition);
+            this.pnlPosition.Controls.Add(this.btnSavePosition);
+            this.pnlPosition.Controls.Add(this.txtPosition);
+            this.pnlPosition.Location = new System.Drawing.Point(829, 56);
+            this.pnlPosition.Name = "pnlPosition";
+            this.pnlPosition.Size = new System.Drawing.Size(645, 221);
+            this.pnlPosition.TabIndex = 102;
             // 
             // cmbDpt
             // 
@@ -237,23 +202,25 @@
             this.txtSalary.Size = new System.Drawing.Size(337, 27);
             this.txtSalary.TabIndex = 98;
             // 
-            // button2
+            // btnCancelPosition
             // 
-            this.button2.Location = new System.Drawing.Point(336, 151);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(231, 44);
-            this.button2.TabIndex = 97;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelPosition.Location = new System.Drawing.Point(336, 151);
+            this.btnCancelPosition.Name = "btnCancelPosition";
+            this.btnCancelPosition.Size = new System.Drawing.Size(231, 44);
+            this.btnCancelPosition.TabIndex = 97;
+            this.btnCancelPosition.Text = "Cancelar";
+            this.btnCancelPosition.UseVisualStyleBackColor = true;
+            this.btnCancelPosition.Click += new System.EventHandler(this.btnCancelPosition_Click);
             // 
-            // button11
+            // btnSavePosition
             // 
-            this.button11.Location = new System.Drawing.Point(85, 151);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(231, 44);
-            this.button11.TabIndex = 96;
-            this.button11.Text = "Guardar";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnSavePosition.Location = new System.Drawing.Point(85, 151);
+            this.btnSavePosition.Name = "btnSavePosition";
+            this.btnSavePosition.Size = new System.Drawing.Size(231, 44);
+            this.btnSavePosition.TabIndex = 96;
+            this.btnSavePosition.Text = "Guardar";
+            this.btnSavePosition.UseVisualStyleBackColor = true;
+            this.btnSavePosition.Click += new System.EventHandler(this.btnSavePosition_Click);
             // 
             // txtPosition
             // 
@@ -262,24 +229,26 @@
             this.txtPosition.Size = new System.Drawing.Size(337, 27);
             this.txtPosition.TabIndex = 90;
             // 
-            // button12
+            // btnSearch
             // 
-            this.button12.Location = new System.Drawing.Point(1020, 306);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(231, 44);
-            this.button12.TabIndex = 106;
-            this.button12.Text = "Guardar";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(843, 307);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(194, 44);
+            this.btnSearch.TabIndex = 106;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // dgvPosDpt
+            // dgvPosition
             // 
-            this.dgvPosDpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPosDpt.Location = new System.Drawing.Point(165, 357);
-            this.dgvPosDpt.Name = "dgvPosDpt";
-            this.dgvPosDpt.RowHeadersWidth = 51;
-            this.dgvPosDpt.RowTemplate.Height = 24;
-            this.dgvPosDpt.Size = new System.Drawing.Size(1309, 436);
-            this.dgvPosDpt.TabIndex = 99;
+            this.dgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPosition.Location = new System.Drawing.Point(165, 357);
+            this.dgvPosition.Name = "dgvPosition";
+            this.dgvPosition.RowHeadersWidth = 51;
+            this.dgvPosition.RowTemplate.Height = 24;
+            this.dgvPosition.Size = new System.Drawing.Size(1309, 436);
+            this.dgvPosition.TabIndex = 99;
+            this.dgvPosition.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPosition_CellClick);
+            this.dgvPosition.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPosition_DataBindingComplete);
             // 
             // pictureBox2
             // 
@@ -293,7 +262,7 @@
             // 
             this.txtSearch.Location = new System.Drawing.Point(222, 324);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(788, 27);
+            this.txtSearch.Size = new System.Drawing.Size(606, 27);
             this.txtSearch.TabIndex = 104;
             // 
             // tabPage3
@@ -302,10 +271,10 @@
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.textBox3);
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.dgvEmployee);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1312, 711);
+            this.tabPage3.Size = new System.Drawing.Size(1635, 820);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Empleados";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -347,28 +316,28 @@
             this.textBox3.TabIndex = 5;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // dataGridView3
+            // dgvEmployee
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(59, 85);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(1194, 591);
-            this.dataGridView3.TabIndex = 4;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.Location = new System.Drawing.Point(59, 85);
+            this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.RowHeadersWidth = 51;
+            this.dgvEmployee.RowTemplate.Height = 24;
+            this.dgvEmployee.Size = new System.Drawing.Size(1194, 591);
+            this.dgvEmployee.TabIndex = 4;
+            this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.button7);
-            this.tabPage4.Controls.Add(this.panel1);
+            this.tabPage4.Controls.Add(this.pnlUser);
             this.tabPage4.Controls.Add(this.button14);
             this.tabPage4.Controls.Add(this.pictureBox1);
             this.tabPage4.Controls.Add(this.dataGridView4);
             this.tabPage4.Controls.Add(this.textBox6);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1312, 711);
+            this.tabPage4.Size = new System.Drawing.Size(1635, 820);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Usuarios";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -382,25 +351,26 @@
             this.button7.TabIndex = 103;
             this.button7.Text = "Agregar";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // panel1
+            // pnlUser
             // 
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Location = new System.Drawing.Point(60, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1194, 221);
-            this.panel1.TabIndex = 102;
+            this.pnlUser.Controls.Add(this.comboBox3);
+            this.pnlUser.Controls.Add(this.label4);
+            this.pnlUser.Controls.Add(this.button8);
+            this.pnlUser.Controls.Add(this.button9);
+            this.pnlUser.Controls.Add(this.radioButton1);
+            this.pnlUser.Controls.Add(this.radioButton2);
+            this.pnlUser.Controls.Add(this.comboBox2);
+            this.pnlUser.Controls.Add(this.label2);
+            this.pnlUser.Controls.Add(this.label3);
+            this.pnlUser.Controls.Add(this.textBox4);
+            this.pnlUser.Controls.Add(this.label9);
+            this.pnlUser.Controls.Add(this.textBox5);
+            this.pnlUser.Location = new System.Drawing.Point(60, 33);
+            this.pnlUser.Name = "pnlUser";
+            this.pnlUser.Size = new System.Drawing.Size(1194, 221);
+            this.pnlUser.TabIndex = 102;
             // 
             // comboBox3
             // 
@@ -542,6 +512,115 @@
             this.textBox6.Size = new System.Drawing.Size(680, 27);
             this.textBox6.TabIndex = 100;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnAddDpt);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.dgvDpt);
+            this.tabPage2.Controls.Add(this.pictureBox3);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.pnlDpt);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1635, 820);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "Departamentos";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAddDpt
+            // 
+            this.btnAddDpt.Location = new System.Drawing.Point(1022, 268);
+            this.btnAddDpt.Name = "btnAddDpt";
+            this.btnAddDpt.Size = new System.Drawing.Size(215, 44);
+            this.btnAddDpt.TabIndex = 113;
+            this.btnAddDpt.Text = "Agregar Dpt";
+            this.btnAddDpt.UseVisualStyleBackColor = true;
+            this.btnAddDpt.Click += new System.EventHandler(this.btnAddDpt_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(822, 268);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(194, 44);
+            this.button2.TabIndex = 112;
+            this.button2.Text = "Buscar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dgvDpt
+            // 
+            this.dgvDpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDpt.Location = new System.Drawing.Point(144, 318);
+            this.dgvDpt.Name = "dgvDpt";
+            this.dgvDpt.RowHeadersWidth = 51;
+            this.dgvDpt.RowTemplate.Height = 24;
+            this.dgvDpt.Size = new System.Drawing.Size(1309, 436);
+            this.dgvDpt.TabIndex = 109;
+            this.dgvDpt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDpt_CellClick);
+            this.dgvDpt.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDpt_DataBindingComplete);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(145, 272);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 40);
+            this.pictureBox3.TabIndex = 111;
+            this.pictureBox3.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(201, 285);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(606, 27);
+            this.textBox1.TabIndex = 110;
+            // 
+            // pnlDpt
+            // 
+            this.pnlDpt.Controls.Add(this.label5);
+            this.pnlDpt.Controls.Add(this.txtDpt);
+            this.pnlDpt.Controls.Add(this.btnCancelDpt);
+            this.pnlDpt.Controls.Add(this.btnSaveDpt);
+            this.pnlDpt.Location = new System.Drawing.Point(331, 28);
+            this.pnlDpt.Name = "pnlDpt";
+            this.pnlDpt.Size = new System.Drawing.Size(654, 221);
+            this.pnlDpt.TabIndex = 105;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(54, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(202, 20);
+            this.label5.TabIndex = 99;
+            this.label5.Text = "Nombre del departamento";
+            // 
+            // txtDpt
+            // 
+            this.txtDpt.Location = new System.Drawing.Point(287, 75);
+            this.txtDpt.Name = "txtDpt";
+            this.txtDpt.Size = new System.Drawing.Size(289, 27);
+            this.txtDpt.TabIndex = 98;
+            // 
+            // btnCancelDpt
+            // 
+            this.btnCancelDpt.Location = new System.Drawing.Point(345, 152);
+            this.btnCancelDpt.Name = "btnCancelDpt";
+            this.btnCancelDpt.Size = new System.Drawing.Size(231, 44);
+            this.btnCancelDpt.TabIndex = 97;
+            this.btnCancelDpt.Text = "Cancelar";
+            this.btnCancelDpt.UseVisualStyleBackColor = true;
+            this.btnCancelDpt.Click += new System.EventHandler(this.btnCancelDpt_Click_1);
+            // 
+            // btnSaveDpt
+            // 
+            this.btnSaveDpt.Location = new System.Drawing.Point(94, 152);
+            this.btnSaveDpt.Name = "btnSaveDpt";
+            this.btnSaveDpt.Size = new System.Drawing.Size(231, 44);
+            this.btnSaveDpt.TabIndex = 96;
+            this.btnSaveDpt.Text = "Guardar";
+            this.btnSaveDpt.UseVisualStyleBackColor = true;
+            this.btnSaveDpt.Click += new System.EventHandler(this.btnSaveDpt_Click_1);
+            // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -570,22 +649,26 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPosDpt)).EndInit();
+            this.pnlPosition.ResumeLayout(false);
+            this.pnlPosition.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlUser.ResumeLayout(false);
+            this.pnlUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnlDpt.ResumeLayout(false);
+            this.pnlDpt.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -599,13 +682,13 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.DataGridView dgvEmployee;
+        private System.Windows.Forms.Panel pnlPosition;
+        private System.Windows.Forms.Button btnCancelPosition;
+        private System.Windows.Forms.Button btnSavePosition;
         private System.Windows.Forms.TextBox txtPosition;
-        private System.Windows.Forms.DataGridView dgvPosDpt;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgvPosition;
+        private System.Windows.Forms.Panel pnlUser;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -625,20 +708,26 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDpt;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnAddPosition;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel pnlDpt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDpt;
+        private System.Windows.Forms.Button btnCancelDpt;
+        private System.Windows.Forms.Button btnSaveDpt;
+        private System.Windows.Forms.Button btnAddDpt;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgvDpt;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

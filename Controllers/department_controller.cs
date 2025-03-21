@@ -9,12 +9,12 @@ using proyectoIntegrador.Models;
 
 namespace proyectoIntegrador.Controllers
 {
-    internal class department_controller
+     class department_controller
     {
         private readonly connection cn = new connection();
-        /*
+       
         // Insertar un nuevo departamento
-        public string AddDpt(department_model department)
+        public string Insert(department_model department)
         {
             using (var connection = cn.GetConnection())
             {
@@ -27,8 +27,8 @@ namespace proyectoIntegrador.Controllers
                 }
             }
         }
-        */
-        // Obtener todos los departamentos activos
+        
+        // Obtener todos los departamentos y crgos activos
         public List<department_model> GetAll()
         {
             var departmentList = new List<department_model>();
@@ -54,7 +54,32 @@ namespace proyectoIntegrador.Controllers
             }
             return departmentList;
         }
-        /*
+        // Obtener todos los departamentos activos para ComboBox
+        public List<department_model> GetAllDepartments()
+        {
+            var departmentList = new List<department_model>();
+            using (var connection = cn.GetConnection())
+            {
+                string query = "SELECT IdDepartamento, NombreDepartamento FROM departamento WHERE isDeleted = 0";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            departmentList.Add(new department_model
+                            {
+                                IdDepartamento = reader.GetInt32("IdDepartamento"),
+                                NombreDepartamento = reader.GetString("NombreDepartamento")
+                            });
+                        }
+                    }
+                }
+            }
+            return departmentList;
+        }
+
         // Obtener un departamento por ID
         public department_model GetById(int id)
         {
@@ -81,8 +106,8 @@ namespace proyectoIntegrador.Controllers
                 }
             }
         }
-        */
-        /*
+        
+        
         // Actualizar un departamento
         public string Update(department_model department)
         {
@@ -97,7 +122,7 @@ namespace proyectoIntegrador.Controllers
                 }
             }
         }
-        */
+        
         // Eliminar un departamento (soft delete)
         public bool Delete(int id)
         {
@@ -138,9 +163,9 @@ namespace proyectoIntegrador.Controllers
                         {
                             departmentList.Add(new department_model
                             {
-                                //IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                //NombreDepartamento = reader.GetString("NombreDepartamento"),
-                                //IsDeleted = reader.GetBoolean("isDeleted")
+                                IdDepartamento = reader.GetInt32("IdDepartamento"),
+                                NombreDepartamento = reader.GetString("NombreDepartamento"),
+                                IsDeleted = reader.GetBoolean("isDeleted")
                             });
                         }
                     }

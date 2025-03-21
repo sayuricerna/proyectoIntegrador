@@ -13,5 +13,6 @@ namespace proyectoIntegrador.Models
         public decimal Salario { get; set; }
         public int IdDepartamento { get; set; }
         public bool IsDeleted { get; set; }
+
     }
 }

@@ -8,6 +8,7 @@ namespace proyectoIntegrador.Models
 {
     class department_model
     {
+
         //department_model idDepartamento nombreDepartamento isDeleted 
         public int IdDepartamento { get; set; }
         public string NombreDepartamento { get; set; }

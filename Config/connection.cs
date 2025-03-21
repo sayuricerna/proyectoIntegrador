@@ -13,13 +13,10 @@ namespace proyectoIntegrador.Config
         private static readonly string server = "localhost";
         private static readonly string port = "3306";
         private static readonly string database = "proyectointegrador";
-        private static readonly string username = "root";
-        private static readonly string password = "woofer";
+        private static readonly string uid = "admin_servitec";
+        private static readonly string pwd = "admin234";
 
-        //private string connectionString = $"Server={server};database={database};uid={username};pwd={password}";
-        //private string connectionString = $"Server={server};Port=3306;Database={database};uid={username};pwd={password};SslMode=Required;ConnectionTimeout=30;";
-        //private string connectionString = $"Server={server};Port={port};database={database};uid={username};pwd={password}"; //mariadb
-        private string connectionString = "Server=localhost;Port=3306;database=proyectointegrador;uid=root"; //mysql80
+        private string connectionString = $"Server={server};Port={port};database={database};uid={uid};pwd={pwd}";
 
         public MySqlConnection GetConnection()
         {
