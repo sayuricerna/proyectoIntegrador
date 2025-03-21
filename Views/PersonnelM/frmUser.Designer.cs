@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
@@ -50,14 +50,14 @@
             this.label1.TabIndex = 83;
             this.label1.Text = "label1";
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(403, 312);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(341, 63);
-            this.btnCancelar.TabIndex = 82;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(403, 312);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(341, 63);
+            this.btnCancel.TabIndex = 82;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -108,14 +108,14 @@
             this.textBox2.Size = new System.Drawing.Size(257, 22);
             this.textBox2.TabIndex = 76;
             // 
-            // btnGuardar
+            // btnSave
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(56, 312);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(341, 63);
-            this.btnGuardar.TabIndex = 75;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(56, 312);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(341, 63);
+            this.btnSave.TabIndex = 75;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -147,14 +147,14 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnSave);
             this.Name = "frmUser";
             this.Text = "frmUser";
             this.Load += new System.EventHandler(this.frmUser_Load);
@@ -166,14 +166,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
     }

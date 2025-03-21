@@ -11,30 +11,15 @@ namespace proyectoIntegrador.Controllers
 {
     internal class employee_controller
     {
-        private readonly connection cn = new connection();
-        /*
-        // Insertar un nuevo departamento
-        public string AddDpt(department_model department)
+        private readonly connection _cn = new connection();
+
+        // Obtener todos los empleados activos
+        public List<employee_model> GetAll()
         {
-            using (var connection = cn.GetConnection())
+            var employeeList = new List<employee_model>();
+            using (var connection = _cn.GetConnection())
             {
-                string query = "INSERT INTO departamento (NombreDepartamento, isDeleted) VALUES (@NombreDepartamento, @IsDeleted)";
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NombreDepartamento", department.NombreDepartamento);
-                    command.Parameters.AddWithValue("@IsDeleted", department.IsDeleted);
-                    return ExecuteCommand(command, connection);
-                }
-            }
-        }
-        */
-        // Obtener todos los departamentos activos
-        public List<department_model> GetAll()
-        {
-            var departmentList = new List<department_model>();
-            using (var connection = cn.GetConnection())
-            {
-                string query = "SELECT Salario, Cargo, Departamento FROM vwPosDpt";
+                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo FROM empleado WHERE isDeleted = 0";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -42,111 +27,194 @@ namespace proyectoIntegrador.Controllers
                     {
                         while (reader.Read())
                         {
-                            departmentList.Add(new department_model
+                            employeeList.Add(new employee_model
                             {
-                                Salario = reader.GetDecimal("Salario"),
-                                Cargo = reader.GetString("Cargo"),
-                                Departamento = reader.GetString("Departamento")
+                                IdEmpleado = reader.GetInt32("IdEmpleado"),
+                                NombreEmpleado = reader.GetString("NombreEmpleado"),
+                                Cedula = reader.GetString("Cedula"),
+                                Direccion = reader.GetString("Direccion"),
+                                Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),
+                                FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
+                                FechaContratacion = reader.GetDateTime("FechaContratacion"),
+                                IdDepartamento = reader.GetInt32("IdDepartamento"),
+                                IdCargo = reader.GetInt32("IdCargo")
                             });
                         }
                     }
                 }
             }
-            return departmentList;
+            return employeeList;
         }
-        /*
-        // Obtener un departamento por ID
-        public department_model GetById(int id)
+
+        // Obtener un empleado por su Id
+        public employee_model GetById(int id)
         {
-            using (var connection = cn.GetConnection())
+            employee_model employee = null;
+            using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT * FROM departamento WHERE IdDepartamento = @IdDepartamento";
+                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo FROM empleado WHERE IdEmpleado = @IdEmpleado AND isDeleted = 0";
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@IdDepartamento", id);
+                    command.Parameters.AddWithValue("@IdEmpleado", id);
+
                     connection.Open();
                     using (var reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            return new department_model
+                            employee = new employee_model
                             {
+                                IdEmpleado = reader.GetInt32("IdEmpleado"),
+                                NombreEmpleado = reader.GetString("NombreEmpleado"),
+                                Cedula = reader.GetString("Cedula"),
+                                Direccion = reader.GetString("Direccion"),
+                                Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),
+                                FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
+                                FechaContratacion = reader.GetDateTime("FechaContratacion"),
                                 IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                NombreDepartamento = reader.GetString("NombreDepartamento"),
-                                IsDeleted = reader.GetBoolean("isDeleted")
+                                IdCargo = reader.GetInt32("IdCargo")
                             };
                         }
-                        return null;
                     }
                 }
             }
+            return employee;
         }
-        */
-        /*
-        // Actualizar un departamento
-        public string Update(department_model department)
+
+        // Insertar un nuevo empleado
+        public string Insert(employee_model employee)
         {
-            using (var connection = cn.GetConnection())
+            using (var connection = _cn.GetConnection())
             {
-                string query = "UPDATE departamento SET NombreDepartamento = @NombreDepartamento WHERE IdDepartamento = @IdDepartamento";
+                string query = @"INSERT INTO empleado (NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo) 
+                                 VALUES (@NombreEmpleado, @Cedula, @Direccion,@Telefono, @FechaNacimiento, @FechaContratacion, @IdDepartamento, @IdCargo)";
+
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@IdDepartamento", department.IdDepartamento);
-                    command.Parameters.AddWithValue("@NombreDepartamento", department.NombreDepartamento);
+                    command.Parameters.AddWithValue("@NombreEmpleado", employee.NombreEmpleado);
+                    command.Parameters.AddWithValue("@Cedula", employee.Cedula);
+                    command.Parameters.AddWithValue("@Direccion", employee.Direccion);
+
+                    command.Parameters.AddWithValue("@Telefono", employee.Telefono ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@FechaNacimiento", employee.FechaNacimiento);
+                    command.Parameters.AddWithValue("@FechaContratacion", employee.FechaContratacion);
+                    command.Parameters.AddWithValue("@IdDepartamento", employee.IdDepartamento);
+                    command.Parameters.AddWithValue("@IdCargo", employee.IdCargo);
+
+                    return ExecuteCommand(command, connection);
+                }
+            }
+        }
+
+        // Actualizar un empleado existente
+        public string Update(employee_model employee)
+        {
+            using (var connection = _cn.GetConnection())
+            {
+                string query = @"UPDATE empleado 
+                                 SET NombreEmpleado = @NombreEmpleado, 
+                                     Cedula = @Cedula, 
+                                     Direccion = @Direccion,
+                                     Telefono = @Telefono, 
+                                     FechaNacimiento = @FechaNacimiento, 
+                                     FechaContratacion = @FechaContratacion, 
+                                     IdDepartamento = @IdDepartamento, 
+                                     IdCargo = @IdCargo
+                                 WHERE IdEmpleado = @IdEmpleado";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@IdEmpleado", employee.IdEmpleado);
+                    command.Parameters.AddWithValue("@NombreEmpleado", employee.NombreEmpleado);
+                    command.Parameters.AddWithValue("@Cedula", employee.Cedula);
+                    command.Parameters.AddWithValue("@Direccion", employee.Direccion);
+
+                    command.Parameters.AddWithValue("@Telefono", employee.Telefono ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@FechaNacimiento", employee.FechaNacimiento);
+                    command.Parameters.AddWithValue("@FechaContratacion", employee.FechaContratacion);
+                    command.Parameters.AddWithValue("@IdDepartamento", employee.IdDepartamento);
+                    command.Parameters.AddWithValue("@IdCargo", employee.IdCargo);
+
+                    return ExecuteCommand(command, connection);
+                }
+            }
+        }
+
+        // Eliminar (soft delete) un empleado
+        /*
+        public string Delete(int id)
+        {
+            using (var connection = _cn.GetConnection())
+            {
+                string query = "UPDATE empleado SET isDeleted = 1 WHERE IdEmpleado = @IdEmpleado";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@IdEmpleado", id);
                     return ExecuteCommand(command, connection);
                 }
             }
         }
         */
-        // Eliminar un departamento (soft delete)
         public bool Delete(int id)
         {
-            using (var connection = cn.GetConnection())
+            using (var connection = _cn.GetConnection())
             {
-                string query = "UPDATE departamento SET isDeleted = 1 WHERE IdDepartamento = @IdDepartamento";
+                string query = "UPDATE empleado SET isDeleted = 1 WHERE IdEmpleado = @IdEmpleado";
+
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@IdDepartamento", id);
+                    command.Parameters.AddWithValue("@IdEmpleado", id);
+
                     try
                     {
                         connection.Open();
-                        command.ExecuteNonQuery();
-                        return true;
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0; // Si se afectó al menos una fila, retorna true
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
+                        Console.WriteLine("Error al eliminar el empleado: " + e.Message);
                         return false;
                     }
                 }
             }
         }
-
-        // Buscar departamentos por nombre
-        public List<department_model> SearchByName(string name)
+        public List<employee_model> SearchByName(string name)
         {
-            var departmentList = new List<department_model>();
-            using (var connection = cn.GetConnection())
+            var employeeList = new List<employee_model>();
+
+            using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT * FROM departamento WHERE NombreDepartamento LIKE @Name AND isDeleted = 0";
+                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula,Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo " +
+                               "FROM empleado WHERE isDeleted = 0 AND Nombre LIKE @Nombre";
+
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Name", "%" + name + "%");
+                    command.Parameters.AddWithValue("@Nombre", "%" + name + "%");
+
                     connection.Open();
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            departmentList.Add(new department_model
+                            employeeList.Add(new employee_model
                             {
-                                //IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                //NombreDepartamento = reader.GetString("NombreDepartamento"),
-                                //IsDeleted = reader.GetBoolean("isDeleted")
+                                IdEmpleado = reader.GetInt32("IdEmpleado"),
+                                NombreEmpleado = reader.GetString("Nombre"),
+                                Cedula = reader.GetString("Cedula"),
+                                Direccion = reader.GetString("Direccion"),
+                                Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),
+                                FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
+                                FechaContratacion = reader.GetDateTime("FechaContratacion"),
+                                IdDepartamento = reader.GetInt32("IdDepartamento"),
+                                IdCargo = reader.GetInt32("IdCargo")
                             });
                         }
                     }
                 }
             }
-            return departmentList;
+            return employeeList;
         }
 
         // Ejecutar el comando SQL (INSERT, UPDATE, DELETE)
@@ -160,6 +228,7 @@ namespace proyectoIntegrador.Controllers
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return e.Message;
             }
         }

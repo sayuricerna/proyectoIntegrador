@@ -8,6 +8,7 @@ namespace proyectoIntegrador.Models
 {
     internal class employee_model
     {
+        //Id empleado foto huella cedula nombre empleado fechanacimiento direccion telefono fechacontratacion iddepartamento idcargo 
         public int IdEmpleado { get; set; }
         public byte[] Foto { get; set; }
         public byte[] Huella { get; set; }
