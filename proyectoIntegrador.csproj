@@ -99,10 +99,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\connection.cs" />
+    <Compile Include="Controllers\advancep_controller.cs" />
+    <Compile Include="Controllers\attendance_controller.cs" />
+    <Compile Include="Controllers\audit_controller.cs" />
     <Compile Include="Controllers\department_controller.cs" />
     <Compile Include="Controllers\employee_controller.cs" />
+    <Compile Include="Controllers\justification_controller.cs" />
+    <Compile Include="Controllers\payroll_controller.cs" />
+    <Compile Include="Controllers\position_controller.cs" />
+    <Compile Include="Controllers\user_controler.cs" />
     <Compile Include="Helpers\encrypt.cs" />
+    <Compile Include="Models\advancep_model.cs" />
+    <Compile Include="Models\attendance_model.cs" />
+    <Compile Include="Models\audit_model.cs" />
     <Compile Include="Models\department_model.cs" />
+    <Compile Include="Models\employee_model.cs" />
+    <Compile Include="Models\justification_model.cs" />
+    <Compile Include="Models\payroll_model.cs" />
+    <Compile Include="Models\position_model.cs" />
+    <Compile Include="Models\user_model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Attendance\frmJustification.cs">
@@ -203,6 +218,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\Attendance\frmJustification.resx">
       <DependentUpon>frmJustification.cs</DependentUpon>
@@ -264,9 +280,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Views\Audits\" />
     <Folder Include="Views\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

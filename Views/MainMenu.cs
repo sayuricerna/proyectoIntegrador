@@ -20,6 +20,8 @@ namespace proyectoIntegrador.Views
             pnlGeneral.Controls.Clear();
             uCDashboard.Dock = DockStyle.Fill;
             pnlGeneral.Controls.Add(uCDashboard);
+            this.WindowState = FormWindowState.Maximized; // Abre en pantalla completa
+
         }
 
         private void btnAsistencias_Click(object sender, EventArgs e)

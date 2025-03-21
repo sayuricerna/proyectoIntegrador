@@ -14,7 +14,7 @@ namespace proyectoIntegrador.Controllers
         private readonly connection cn = new connection();
         /*
         // Insertar un nuevo departamento
-        public string Insert(department_model department)
+        public string AddDpt(department_model department)
         {
             using (var connection = cn.GetConnection())
             {

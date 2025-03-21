@@ -9,7 +9,13 @@ namespace proyectoIntegrador.Models
     class department_model
     {
         //department_model idDepartamento nombreDepartamento isDeleted 
+        public int IdDepartamento { get; set; }
+        public string NombreDepartamento { get; set; }
+        public bool IsDeleted { get; set; }
 
+
+
+        //Desde View posDpt ver en grid
         public decimal Salario { get; set; }
         public string Cargo { get; set; }
         public string Departamento { get; set; }

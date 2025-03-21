@@ -74,6 +74,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -94,11 +96,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(15, 18);
+            this.tabControl1.Location = new System.Drawing.Point(0, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1320, 744);
+            this.tabControl1.Size = new System.Drawing.Size(1643, 853);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -113,7 +116,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1312, 711);
+            this.tabPage1.Size = new System.Drawing.Size(1635, 820);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Departamentos y Cargos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -124,9 +127,9 @@
             this.panel4.Controls.Add(this.txtDpt);
             this.panel4.Controls.Add(this.button15);
             this.panel4.Controls.Add(this.button16);
-            this.panel4.Location = new System.Drawing.Point(63, 32);
+            this.panel4.Location = new System.Drawing.Point(169, 55);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(598, 221);
+            this.panel4.Size = new System.Drawing.Size(654, 221);
             this.panel4.TabIndex = 104;
             // 
             // label5
@@ -140,14 +143,14 @@
             // 
             // txtDpt
             // 
-            this.txtDpt.Location = new System.Drawing.Point(262, 75);
+            this.txtDpt.Location = new System.Drawing.Point(287, 75);
             this.txtDpt.Name = "txtDpt";
             this.txtDpt.Size = new System.Drawing.Size(289, 27);
             this.txtDpt.TabIndex = 98;
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(311, 152);
+            this.button15.Location = new System.Drawing.Point(345, 152);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(231, 44);
             this.button15.TabIndex = 97;
@@ -156,7 +159,7 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(60, 152);
+            this.button16.Location = new System.Drawing.Point(94, 152);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(231, 44);
             this.button16.TabIndex = 96;
@@ -165,7 +168,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1041, 260);
+            this.button1.Location = new System.Drawing.Point(1259, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(215, 44);
             this.button1.TabIndex = 107;
@@ -182,18 +185,18 @@
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button11);
             this.panel2.Controls.Add(this.txtPosition);
-            this.panel2.Location = new System.Drawing.Point(667, 32);
+            this.panel2.Location = new System.Drawing.Point(829, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(589, 221);
+            this.panel2.Size = new System.Drawing.Size(645, 221);
             this.panel2.TabIndex = 102;
             // 
             // cmbDpt
             // 
             this.cmbDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDpt.FormattingEnabled = true;
-            this.cmbDpt.Location = new System.Drawing.Point(187, 95);
+            this.cmbDpt.Location = new System.Drawing.Point(230, 95);
             this.cmbDpt.Name = "cmbDpt";
-            this.cmbDpt.Size = new System.Drawing.Size(318, 28);
+            this.cmbDpt.Size = new System.Drawing.Size(337, 28);
             this.cmbDpt.TabIndex = 103;
             // 
             // label1
@@ -229,14 +232,14 @@
             // txtSalary
             // 
             this.txtSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalary.Location = new System.Drawing.Point(187, 62);
+            this.txtSalary.Location = new System.Drawing.Point(230, 65);
             this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(318, 27);
+            this.txtSalary.Size = new System.Drawing.Size(337, 27);
             this.txtSalary.TabIndex = 98;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(299, 151);
+            this.button2.Location = new System.Drawing.Point(336, 151);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(231, 44);
             this.button2.TabIndex = 97;
@@ -245,7 +248,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(48, 151);
+            this.button11.Location = new System.Drawing.Point(85, 151);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(231, 44);
             this.button11.TabIndex = 96;
@@ -254,14 +257,14 @@
             // 
             // txtPosition
             // 
-            this.txtPosition.Location = new System.Drawing.Point(187, 29);
+            this.txtPosition.Location = new System.Drawing.Point(230, 29);
             this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(318, 27);
+            this.txtPosition.Size = new System.Drawing.Size(337, 27);
             this.txtPosition.TabIndex = 90;
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(802, 259);
+            this.button12.Location = new System.Drawing.Point(1020, 306);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(231, 44);
             this.button12.TabIndex = 106;
@@ -271,16 +274,16 @@
             // dgvPosDpt
             // 
             this.dgvPosDpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPosDpt.Location = new System.Drawing.Point(59, 310);
+            this.dgvPosDpt.Location = new System.Drawing.Point(165, 357);
             this.dgvPosDpt.Name = "dgvPosDpt";
             this.dgvPosDpt.RowHeadersWidth = 51;
             this.dgvPosDpt.RowTemplate.Height = 24;
-            this.dgvPosDpt.Size = new System.Drawing.Size(1194, 368);
+            this.dgvPosDpt.Size = new System.Drawing.Size(1309, 436);
             this.dgvPosDpt.TabIndex = 99;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(60, 264);
+            this.pictureBox2.Location = new System.Drawing.Point(166, 311);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 40);
             this.pictureBox2.TabIndex = 105;
@@ -288,9 +291,9 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(116, 277);
+            this.txtSearch.Location = new System.Drawing.Point(222, 324);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(680, 27);
+            this.txtSearch.Size = new System.Drawing.Size(788, 27);
             this.txtSearch.TabIndex = 104;
             // 
             // tabPage3
@@ -539,13 +542,31 @@
             this.textBox6.Size = new System.Drawing.Size(680, 27);
             this.textBox6.TabIndex = 100;
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1643, 28);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 881);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1643, 49);
+            this.panel5.TabIndex = 2;
+            // 
             // UCPersonnelM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel5);
             this.Name = "UCPersonnelM";
-            this.Size = new System.Drawing.Size(1601, 774);
+            this.Size = new System.Drawing.Size(1643, 930);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -617,5 +638,7 @@
         private System.Windows.Forms.TextBox txtDpt;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
     }
 }
