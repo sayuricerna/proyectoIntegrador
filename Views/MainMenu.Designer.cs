@@ -37,8 +37,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.pnlGeneral = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlGeneral = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -185,15 +185,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // pnlGeneral
-            // 
-            this.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGeneral.Location = new System.Drawing.Point(401, 0);
-            this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(1523, 940);
-            this.pnlGeneral.TabIndex = 1;
-            this.pnlGeneral.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -204,6 +196,15 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // pnlGeneral
+            // 
+            this.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGeneral.Location = new System.Drawing.Point(401, 0);
+            this.pnlGeneral.Name = "pnlGeneral";
+            this.pnlGeneral.Size = new System.Drawing.Size(1523, 940);
+            this.pnlGeneral.TabIndex = 1;
+            this.pnlGeneral.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // MainMenu
             // 

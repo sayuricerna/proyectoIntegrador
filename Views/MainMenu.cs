@@ -82,5 +82,10 @@ namespace proyectoIntegrador.Views
             pnlGeneral.Controls.Add(uCDashboard);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

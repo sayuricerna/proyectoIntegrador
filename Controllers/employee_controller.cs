@@ -13,7 +13,7 @@ namespace proyectoIntegrador.Controllers
     {
         private readonly connection _cn = new connection();
 
-        // Obtener todos los empleados activos
+        //  reeemplazar porl view ! **** NO BORRAR EL EXECUTE COMMANDO DE ABAJO
         public List<employee_model> GetAll()
         {
             var employeeList = new List<employee_model>();
@@ -46,7 +46,7 @@ namespace proyectoIntegrador.Controllers
             return employeeList;
         }
 
-        // Obtener un empleado por su Id
+        // pal id
         public employee_model GetById(int id)
         {
             employee_model employee = null;
@@ -81,7 +81,7 @@ namespace proyectoIntegrador.Controllers
             return employee;
         }
 
-        // Insertar un nuevo empleado
+        // Insertar
         public string Insert(employee_model employee)
         {
             using (var connection = _cn.GetConnection())
@@ -106,7 +106,7 @@ namespace proyectoIntegrador.Controllers
             }
         }
 
-        // Actualizar un empleado existente
+        // Actualizar
         public string Update(employee_model employee)
         {
             using (var connection = _cn.GetConnection())
@@ -140,7 +140,7 @@ namespace proyectoIntegrador.Controllers
             }
         }
 
-        // Eliminar (soft delete) un empleado
+        // Eliminar con isdelete
         /*
         public string Delete(int id)
         {
@@ -217,7 +217,7 @@ namespace proyectoIntegrador.Controllers
             return employeeList;
         }
 
-        // Ejecutar el comando SQL (INSERT, UPDATE, DELETE)
+        // NO BORRAR SINO NO FUNCIONA!!!! (INSERT, UPDATE, DELETE)
         private string ExecuteCommand(MySqlCommand command, MySqlConnection connection)
         {
             try

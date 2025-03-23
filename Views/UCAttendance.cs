@@ -42,5 +42,20 @@ namespace proyectoIntegrador.Views
         {
 
         }
+
+        private void dgvAttendance_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvAttendance_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }
+
+        private void UCAttendance_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

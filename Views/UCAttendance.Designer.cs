@@ -28,87 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnJustify = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.dgvAttendance = new System.Windows.Forms.DataGridView();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnJustify
+            // 
+            this.btnJustify.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnJustify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJustify.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnJustify.Location = new System.Drawing.Point(1208, 28);
+            this.btnJustify.Name = "btnJustify";
+            this.btnJustify.Size = new System.Drawing.Size(231, 50);
+            this.btnJustify.TabIndex = 106;
+            this.btnJustify.Text = "Justificar";
+            this.btnJustify.UseVisualStyleBackColor = false;
+            this.btnJustify.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSearch.Location = new System.Drawing.Point(971, 28);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(231, 50);
+            this.btnSearch.TabIndex = 105;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(91, 33);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(874, 38);
+            this.txtSearch.TabIndex = 104;
+            this.txtSearch.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // dgvAttendance
+            // 
+            this.dgvAttendance.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAttendance.Location = new System.Drawing.Point(25, 93);
+            this.dgvAttendance.Name = "dgvAttendance";
+            this.dgvAttendance.RowHeadersWidth = 51;
+            this.dgvAttendance.RowTemplate.Height = 24;
+            this.dgvAttendance.Size = new System.Drawing.Size(1587, 832);
+            this.dgvAttendance.TabIndex = 103;
+            this.dgvAttendance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttendance_CellClick);
+            this.dgvAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.dgvAttendance.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAttendance_DataBindingComplete);
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(203, 71);
+            this.pictureBox4.Image = global::proyectoIntegrador.Properties.Resources.search_icon;
+            this.pictureBox4.Location = new System.Drawing.Point(25, 21);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 40);
+            this.pictureBox4.Size = new System.Drawing.Size(60, 55);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 107;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // button5
+            // panel1
             // 
-            this.button5.Location = new System.Drawing.Point(1166, 67);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(231, 44);
-            this.button5.TabIndex = 106;
-            this.button5.Text = "Justificar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1650, 52);
+            this.panel1.TabIndex = 108;
             // 
-            // button6
+            // panel2
             // 
-            this.button6.Location = new System.Drawing.Point(929, 67);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(231, 44);
-            this.button6.TabIndex = 105;
-            this.button6.Text = "Buscar";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(259, 76);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(650, 22);
-            this.textBox3.TabIndex = 104;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(203, 117);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(1194, 591);
-            this.dataGridView3.TabIndex = 103;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.panel2.Controls.Add(this.dgvAttendance);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.btnJustify);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.txtSearch);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 52);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1650, 954);
+            this.panel2.TabIndex = 110;
             // 
             // UCAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.dataGridView3);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "UCAttendance";
-            this.Size = new System.Drawing.Size(1600, 774);
+            this.Size = new System.Drawing.Size(1650, 1006);
+            this.Load += new System.EventHandler(this.UCAttendance_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button btnJustify;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridView dgvAttendance;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -138,29 +138,11 @@
     <Compile Include="Views\Payroll\frmPayroll.Designer.cs">
       <DependentUpon>frmPayroll.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PersonnelM\frmDepartment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PersonnelM\frmDepartment.Designer.cs">
-      <DependentUpon>frmDepartment.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\PersonnelM\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\PersonnelM\frmEmployee.Designer.cs">
       <DependentUpon>frmEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PersonnelM\frmPosition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PersonnelM\frmPosition.Designer.cs">
-      <DependentUpon>frmPosition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PersonnelM\frmUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\PersonnelM\frmUser.Designer.cs">
-      <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UCAudits.cs">
       <SubType>UserControl</SubType>
@@ -235,17 +217,8 @@
     <EmbeddedResource Include="Views\Payroll\frmPayroll.resx">
       <DependentUpon>frmPayroll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\PersonnelM\frmDepartment.resx">
-      <DependentUpon>frmDepartment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\PersonnelM\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PersonnelM\frmPosition.resx">
-      <DependentUpon>frmPosition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\PersonnelM\frmUser.resx">
-      <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UCAttendance.resx">
       <DependentUpon>UCAttendance.cs</DependentUpon>
@@ -285,6 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

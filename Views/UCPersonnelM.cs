@@ -912,7 +912,21 @@ namespace proyectoIntegrador.Views
             LoadGridEmployee(1);
         }
 
+        private void pnlUser_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            PersonnelM.frmEmployee frm = new PersonnelM.frmEmployee("n");
+            frm.Text = "Formulario de Empleado";
+            frm.ShowDialog();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

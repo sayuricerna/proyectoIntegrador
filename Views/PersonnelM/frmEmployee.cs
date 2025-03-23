@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using proyectoIntegrador.Controllers;
 using proyectoIntegrador.Models;
 using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
@@ -15,11 +17,15 @@ namespace proyectoIntegrador.Views.PersonnelM
 {
     public partial class frmEmployee : Form
     {
+        private byte[] huellaBytes;
+
         public bool modoEdision = false;
         public int id = 0;
+        //System.IO.Ports.SerialPort Arduino;
         public frmEmployee(string modo)
         {
             InitializeComponent();
+            Arduino.Open();
             if (modo != "n")
             {
                 this.modoEdision = true;
@@ -41,9 +47,10 @@ namespace proyectoIntegrador.Views.PersonnelM
             //cmbDpt.DisplayMember = "NombreDepartamento";
 
         }
-        public void SaveEmployee()
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "" || txtCedula.Text == "" || cmbDpt.SelectedIndex == -1 || cmbPosition.SelectedIndex == -1)
+            if (txtName.Text == "" || txtCedula.Text == "" || cmbDpt.SelectedIndex == -1 || cmbPosition.SelectedIndex == -1 )
             {
                 MessageBox.Show("Por favor, complete todos los campos requeridos.");
                 return;
@@ -52,18 +59,22 @@ namespace proyectoIntegrador.Views.PersonnelM
             try
             {
                 var employee = new employee_model()
-                {        
+                {
                     //Idempleado foto huella cedula nombreempleado fechanacimiento direccion telefono fechacontratacion iddepartamento idcargo 
 
                     NombreEmpleado = txtName.Text,
                     Cedula = txtCedula.Text,
                     Telefono = txtPhone.Text,
-                    Direccion= txtAdress.Text,
+                    Direccion = txtAdress.Text,
                     FechaNacimiento = dtpBirth.Value,
                     FechaContratacion = dtpContract.Value,
                     IdDepartamento = Convert.ToInt32(cmbDpt.SelectedValue),
                     IdCargo = Convert.ToInt32(cmbPosition.SelectedValue)
                 };
+                if (txtFPCheck.Text == "Huella registrada" && huellaBytes != null)
+                {
+                    employee.Huella = huellaBytes;  // Guardar la huella en el modelo
+                }
 
                 var controller = new employee_controller();
 
@@ -104,12 +115,6 @@ namespace proyectoIntegrador.Views.PersonnelM
 
 
 
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveEmployee();
         }
 
         // Método para cargar el grid (si tienes uno para mostrar los empleados)
@@ -151,6 +156,59 @@ namespace proyectoIntegrador.Views.PersonnelM
                 {
                     MessageBox.Show("Empleado no encontrado");
                 }
+            }
+        }
+
+
+
+        /* HUELLA **/
+        //boton para registrar huella dactila hay un imagebox patr huella en caso sea necesario
+
+        private void btnFingerPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Arduino.IsOpen)
+                {
+                    Arduino.Write("C");  // Enviar comando al Arduino
+                    txtFPCheck.Text = "Esperando huella...";
+                }
+                else
+                {
+                    MessageBox.Show("El puerto serie no está abierto.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al enviar comando: {ex.Message}");
+            }
+        }
+        
+        private void frmEmployee_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Arduino != null && Arduino.IsOpen)
+            {
+                Arduino.Close();
+            }
+        }
+
+        private void Arduino_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            try
+            {
+                string fingerprintData = Arduino.ReadLine(); // Leer la huella enviada por el Arduino
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    if (!string.IsNullOrEmpty(fingerprintData))
+                    {
+                        txtFPCheck.Text = "Huella registrada";
+                        huellaBytes = Convert.FromBase64String(fingerprintData);  // Convertir la huella a bytes
+                    }
+                }));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al recibir huella: {ex.Message}");
             }
         }
     }
