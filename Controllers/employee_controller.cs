@@ -86,20 +86,20 @@ namespace proyectoIntegrador.Controllers
         {
             using (var connection = _cn.GetConnection())
             {
-                string query = @"INSERT INTO empleado (NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo) 
-                                 VALUES (@NombreEmpleado, @Cedula, @Direccion,@Telefono, @FechaNacimiento, @FechaContratacion, @IdDepartamento, @IdCargo)";
+                string query = @"INSERT INTO empleado (NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella) 
+                                 VALUES (@NombreEmpleado, @Cedula, @Direccion,@Telefono, @FechaNacimiento, @FechaContratacion, @IdDepartamento, @IdCargo,@Huella)";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@NombreEmpleado", employee.NombreEmpleado);
                     command.Parameters.AddWithValue("@Cedula", employee.Cedula);
                     command.Parameters.AddWithValue("@Direccion", employee.Direccion);
-
                     command.Parameters.AddWithValue("@Telefono", employee.Telefono ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@FechaNacimiento", employee.FechaNacimiento);
                     command.Parameters.AddWithValue("@FechaContratacion", employee.FechaContratacion);
                     command.Parameters.AddWithValue("@IdDepartamento", employee.IdDepartamento);
                     command.Parameters.AddWithValue("@IdCargo", employee.IdCargo);
+                    command.Parameters.AddWithValue("@Huella", employee.Huella);
 
                     return ExecuteCommand(command, connection);
                 }
@@ -230,6 +230,43 @@ namespace proyectoIntegrador.Controllers
             {
                 Console.WriteLine(e.Message);
                 return e.Message;
+            }
+        }
+
+        public bool HuellaExiste(int huellaId)
+        {
+            using (var connection = _cn.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM empleado WHERE Huella = @Huella AND isDeleted = 0";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Huella", huellaId);
+                    connection.Open();
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
+        public bool ActualizarHuella(int empleadoId, int nuevaHuella)
+        {
+            using (var connection = _cn.GetConnection())
+            {
+                string query = "UPDATE empleado SET Huella = @Huella WHERE IdEmpleado = @Id";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Huella", nuevaHuella);
+                    command.Parameters.AddWithValue("@Id", empleadoId);
+
+                    try
+                    {
+                        connection.Open();
+                        return command.ExecuteNonQuery() > 0;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
             }
         }
     }

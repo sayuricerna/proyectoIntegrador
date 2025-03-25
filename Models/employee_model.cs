@@ -11,7 +11,7 @@ namespace proyectoIntegrador.Models
         //Id empleado foto huella cedula nombre empleado fechanacimiento direccion telefono fechacontratacion iddepartamento idcargo 
         public int IdEmpleado { get; set; }
         public byte[] Foto { get; set; }
-        public byte[] Huella { get; set; }
+        public int Huella { get; set; }
         public string Cedula { get; set; }
         public string NombreEmpleado { get; set; }
         public DateTime FechaNacimiento { get; set; }
