@@ -1,78 +1,64 @@
 using System;
 using System.IO.Ports;
 
-public static class FingerprintHelper
+namespace proyectoIntegrador.Helpers
 {
-    private static SerialPort _serialPort;
-
-    static FingerprintHelper()
+    public static class FingerprintHelper
     {
-        _serialPort = new SerialPort("COM3", 115200); // Ensure baud rate matches Arduino
-        _serialPort.Open();
-        _serialPort.DiscardInBuffer(); // Clear any old data
-    }
+        private static SerialPort _serialPort;
 
-    public static void RequestFingerprint()
-    {
-        if (_serialPort.IsOpen)
+        static FingerprintHelper()
         {
-            Console.WriteLine("Requesting fingerprint...");
-            _serialPort.WriteLine("GET_TEMPLATE"); // Send command to Arduino
+            _serialPort = new SerialPort("COM3", 115200); // Ensure baud rate matches Arduino
+            _serialPort.Open();
+            _serialPort.DiscardInBuffer(); // Clear any old data
         }
-    }
 
-    public static void ReceiveFingerprint()
-    {
-        if (_serialPort.IsOpen)
+        public static void RegisterFP(int user_id)
         {
-            Console.WriteLine("Waiting for fingerprint data...");
-
-            string header = _serialPort.ReadLine(); // Read first line
-            if (header == "FINGERPRINT_TEMPLATE")
+            if (_serialPort == null || !_serialPort.IsOpen)
             {
-                byte[] fingerprintData = new byte[512]; // Fingerprint template size
-                _serialPort.Read(fingerprintData, 0, fingerprintData.Length);
-
-                Console.WriteLine("✅ Fingerprint received! Data:");
-                Console.WriteLine(BitConverter.ToString(fingerprintData)); // Print in hex format
-
-                // Now tell Arduino that we're sending a response
-                PrepareArduinoForResponse();
-
-                // Send the match result
-                SendMatchResult(true); // Simulating a match for testing
+                Console.WriteLine("Error: Serial port is not available.");
+                return;
             }
-            else
+
+            try
             {
-                Console.WriteLine("❌ Unexpected response: " + header);
+                Console.WriteLine($"Registering fingerprint for user ID: {user_id}...");
+                 // Convert int to string before sending. Not sure but I think Serial works with Strings.
+                _serialPort.WriteLine(user_id.ToString());
+                Console.WriteLine("Successfully registered!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while registering fingerprint: {ex.Message}");
             }
         }
-    }
 
-    public static void PrepareArduinoForResponse()
-    {
-        if (_serialPort.IsOpen)
+        public static int UserIDForAttendance()
         {
-            Console.WriteLine("Notifying Arduino to prepare for response...");
-            _serialPort.WriteLine("RESPONSE"); // Notify Arduino to get ready
-            System.Threading.Thread.Sleep(500); // Small delay to ensure Arduino processes it
-        }
-    }
+            if (_serialPort.IsOpen)
+            {
+                _serialPort.WriteLine("-1"); // Tell Arduino to run the Attendance sequence.
 
-    public static void SendMatchResult(bool isMatch)
-    {
-        if (_serialPort.IsOpen)
-        {
-            string matchString = isMatch ? "1" : "0";
-            _serialPort.WriteLine(matchString); // 1 = match, 0 = no match
-            Console.WriteLine($"✅ Match result '{matchString}' sent to Arduino");
-        }
-    }
+                // Let's assume that user will take this much time atleast to give us fingerprint to match.
+                Thread.Sleep(30000);
 
-    public static void Main()
-    {
-        RequestFingerprint();
-        System.Threading.Thread.Sleep(2000); // Wait for Arduino to process
-        ReceiveFingerprint();
+                Console.WriteLine("Fetching UserID from Arduino to put attendance after fingerprint match...");
+                string user_id = _serialPort.ReadLine();
+
+                Console.WriteLine($"Received ID: {user_id}. Trying converting it to integer before returning...");
+                if (int.TryParse(user_id, out int userID))
+                {
+                    return userID;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid data received: " + user_id);
+                    return -1; // Return -1 to indicate an error
+                }
+            }
+            return -1; // Return -1 if the serial port is closed
+        }
     }
 }
