@@ -61,7 +61,6 @@ namespace proyectoIntegrador.Views.PersonnelM
                 var employee = new employee_model()
                 {
                     //Idempleado foto huella cedula nombreempleado fechanacimiento direccion telefono fechacontratacion iddepartamento idcargo 
-
                     NombreEmpleado = txtName.Text,
                     Cedula = txtCedula.Text,
                     Telefono = txtPhone.Text,
@@ -82,8 +81,8 @@ namespace proyectoIntegrador.Views.PersonnelM
 
                     if (result == "ok")
                     {
-                        MessageBox.Show("empleado guardada con éxito.");
                         this.Close();
+                        MessageBox.Show("empleado guardada con éxito.");
                     }
                     else
                     {
@@ -159,12 +158,11 @@ namespace proyectoIntegrador.Views.PersonnelM
 
         /* HUELLA **/
         //boton para registrar huella dactila hay un imagebox patr huella en caso sea necesario
-        
-        
         private void btnFingerPrint_Click(object sender, EventArgs e )
         {
             //0 127
-            FingerprintHelper.RegisterFP(6);
+            //FingerprintHelper.RegisterFP(6);
+            Console.WriteLine("Hellow world");
         }
 
         private void frmEmployee_FormClosing(object sender, FormClosingEventArgs e)

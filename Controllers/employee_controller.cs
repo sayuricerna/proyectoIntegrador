@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -184,8 +185,8 @@ namespace proyectoIntegrador.Controllers
 
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula,Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo " +
-                               "FROM empleado WHERE isDeleted = 0 AND Nombre LIKE @Nombre";
+                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo " +
+                               "FROM empleado WHERE isDeleted = 0 AND NombreEmpleado LIKE @Nombre";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -230,7 +231,7 @@ namespace proyectoIntegrador.Controllers
                 return e.Message;
             }
         }
-
+        /*
         public bool HuellaExiste(int huellaId)
         {
             using (var connection = _cn.GetConnection())
@@ -266,7 +267,34 @@ namespace proyectoIntegrador.Controllers
                     }
                 }
             }
+        }*/
+        public int GenerateFingerprintID()
+        {
+            for (int id = 1; id <= 127; id++)
+            {
+                if (!FingerprintExists(id))
+                {
+                    return id;
+                }
+            }
+            throw new Exception("No hay ID de huella digital disponible.");
         }
+
+        private bool FingerprintExists(int id)
+        {
+            using (var connection = _cn.GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM empleado WHERE Huella = @id";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    connection.Open();
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
     }
 }
 
