@@ -109,6 +109,7 @@
     <Compile Include="Controllers\position_controller.cs" />
     <Compile Include="Controllers\user_controler.cs" />
     <Compile Include="Helpers\encrypt.cs" />
+    <Compile Include="Helpers\FingerprintHelper.cs" />
     <Compile Include="Models\advancep_model.cs" />
     <Compile Include="Models\attendance_model.cs" />
     <Compile Include="Models\audit_model.cs" />

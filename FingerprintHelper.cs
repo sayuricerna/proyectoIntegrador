@@ -1,31 +1,17 @@
 using System;
 using System.IO.Ports;
-using System.Threading.Tasks;
 
 namespace proyectoIntegrador.Helpers
 {
     public static class FingerprintHelper
     {
-        private static SerialPort _serialPort = new SerialPort("COM3", 9600);
+        private static SerialPort _serialPort;
 
-        //static FingerprintHelper()
-        //{
-        //    _serialPort = new SerialPort("COM3", 115200); // Ensure baud rate matches Arduino
-        //    _serialPort.Open();
-        //    _serialPort.DiscardInBuffer(); // Clear any old data
-        //}
         static FingerprintHelper()
         {
-            try
-            {
-                //_serialPort = new SerialPort("COM3", 115200);
-                _serialPort.Open();
-                _serialPort.DiscardInBuffer();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"FingerprintHelper initialization failed: {ex.Message}");
-            }
+            _serialPort = new SerialPort("COM3", 115200); // Ensure baud rate matches Arduino
+            _serialPort.Open();
+            _serialPort.DiscardInBuffer(); // Clear any old data
         }
 
         public static void RegisterFP(int user_id)
@@ -56,7 +42,7 @@ namespace proyectoIntegrador.Helpers
                 _serialPort.WriteLine("-1"); // Tell Arduino to run the Attendance sequence.
 
                 // Let's assume that user will take this much time atleast to give us fingerprint to match.
-                Task.Delay(30000);
+                Thread.Sleep(30000);
 
                 Console.WriteLine("Fetching UserID from Arduino to put attendance after fingerprint match...");
                 string user_id = _serialPort.ReadLine();

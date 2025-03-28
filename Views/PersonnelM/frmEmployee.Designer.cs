@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cmbDpt = new System.Windows.Forms.ComboBox();
@@ -51,7 +50,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.lblFrm = new System.Windows.Forms.Label();
             this.btnFingerPrint = new System.Windows.Forms.Button();
-            this.Arduino = new System.IO.Ports.SerialPort(this.components);
             this.txtFPCheck = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -264,11 +262,6 @@
             this.btnFingerPrint.UseVisualStyleBackColor = true;
             this.btnFingerPrint.Click += new System.EventHandler(this.btnFingerPrint_Click);
             // 
-            // Arduino
-            // 
-            this.Arduino.PortName = "COM3";
-            this.Arduino.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.Arduino_DataReceived);
-            // 
             // txtFPCheck
             // 
             this.txtFPCheck.Enabled = false;
@@ -340,7 +333,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblFrm;
         private System.Windows.Forms.Button btnFingerPrint;
-        private System.IO.Ports.SerialPort Arduino;
         private System.Windows.Forms.TextBox txtFPCheck;
     }
 }

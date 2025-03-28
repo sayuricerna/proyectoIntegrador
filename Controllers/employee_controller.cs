@@ -12,8 +12,6 @@ namespace proyectoIntegrador.Controllers
     internal class employee_controller
     {
         private readonly connection _cn = new connection();
-
-        //  reeemplazar porl view ! **** NO BORRAR EL EXECUTE COMMANDO DE ABAJO
         public List<employee_model> GetAll()
         {
             var employeeList = new List<employee_model>();
