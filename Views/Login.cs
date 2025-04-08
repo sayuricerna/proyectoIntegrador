@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using proyectoIntegrador.Controllers;
+using proyectoIntegrador.Helpers;
 
 namespace proyectoIntegrador.Views
 {
@@ -24,9 +26,37 @@ namespace proyectoIntegrador.Views
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-            this.Hide();
+            string username = txtUser.Text.Trim();
+            string password = txtPassword.Text.Trim();
+
+            user_controler controller = new user_controler();
+            encryptP encrypt = new encryptP();
+            var usuario = controller.GetAll().FirstOrDefault(u => u.NombreUsuario == username && u.Estado);
+
+            if (usuario != null)
+            {
+                bool isValid = encrypt.VerifyPassword(password, usuario.Contrasenia);
+
+                if (isValid)
+                {
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña incorrecta", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario no encontrado o inactivo", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            //MainMenu mainMenu = new MainMenu();
+            //mainMenu.Show();
+            //this.Hide();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

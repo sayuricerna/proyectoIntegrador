@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using proyectoIntegrador.Controllers;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Models;
 
 namespace proyectoIntegrador.Views
@@ -690,7 +691,7 @@ namespace proyectoIntegrador.Views
                 if (user != null)
                 {
                     txtUserName.Text = user.NombreUsuario;
-                    txtPassword.Text = user.Contrasenia;
+                    txtPassword.Text = "*****"; //NO SE PUEDE MOSTRAR LA CONTRASENIA
                     cmbRole.SelectedItem = user.RolUsuario;
                     chkActive.Checked = user.Estado;
                     this.id = user.IdUsuario;
@@ -743,14 +744,17 @@ namespace proyectoIntegrador.Views
             }
 
             try
-            {
+            {                
+                encryptP encrypt = new encryptP();
+
+                string hashedPassword = encrypt.HashPassword(txtPassword.Text); // Genera el hash
+
                 var user = new user_model()
                 {
                     NombreUsuario = txtUserName.Text,
-                    Contrasenia = txtPassword.Text,
+                    Contrasenia = hashedPassword, // <- Aquí va el HASH, no el texto plano
                     RolUsuario = cmbRole.SelectedItem.ToString(),
                     IdEmpleado = (int)cmbEmployee.SelectedValue,
-                    //IdEmpleado = cmbEmployee.SelectedIndex,
                     Estado = chkActive.Checked
                 };
 
@@ -773,6 +777,16 @@ namespace proyectoIntegrador.Views
                 else
                 {
                     user.IdUsuario = this.id;
+
+                    if (!string.IsNullOrWhiteSpace(txtPassword.Text) && txtPassword.Text != "*****")
+                    {
+                        user.Contrasenia = encrypt.HashPassword(txtPassword.Text); // Nueva contraseña
+                    }
+                    else
+                    {
+                        user.Contrasenia = controller.GetById(user.IdUsuario).Contrasenia; // Mantener anterior
+                    }
+
                     var result = controller.Update(user);
                     if (result == "ok")
                     {

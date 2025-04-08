@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using proyectoIntegrador.Config;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Models;
 
 namespace proyectoIntegrador.Controllers
@@ -13,6 +14,7 @@ namespace proyectoIntegrador.Controllers
     internal class user_controler
     {
         private readonly connection cn = new connection(); // Usa tu clase de conexión
+        private encryptP encrypt = new encryptP();
 
         public List<user_model> GetAll()
         {
