@@ -16,6 +16,6 @@ namespace proyectoIntegrador.Models
         public int IdUsuario { get; set; }
 
 
-
+2
     }
 }
