@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvAttendance = new System.Windows.Forms.DataGridView();
+            this.dgvAudits = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAudits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvAttendance);
+            this.panel2.Controls.Add(this.dgvAudits);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.txtSearch);
@@ -59,16 +59,17 @@
             this.panel2.Size = new System.Drawing.Size(1635, 957);
             this.panel2.TabIndex = 111;
             // 
-            // dgvAttendance
+            // dgvAudits
             // 
-            this.dgvAttendance.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAttendance.Location = new System.Drawing.Point(25, 93);
-            this.dgvAttendance.Name = "dgvAttendance";
-            this.dgvAttendance.RowHeadersWidth = 51;
-            this.dgvAttendance.RowTemplate.Height = 24;
-            this.dgvAttendance.Size = new System.Drawing.Size(1587, 832);
-            this.dgvAttendance.TabIndex = 103;
+            this.dgvAudits.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvAudits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAudits.Location = new System.Drawing.Point(25, 93);
+            this.dgvAudits.Name = "dgvAudits";
+            this.dgvAudits.RowHeadersWidth = 51;
+            this.dgvAudits.RowTemplate.Height = 24;
+            this.dgvAudits.Size = new System.Drawing.Size(1587, 768);
+            this.dgvAudits.TabIndex = 103;
+            this.dgvAudits.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAudits_CellContentClick);
             // 
             // btnSearch
             // 
@@ -81,6 +82,7 @@
             this.btnSearch.TabIndex = 105;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // pictureBox4
             // 
@@ -109,9 +111,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "UCAudits";
             this.Size = new System.Drawing.Size(1635, 1009);
+            this.Load += new System.EventHandler(this.UCAudits_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAudits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
@@ -121,7 +124,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgvAttendance;
+        private System.Windows.Forms.DataGridView dgvAudits;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox txtSearch;

@@ -14,5 +14,8 @@ namespace proyectoIntegrador.Models
         public string Descripcion { get; set; }
         public DateTime FechaHora { get; set; }
         public int IdUsuario { get; set; }
+
+
+
     }
 }

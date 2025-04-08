@@ -51,12 +51,13 @@ namespace proyectoIntegrador.Helpers
 
         public static int UserIDForAttendance()
         {
+
             if (_serialPort.IsOpen)
             {
                 _serialPort.WriteLine("-1"); // Tell Arduino to run the Attendance sequence.
 
                 // Let's assume that user will take this much time atleast to give us fingerprint to match.
-                Task.Delay(30000);
+                //Task.Delay(30000);
 
                 Console.WriteLine("Fetching UserID from Arduino to put attendance after fingerprint match...");
                 string user_id = _serialPort.ReadLine();

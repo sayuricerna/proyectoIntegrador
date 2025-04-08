@@ -18,7 +18,7 @@ namespace proyectoIntegrador.Controllers
             var employeeList = new List<employee_model>();
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo FROM empleado WHERE isDeleted = 0";
+                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella FROM empleado WHERE isDeleted = 0";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -36,7 +36,8 @@ namespace proyectoIntegrador.Controllers
                                 FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
                                 FechaContratacion = reader.GetDateTime("FechaContratacion"),
                                 IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                IdCargo = reader.GetInt32("IdCargo")
+                                IdCargo = reader.GetInt32("IdCargo"),
+                                //Huella = reader.GetInt32("Huella")
                             });
                         }
                     }
@@ -51,7 +52,9 @@ namespace proyectoIntegrador.Controllers
             employee_model employee = null;
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo FROM empleado WHERE IdEmpleado = @IdEmpleado AND isDeleted = 0";
+                //string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo FROM empleado WHERE IdEmpleado = @IdEmpleado AND isDeleted = 0";
+                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella FROM empleado WHERE IdEmpleado = @IdEmpleado AND isDeleted = 0";
+
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@IdEmpleado", id);
@@ -71,7 +74,9 @@ namespace proyectoIntegrador.Controllers
                                 FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
                                 FechaContratacion = reader.GetDateTime("FechaContratacion"),
                                 IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                IdCargo = reader.GetInt32("IdCargo")
+                                IdCargo = reader.GetInt32("IdCargo"),
+                                Huella = reader.GetInt32("Huella") // Add this line
+
                             };
                         }
                     }
@@ -110,7 +115,7 @@ namespace proyectoIntegrador.Controllers
         {
             using (var connection = _cn.GetConnection())
             {
-                string query = @"UPDATE empleado 
+                /*string query = @"UPDATE empleado 
                                  SET NombreEmpleado = @NombreEmpleado, 
                                      Cedula = @Cedula, 
                                      Direccion = @Direccion,
@@ -120,7 +125,18 @@ namespace proyectoIntegrador.Controllers
                                      IdDepartamento = @IdDepartamento, 
                                      IdCargo = @IdCargo
                                  WHERE IdEmpleado = @IdEmpleado";
-
+                */
+                string query = @"UPDATE empleado 
+                 SET NombreEmpleado = @NombreEmpleado, 
+                     Cedula = @Cedula, 
+                     Direccion = @Direccion,
+                     Telefono = @Telefono, 
+                     FechaNacimiento = @FechaNacimiento, 
+                     FechaContratacion = @FechaContratacion, 
+                     IdDepartamento = @IdDepartamento, 
+                     IdCargo = @IdCargo,
+                     Huella = @Huella
+                 WHERE IdEmpleado = @IdEmpleado";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@IdEmpleado", employee.IdEmpleado);
@@ -133,7 +149,7 @@ namespace proyectoIntegrador.Controllers
                     command.Parameters.AddWithValue("@FechaContratacion", employee.FechaContratacion);
                     command.Parameters.AddWithValue("@IdDepartamento", employee.IdDepartamento);
                     command.Parameters.AddWithValue("@IdCargo", employee.IdCargo);
-
+                    command.Parameters.AddWithValue("@Huella", employee.Huella);
                     return ExecuteCommand(command, connection);
                 }
             }
@@ -280,7 +296,7 @@ namespace proyectoIntegrador.Controllers
             throw new Exception("No hay ID de huella digital disponible.");
         }
 
-        private bool FingerprintExists(int id)
+        public bool FingerprintExists(int id)
         {
             using (var connection = _cn.GetConnection())
             {
@@ -294,6 +310,22 @@ namespace proyectoIntegrador.Controllers
                 }
             }
         }
+        public string InsertFP(employee_model employee)
+        {
+            using (var connection = _cn.GetConnection())
+            {
+                string query = @"INSERT INTO empleado (Huella) 
+                                 VALUES (@Huella) WHERE IdEmpleador = @idEmpleado";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Huella", employee.Huella);
+                    return ExecuteCommand(command, connection);
+                }
+            }
+        }
+
+
 
     }
 }

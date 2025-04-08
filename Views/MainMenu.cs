@@ -42,12 +42,15 @@ namespace proyectoIntegrador.Views
 
         }
 
+        /* Asistencia */
         private void button4_Click(object sender, EventArgs e)
         {
             UCAttendance uCAttendance = new UCAttendance();
             pnlGeneral.Controls.Clear();
             uCAttendance.Dock = DockStyle.Fill;
             pnlGeneral.Controls.Add(uCAttendance);
+
+
         }
 
         private void button5_Click(object sender, EventArgs e)

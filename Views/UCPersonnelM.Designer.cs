@@ -81,7 +81,6 @@
             this.button14 = new System.Windows.Forms.Button();
             this.dgvUser = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -111,7 +110,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1643, 954);
+            this.tabControl1.Size = new System.Drawing.Size(1643, 1003);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage3
@@ -194,7 +193,7 @@
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowHeadersWidth = 51;
             this.dgvEmployee.RowTemplate.Height = 24;
-            this.dgvEmployee.Size = new System.Drawing.Size(1589, 814);
+            this.dgvEmployee.Size = new System.Drawing.Size(1589, 787);
             this.dgvEmployee.TabIndex = 4;
             this.dgvEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployee_CellClick);
             this.dgvEmployee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
@@ -268,7 +267,7 @@
             this.dgvDpt.Name = "dgvDpt";
             this.dgvDpt.RowHeadersWidth = 51;
             this.dgvDpt.RowTemplate.Height = 24;
-            this.dgvDpt.Size = new System.Drawing.Size(1594, 555);
+            this.dgvDpt.Size = new System.Drawing.Size(1594, 538);
             this.dgvDpt.TabIndex = 109;
             this.dgvDpt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDpt_CellClick);
             this.dgvDpt.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDpt_DataBindingComplete);
@@ -341,7 +340,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1635, 916);
+            this.tabPage1.Size = new System.Drawing.Size(1635, 965);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cargos";
             // 
@@ -497,7 +496,7 @@
             this.dgvPosition.Name = "dgvPosition";
             this.dgvPosition.RowHeadersWidth = 51;
             this.dgvPosition.RowTemplate.Height = 24;
-            this.dgvPosition.Size = new System.Drawing.Size(1589, 555);
+            this.dgvPosition.Size = new System.Drawing.Size(1589, 542);
             this.dgvPosition.TabIndex = 99;
             this.dgvPosition.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPosition_CellClick);
             this.dgvPosition.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPosition_DataBindingComplete);
@@ -513,7 +512,7 @@
             this.tabPage4.Controls.Add(this.dgvUser);
             this.tabPage4.Location = new System.Drawing.Point(4, 34);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1635, 916);
+            this.tabPage4.Size = new System.Drawing.Size(1635, 965);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Usuarios";
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
@@ -700,7 +699,7 @@
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersWidth = 51;
             this.dgvUser.RowTemplate.Height = 24;
-            this.dgvUser.Size = new System.Drawing.Size(1590, 557);
+            this.dgvUser.Size = new System.Drawing.Size(1590, 525);
             this.dgvUser.TabIndex = 99;
             this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
             this.dgvUser.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvUser_DataBindingComplete);
@@ -714,22 +713,12 @@
             this.panel3.Size = new System.Drawing.Size(1643, 28);
             this.panel3.TabIndex = 1;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 982);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1643, 49);
-            this.panel5.TabIndex = 2;
-            // 
             // UCPersonnelM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel5);
             this.Name = "UCPersonnelM";
             this.Size = new System.Drawing.Size(1643, 1031);
             this.Load += new System.EventHandler(this.UCPersonnelM_Load);
@@ -793,7 +782,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnAddPosition;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnlDpt;

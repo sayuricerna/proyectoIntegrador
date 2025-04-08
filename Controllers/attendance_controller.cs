@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -205,9 +206,89 @@ namespace proyectoIntegrador.Controllers
             return list;
         }
 
+        // Método para buscar las asistencias por nombre de empleado
+        public List<attendance_model> SearchByEmployee(string employeeName)
+        {
+            var list = new List<attendance_model>();
+            using (var conn = _connection.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM vista_asistencia WHERE Nombre LIKE @employeeName AND isDeleted = FALSE";
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@employeeName", "%" + employeeName + "%");
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new attendance_model
+                            {
+                                IdAsistencia = reader.GetInt32("idAsistencia"),
+                                IdEmpleado = reader.GetInt32("idEmpleado"),
+                                Fecha = reader.GetDateTime("fecha"),
+                                HoraEntrada = reader.IsDBNull(reader.GetOrdinal("horaEntrada")) ? (TimeSpan?)null : reader.GetTimeSpan("horaEntrada"),
+                                HoraSalida = reader.IsDBNull(reader.GetOrdinal("horaSalida")) ? (TimeSpan?)null : reader.GetTimeSpan("horaSalida"),
+                                HorasTrabajadas = reader.IsDBNull(reader.GetOrdinal("horasTrabajadas")) ? (decimal?)null : reader.GetDecimal("horasTrabajadas"),
+                                Justificado = reader.GetString("Justificado") == "Sí",
+                                MotivoJustificacion = reader.GetString("Motivo_Justificacion")
+                            });
+                        }
+                    }
+                }
+            }
+            return list;
+        }
 
 
         // Insert a justification entry into the justificacion table
+        public string InsertAttendance(int fingerprintId)
+        {
+            try
+            {
+                using (var conn = _connection.GetConnection())
+                {
+                    conn.Open();
+                    string query = "CALL registrarAsistenciaPorHuella(@huella_id);";
 
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@huella_id", fingerprintId);
+                        cmd.ExecuteNonQuery();
+                        return "Asistencia registrada con éxito.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+        /*
+        public string RegisterAttendanceByFingerprint(int fingerprintId)
+        {
+            try
+            {
+                using (var conn = _connection.GetConnection())
+                {
+                    using (var cmd = new MySqlCommand("RegistrarAsistenciaPorHuella", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@huella_id", fingerprintId);
+
+                        conn.Open();
+                        var result = cmd.ExecuteScalar().ToString();
+                        conn.Close();
+
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+        */
     }
 }

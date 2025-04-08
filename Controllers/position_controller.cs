@@ -176,6 +176,34 @@ namespace proyectoIntegrador.Controllers
                 return e.Message;
             }
         }
+        // Obtener cargos por departamento
+        public List<position_model> GetByDepartment(int departmentId)
+        {
+            var positionList = new List<position_model>();
+            using (var connection = cn.GetConnection())
+            {
+                string query = "SELECT IdCargo, NombreCargo, Salario, IdDepartamento FROM cargo WHERE IdDepartamento = @IdDepartamento AND isDeleted = 0";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@IdDepartamento", departmentId);
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            positionList.Add(new position_model
+                            {
+                                IdCargo = reader.GetInt32("IdCargo"),
+                                NombreCargo = reader.GetString("NombreCargo"),
+                                Salario = reader.GetDecimal("Salario"),
+                                IdDepartamento = reader.GetInt32("IdDepartamento")
+                            });
+                        }
+                    }
+                }
+            }
+            return positionList;
+        }
 
     }
 }

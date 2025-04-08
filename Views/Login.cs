@@ -45,5 +45,10 @@ namespace proyectoIntegrador.Views
                 txtPassword.UseSystemPasswordChar = true; // Muestra los puntos
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,15 +39,17 @@ namespace proyectoIntegrador.Views.PersonnelM
             cmbDpt.DataSource = list.GetAllDepartments();
             cmbDpt.ValueMember = "IdDepartamento";
             cmbDpt.DisplayMember = "NombreDepartamento";
+            cmbDpt.SelectedIndexChanged += cmbDpt_SelectedIndexChanged;
+            loadFilteredPositions(Convert.ToInt32(cmbDpt.SelectedValue));
         }
         public void loadPosition()
         {
             var list = new position_controller();
             cmbPosition.DataSource = list.GetAll();
             cmbPosition.ValueMember = "IdCargo";
-            //cmbDpt.DisplayMember = "NombreDepartamento";
-
+            cmbPosition.DisplayMember = "NombreCargo";
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" || txtCedula.Text == "" || cmbDpt.SelectedIndex == -1 || cmbPosition.SelectedIndex == -1)
@@ -69,6 +71,8 @@ namespace proyectoIntegrador.Views.PersonnelM
                     FechaContratacion = dtpContract.Value,
                     IdDepartamento = Convert.ToInt32(cmbDpt.SelectedValue),
                     IdCargo = Convert.ToInt32(cmbPosition.SelectedValue),
+                    Huella = currentEmployee.Huella // Include Huella from currentEmployee
+
                 };
 
 
@@ -124,7 +128,8 @@ namespace proyectoIntegrador.Views.PersonnelM
         private void frmEmployee_Load(object sender, EventArgs e)
         {
             loadDpt();
-            loadPosition();
+            //loadPosition();
+            cmbDpt.SelectedIndexChanged += cmbDpt_SelectedIndexChanged;
 
             if (!this.modoEdision)
             {
@@ -148,6 +153,10 @@ namespace proyectoIntegrador.Views.PersonnelM
                     dtpContract.Value = employee.FechaContratacion;
                     cmbDpt.SelectedValue = employee.IdDepartamento;
                     cmbPosition.SelectedValue = employee.IdCargo;
+                    currentEmployee.Huella = employee.Huella; //andido
+                    loadFilteredPositions(employee.IdDepartamento);
+                    cmbPosition.SelectedValue = employee.IdCargo;
+
                 }
                 else
                 {
@@ -155,21 +164,59 @@ namespace proyectoIntegrador.Views.PersonnelM
                 }
             }
         }
+        private employee_model currentEmployee = new employee_model(); // Variable para almacenar datos
+
 
         /* HUELLA **/
         //boton para registrar huella dactila hay un imagebox patr huella en caso sea necesario
         private void btnFingerPrint_Click(object sender, EventArgs e )
         {
-            //0 127
-            //FingerprintHelper.RegisterFP(6);
-            Console.WriteLine("Hellow world");
+            try
+            {
+                var controller = new employee_controller();
+                int fingerprintId = controller.GenerateFingerprintID();
+                currentEmployee.Huella = fingerprintId;
+                Console.WriteLine(currentEmployee.IdEmpleado);
+                FingerprintHelper.RegisterFP(fingerprintId);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+            /*
+            var controller = new employee_controller();
+            var result = controller.GenerateFingerprintID(); //retorn int id
+            FingerprintHelper.RegisterFP(result);  //pasamos id al arduino
+            */
         }
 
         private void frmEmployee_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+
         }
 
-        
+        private void cmbDpt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDpt.SelectedValue != null && cmbDpt.SelectedValue is int)
+            {
+                loadFilteredPositions(Convert.ToInt32(cmbDpt.SelectedValue));
+            }
+        }
+        public void loadFilteredPositions(int departamentoId)
+        {
+            var list = new position_controller().GetByDepartment(departamentoId);
+
+            if (list == null || list.Count == 0)
+            {
+                MessageBox.Show("No se encontraron cargos para este departamento.");
+                return;
+            }
+
+            cmbPosition.DataSource = list;
+            cmbPosition.ValueMember = "IdCargo";
+            cmbPosition.DisplayMember = "NombreCargo";
+        }
     }
 }

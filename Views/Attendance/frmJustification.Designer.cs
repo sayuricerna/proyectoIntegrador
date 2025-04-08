@@ -131,6 +131,7 @@
             // 
             this.txtDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDetail.Location = new System.Drawing.Point(204, 315);
+            this.txtDetail.MaxLength = 100;
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(366, 72);

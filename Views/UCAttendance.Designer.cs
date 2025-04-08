@@ -35,6 +35,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
@@ -84,11 +85,12 @@
             this.dgvAttendance.Name = "dgvAttendance";
             this.dgvAttendance.RowHeadersWidth = 51;
             this.dgvAttendance.RowTemplate.Height = 24;
-            this.dgvAttendance.Size = new System.Drawing.Size(1587, 832);
+            this.dgvAttendance.Size = new System.Drawing.Size(1587, 776);
             this.dgvAttendance.TabIndex = 103;
             this.dgvAttendance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttendance_CellClick);
-            this.dgvAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.dgvAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttendance_CellContentClick);
             this.dgvAttendance.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAttendance_DataBindingComplete);
+            this.dgvAttendance.Leave += new System.EventHandler(this.dgvAttendance_Leave);
             // 
             // pictureBox4
             // 
@@ -111,6 +113,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.dgvAttendance);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.btnJustify);
@@ -122,6 +125,19 @@
             this.panel2.Size = new System.Drawing.Size(1650, 954);
             this.panel2.TabIndex = 110;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SeaGreen;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(1445, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 50);
+            this.button1.TabIndex = 108;
+            this.button1.Text = "Justificar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UCAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,6 +148,7 @@
             this.Name = "UCAttendance";
             this.Size = new System.Drawing.Size(1650, 1006);
             this.Load += new System.EventHandler(this.UCAttendance_Load);
+            this.Leave += new System.EventHandler(this.UCAttendance_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -149,5 +166,6 @@
         private System.Windows.Forms.DataGridView dgvAttendance;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }

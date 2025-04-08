@@ -28,179 +28,160 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDpt = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnGenReport = new System.Windows.Forms.Button();
+            this.btbSearchReport = new System.Windows.Forms.Button();
+            this.btnCancelDpt = new System.Windows.Forms.Button();
+            this.btnSaveDpt = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1168, 293);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 44);
-            this.button1.TabIndex = 108;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnCancelDpt);
+            this.panel2.Controls.Add(this.btnSaveDpt);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.textBox12);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button11);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(205, 66);
+            this.panel2.Location = new System.Drawing.Point(20, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1194, 221);
+            this.panel2.Size = new System.Drawing.Size(1594, 221);
             this.panel2.TabIndex = 107;
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(710, 33);
+            this.comboBox1.Location = new System.Drawing.Point(587, 65);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(289, 28);
+            this.comboBox1.Size = new System.Drawing.Size(550, 33);
             this.comboBox1.TabIndex = 103;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(589, 36);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(383, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 20);
+            this.label1.Size = new System.Drawing.Size(172, 25);
             this.label1.TabIndex = 102;
-            this.label1.Text = "Departamento";
+            this.label1.Text = "Reporte a Generar";
             // 
-            // label10
+            // dgvDpt
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(196, 36);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 20);
-            this.label10.TabIndex = 101;
-            this.label10.Text = "Cargo";
+            this.dgvDpt.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvDpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDpt.Location = new System.Drawing.Point(20, 343);
+            this.dgvDpt.Name = "dgvDpt";
+            this.dgvDpt.RowHeadersWidth = 51;
+            this.dgvDpt.RowTemplate.Height = 24;
+            this.dgvDpt.Size = new System.Drawing.Size(1594, 526);
+            this.dgvDpt.TabIndex = 110;
             // 
-            // label11
+            // textBox2
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(189, 83);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 20);
-            this.label11.TabIndex = 99;
-            this.label11.Text = "Salario";
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(85, 275);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(1054, 38);
+            this.textBox2.TabIndex = 119;
             // 
-            // textBox12
+            // pictureBox3
             // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(256, 83);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(289, 27);
-            this.textBox12.TabIndex = 98;
+            this.pictureBox3.Image = global::proyectoIntegrador.Properties.Resources.search_icon;
+            this.pictureBox3.Location = new System.Drawing.Point(20, 265);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(60, 55);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 118;
+            this.pictureBox3.TabStop = false;
             // 
-            // button2
+            // btnGenReport
             // 
-            this.button2.Location = new System.Drawing.Point(630, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(231, 44);
-            this.button2.TabIndex = 97;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGenReport.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnGenReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGenReport.Location = new System.Drawing.Point(1382, 269);
+            this.btnGenReport.Name = "btnGenReport";
+            this.btnGenReport.Size = new System.Drawing.Size(231, 51);
+            this.btnGenReport.TabIndex = 117;
+            this.btnGenReport.Text = "Generar Reporte";
+            this.btnGenReport.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // btbSearchReport
             // 
-            this.button11.Location = new System.Drawing.Point(379, 154);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(231, 44);
-            this.button11.TabIndex = 96;
-            this.button11.Text = "Guardar";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btbSearchReport.BackColor = System.Drawing.Color.SeaGreen;
+            this.btbSearchReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btbSearchReport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btbSearchReport.Location = new System.Drawing.Point(1145, 270);
+            this.btbSearchReport.Name = "btbSearchReport";
+            this.btbSearchReport.Size = new System.Drawing.Size(231, 50);
+            this.btbSearchReport.TabIndex = 116;
+            this.btbSearchReport.Text = "Buscar";
+            this.btbSearchReport.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // btnCancelDpt
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 22);
-            this.textBox1.TabIndex = 90;
+            this.btnCancelDpt.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCancelDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelDpt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelDpt.Location = new System.Drawing.Point(796, 150);
+            this.btnCancelDpt.Name = "btnCancelDpt";
+            this.btnCancelDpt.Size = new System.Drawing.Size(323, 51);
+            this.btnCancelDpt.TabIndex = 105;
+            this.btnCancelDpt.Text = "Cancelar";
+            this.btnCancelDpt.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // btnSaveDpt
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(203, 297);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 40);
-            this.pictureBox2.TabIndex = 106;
-            this.pictureBox2.TabStop = false;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(260, 310);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(901, 22);
-            this.textBox8.TabIndex = 105;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(204, 343);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1194, 368);
-            this.dataGridView1.TabIndex = 104;
+            this.btnSaveDpt.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSaveDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDpt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSaveDpt.Location = new System.Drawing.Point(457, 150);
+            this.btnSaveDpt.Name = "btnSaveDpt";
+            this.btnSaveDpt.Size = new System.Drawing.Size(323, 51);
+            this.btnSaveDpt.TabIndex = 104;
+            this.btnSaveDpt.Text = "Guardar";
+            this.btnSaveDpt.UseVisualStyleBackColor = false;
             // 
             // UCReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.btnGenReport);
+            this.Controls.Add(this.btbSearchReport);
+            this.Controls.Add(this.dgvDpt);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "UCReports";
-            this.Size = new System.Drawing.Size(1602, 777);
+            this.Size = new System.Drawing.Size(1655, 891);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDpt;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnGenReport;
+        private System.Windows.Forms.Button btbSearchReport;
+        private System.Windows.Forms.Button btnCancelDpt;
+        private System.Windows.Forms.Button btnSaveDpt;
     }
 }

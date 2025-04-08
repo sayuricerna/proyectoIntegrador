@@ -80,39 +80,6 @@ namespace proyectoIntegrador.Views
             dgvDpt.Columns["idDepartamento"].HeaderText = "ID";
             dgvDpt.Columns["nombreDepartamento"].HeaderText = "Nombre del Departamento";
             dgvDpt.Columns["isDeleted"].HeaderText = "is deleted";
-            /*
-            switch (tipo)
-            {
-                case "departamento":
-                    //idDepartamento nombreDepartamento isDeleted 
-                    dgvDpt.Columns["nombreDepartamento"].HeaderText = "Nombre del Departamento";
-                    dgvDpt.Columns["isDeleted"].HeaderText = "is deleted";
-
-                    break;
-                case "cargo":
-                    //idDepartamento nombreDepartamento isDeleted 
-                    dgvPosDpt.Columns["idDepartamento"].Visible = false;
-                    dgvPosDpt.Columns["nombreDepartamento"].Visible = false;
-                    dgvPosDpt.Columns["isDeleted"].Visible = false;
-
-                    dgvPosDpt.Columns["Departamento"].HeaderText = "Nombre del Departamento";
-                    dgvPosDpt.Columns["Cargo"].HeaderText = "Cargo";
-                    dgvPosDpt.Columns["Salario"].HeaderText = "Salario";
-
-                    break;
-
-                case "empleado":
-                    dgvPosDpt.Columns["Cargo"].HeaderText = "Cargo";
-                    dgvPosDpt.Columns["Salario"].HeaderText = "Salario";
-                    dgvPosDpt.Columns["NombreDepartamento"].HeaderText = "Departamento";
-                    break;
-
-                case "usuario":
-                    dgvPosDpt.Columns["Usuario"].HeaderText = "Usuario";
-                    dgvPosDpt.Columns["Rol"].HeaderText = "Rol";
-                    break;
-            }
-            */
             dgvDpt.Columns.Add(btnEditar);
             dgvDpt.Columns.Add(btnEliminar);
         }
@@ -276,6 +243,7 @@ namespace proyectoIntegrador.Views
         /* POSITIONS */
         public void LoadGridPosition(int numero)
         {
+            loadDepartments();
             dgvPosition.DataSource = null;
             dgvPosition.Rows.Clear();
             dgvPosition.Columns.Clear();
@@ -599,8 +567,8 @@ namespace proyectoIntegrador.Views
             dgvEmployee.Columns["IdEmpleado"].HeaderText = "ID";
             dgvEmployee.Columns["NombreEmpleado"].HeaderText = "Nombre del Empleado";
             dgvEmployee.Columns["Cedula"].HeaderText = "Cédula";
+            dgvEmployee.Columns["Huella"].HeaderText = "ID Huella";
             dgvEmployee.Columns["Direccion"].HeaderText = "Direccion";
-
             dgvEmployee.Columns["FechaNacimiento"].HeaderText = "Fecha de Nacimiento";
             dgvEmployee.Columns["Telefono"].HeaderText = "Teléfono";
             dgvEmployee.Columns["FechaContratacion"].HeaderText = "Fecha de Contratación";

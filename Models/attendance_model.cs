@@ -17,5 +17,6 @@ namespace proyectoIntegrador.Models
         public bool Justificado { get; set; }
         public int? IdJustificacion { get; set; }
         public bool IsDeleted { get; set; }
+        public string MotivoJustificacion { get; internal set; }
     }
 }

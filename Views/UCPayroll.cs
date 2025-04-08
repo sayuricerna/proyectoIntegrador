@@ -27,5 +27,40 @@ namespace proyectoIntegrador.Views
         {
 
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnSaveDpt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGiveAdvance_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGenROLL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelAdvanceP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveRoll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelRoll_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
