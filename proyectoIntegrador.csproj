@@ -255,7 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Audits\" />
-    <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login_image.png" />

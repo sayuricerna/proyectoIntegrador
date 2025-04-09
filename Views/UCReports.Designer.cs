@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCancelDpt = new System.Windows.Forms.Button();
+            this.btnSaveDpt = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDpt = new System.Windows.Forms.DataGridView();
@@ -36,8 +38,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnGenReport = new System.Windows.Forms.Button();
             this.btbSearchReport = new System.Windows.Forms.Button();
-            this.btnCancelDpt = new System.Windows.Forms.Button();
-            this.btnSaveDpt = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -53,6 +53,30 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1594, 221);
             this.panel2.TabIndex = 107;
+            // 
+            // btnCancelDpt
+            // 
+            this.btnCancelDpt.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnCancelDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelDpt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelDpt.Location = new System.Drawing.Point(796, 150);
+            this.btnCancelDpt.Name = "btnCancelDpt";
+            this.btnCancelDpt.Size = new System.Drawing.Size(323, 51);
+            this.btnCancelDpt.TabIndex = 105;
+            this.btnCancelDpt.Text = "Cancelar";
+            this.btnCancelDpt.UseVisualStyleBackColor = false;
+            // 
+            // btnSaveDpt
+            // 
+            this.btnSaveDpt.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSaveDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveDpt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSaveDpt.Location = new System.Drawing.Point(457, 150);
+            this.btnSaveDpt.Name = "btnSaveDpt";
+            this.btnSaveDpt.Size = new System.Drawing.Size(323, 51);
+            this.btnSaveDpt.TabIndex = 104;
+            this.btnSaveDpt.Text = "Guardar";
+            this.btnSaveDpt.UseVisualStyleBackColor = false;
             // 
             // comboBox1
             // 
@@ -126,30 +150,6 @@
             this.btbSearchReport.TabIndex = 116;
             this.btbSearchReport.Text = "Buscar";
             this.btbSearchReport.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelDpt
-            // 
-            this.btnCancelDpt.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnCancelDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelDpt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelDpt.Location = new System.Drawing.Point(796, 150);
-            this.btnCancelDpt.Name = "btnCancelDpt";
-            this.btnCancelDpt.Size = new System.Drawing.Size(323, 51);
-            this.btnCancelDpt.TabIndex = 105;
-            this.btnCancelDpt.Text = "Cancelar";
-            this.btnCancelDpt.UseVisualStyleBackColor = false;
-            // 
-            // btnSaveDpt
-            // 
-            this.btnSaveDpt.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSaveDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveDpt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSaveDpt.Location = new System.Drawing.Point(457, 150);
-            this.btnSaveDpt.Name = "btnSaveDpt";
-            this.btnSaveDpt.Size = new System.Drawing.Size(323, 51);
-            this.btnSaveDpt.TabIndex = 104;
-            this.btnSaveDpt.Text = "Guardar";
-            this.btnSaveDpt.UseVisualStyleBackColor = false;
             // 
             // UCReports
             // 

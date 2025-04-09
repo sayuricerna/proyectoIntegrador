@@ -14,5 +14,7 @@ namespace proyectoIntegrador.Models
         public decimal Monto { get; set; }
         public string Motivo { get; set; }
         public bool IsDeleted { get; set; }
+
+
     }
 }

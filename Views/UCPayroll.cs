@@ -19,7 +19,7 @@ namespace proyectoIntegrador.Views
     {
         private readonly connection _connection = new connection();
         private readonly employee_controller _employeeController = new employee_controller();
-
+        private readonly advancep_controller _anticipoController = new advancep_controller();
         public UCPayroll()
         {
             InitializeComponent();
@@ -48,7 +48,40 @@ namespace proyectoIntegrador.Views
         //Button save advance
         private void btnSaveDpt_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Validar que se haya seleccionado un empleado
+                if (cmbEmployee.SelectedItem == null)
+                {
+                    MessageBox.Show("Seleccione un empleado.");
+                    return;
+                }
 
+                int idEmpleado = Convert.ToInt32(cmbEmployee.SelectedValue);
+                // Validar y convertir el monto
+                if (!decimal.TryParse(txtAmount.Text.Trim(), out decimal monto))
+                {
+                    MessageBox.Show("Ingrese un monto válido.");
+                    return;
+                }
+                string motivo = txtReason.Text.Trim();
+                if (string.IsNullOrEmpty(motivo))
+                {
+                    MessageBox.Show("Ingrese el motivo del anticipo.");
+                    return;
+                }
+
+                // Llamar al método del controlador para crear el anticipo
+                string mensaje = _anticipoController.CrearAnticipo(idEmpleado, monto, motivo);
+                MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar campos después de guardar
+                cleanAdvancePFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+            }
         }
 
         private void btnGiveAdvance_Click(object sender, EventArgs e)
@@ -167,6 +200,7 @@ namespace proyectoIntegrador.Views
             txtAmount.Text = "";
             txtReason.Text = "";
             cmbEmployee.SelectedIndex = -1;
+            pnlAdvanceP.Enabled = false;
         }
 
         //public void LoadGridPayrolls(int numero)
@@ -292,6 +326,21 @@ namespace proyectoIntegrador.Views
         }
 
         private void dgvPayroll_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+
+        }
+
+        private void cmbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtReason_TextChanged(object sender, EventArgs e)
         {
 
         }
