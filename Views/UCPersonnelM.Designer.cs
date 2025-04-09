@@ -185,9 +185,11 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(874, 38);
             this.textBox2.TabIndex = 108;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // dgvEmployee
             // 
+            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmployee.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Location = new System.Drawing.Point(22, 99);

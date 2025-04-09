@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.vistaempleadosactivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet1 = new proyectoIntegrador.DataSet1();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelDpt = new System.Windows.Forms.Button();
             this.btnSaveDpt = new System.Windows.Forms.Button();
@@ -38,10 +42,23 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnGenReport = new System.Windows.Forms.Button();
             this.btbSearchReport = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this.vistaempleadosactivosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
+            // 
+            // vistaempleadosactivosBindingSource
+            // 
+            this.vistaempleadosactivosBindingSource.DataMember = "vista_empleados_activos";
+            this.vistaempleadosactivosBindingSource.DataSource = this.dataSet1;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel2
             // 
@@ -101,11 +118,11 @@
             // 
             this.dgvDpt.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDpt.Location = new System.Drawing.Point(20, 343);
+            this.dgvDpt.Location = new System.Drawing.Point(20, 649);
             this.dgvDpt.Name = "dgvDpt";
             this.dgvDpt.RowHeadersWidth = 51;
             this.dgvDpt.RowTemplate.Height = 24;
-            this.dgvDpt.Size = new System.Drawing.Size(1594, 526);
+            this.dgvDpt.Size = new System.Drawing.Size(1594, 220);
             this.dgvDpt.TabIndex = 110;
             // 
             // textBox2
@@ -151,10 +168,23 @@
             this.btbSearchReport.Text = "Buscar";
             this.btbSearchReport.UseVisualStyleBackColor = false;
             // 
+            // reportViewer1
+            // 
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.vistaempleadosactivosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "proyectoIntegrador.Views.Reports.Report.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(20, 338);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(873, 358);
+            this.reportViewer1.TabIndex = 120;
+            // 
             // UCReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.btnGenReport);
@@ -163,6 +193,8 @@
             this.Controls.Add(this.panel2);
             this.Name = "UCReports";
             this.Size = new System.Drawing.Size(1655, 891);
+            ((System.ComponentModel.ISupportInitialize)(this.vistaempleadosactivosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDpt)).EndInit();
@@ -183,5 +215,8 @@
         private System.Windows.Forms.Button btbSearchReport;
         private System.Windows.Forms.Button btnCancelDpt;
         private System.Windows.Forms.Button btnSaveDpt;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource vistaempleadosactivosBindingSource;
+        private DataSet1 dataSet1;
     }
 }

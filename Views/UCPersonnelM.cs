@@ -69,7 +69,6 @@ namespace proyectoIntegrador.Views
                 UseColumnTextForButtonValue = true
             };
 
-            // Obtener datos según el tipo solicitado
             if (numero == 1)
             {
                 dgvDpt.DataSource = logica.GetAllDepartments();
@@ -912,6 +911,11 @@ namespace proyectoIntegrador.Views
         {
             this.LoadGridEmployee(2);
 
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.LoadGridEmployee(2);
         }
     }
 }

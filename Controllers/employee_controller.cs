@@ -201,8 +201,7 @@ namespace proyectoIntegrador.Controllers
 
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo " +
-                               "FROM empleado WHERE isDeleted = 0 AND NombreEmpleado LIKE @Nombre";
+                string query = "SELECT idEmpleado, nombreEmpleado, cedula, direccion, telefono, fechaNacimiento, fechaContratacion, idDepartamento, idCargo FROM empleado where isDeleted = 0 AND nombreEmpleado LIKE @Nombre";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -215,15 +214,15 @@ namespace proyectoIntegrador.Controllers
                         {
                             employeeList.Add(new employee_model
                             {
-                                IdEmpleado = reader.GetInt32("IdEmpleado"),
-                                NombreEmpleado = reader.GetString("NombreEmpleado"),
-                                Cedula = reader.GetString("Cedula"),
-                                Direccion = reader.GetString("Direccion"),
-                                Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),
-                                FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
-                                FechaContratacion = reader.GetDateTime("FechaContratacion"),
-                                IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                IdCargo = reader.GetInt32("IdCargo")
+                                IdEmpleado = reader.GetInt32("idEmpleado"),
+                                NombreEmpleado = reader.GetString("nombreEmpleado"),
+                                Cedula = reader.GetString("cedula"),
+                                Direccion = reader.GetString("direccion"),
+                                Telefono = reader.IsDBNull(reader.GetOrdinal("telefono")) ? null : reader.GetString("telefono"),
+                                FechaNacimiento = reader.GetDateTime("fechaNacimiento"),
+                                FechaContratacion = reader.GetDateTime("fechaContratacion"),
+                                IdDepartamento = reader.GetInt32("idDepartamento"),
+                                IdCargo = reader.GetInt32("idCargo")
                             });
                         }
                     }

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vista_empleados_activos" msprop:Generator_RowEvHandlerName="vista_empleados_activosRowChangeEventHandler" msprop:Generator_RowDeletedName="vista_empleados_activosRowDeleted" msprop:Generator_RowDeletingName="vista_empleados_activosRowDeleting" msprop:Generator_RowEvArgName="vista_empleados_activosRowChangeEvent" msprop:Generator_TablePropName="vista_empleados_activos" msprop:Generator_RowChangedName="vista_empleados_activosRowChanged" msprop:Generator_RowChangingName="vista_empleados_activosRowChanging" msprop:Generator_TableClassName="vista_empleados_activosDataTable" msprop:Generator_RowClassName="vista_empleados_activosRow" msprop:Generator_TableVarName="tablevista_empleados_activos" msprop:Generator_UserTableName="vista_empleados_activos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idEmpleado" msprop:Generator_ColumnPropNameInRow="idEmpleado" msprop:Generator_ColumnPropNameInTable="idEmpleadoColumn" msprop:Generator_ColumnVarNameInTable="columnidEmpleado" msprop:Generator_UserColumnName="idEmpleado" type="xs:int" />
+              <xs:element name="cedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
+              <xs:element name="nombreEmpleado" msprop:Generator_ColumnPropNameInRow="nombreEmpleado" msprop:Generator_ColumnPropNameInTable="nombreEmpleadoColumn" msprop:Generator_ColumnVarNameInTable="columnnombreEmpleado" msprop:Generator_UserColumnName="nombreEmpleado" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaNacimiento" msprop:Generator_ColumnPropNameInRow="fechaNacimiento" msprop:Generator_ColumnPropNameInTable="fechaNacimientoColumn" msprop:Generator_ColumnVarNameInTable="columnfechaNacimiento" msprop:Generator_UserColumnName="fechaNacimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="direccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_UserColumnName="direccion" type="xs:string" minOccurs="0" />
+              <xs:element name="telefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_UserColumnName="telefono" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaContratacion" msprop:Generator_ColumnPropNameInRow="fechaContratacion" msprop:Generator_ColumnPropNameInTable="fechaContratacionColumn" msprop:Generator_ColumnVarNameInTable="columnfechaContratacion" msprop:Generator_UserColumnName="fechaContratacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nombreDepartamento" msprop:Generator_ColumnPropNameInRow="nombreDepartamento" msprop:Generator_ColumnPropNameInTable="nombreDepartamentoColumn" msprop:Generator_ColumnVarNameInTable="columnnombreDepartamento" msprop:Generator_UserColumnName="nombreDepartamento" type="xs:string" minOccurs="0" />
+              <xs:element name="nombreCargo" msprop:Generator_ColumnPropNameInRow="nombreCargo" msprop:Generator_ColumnPropNameInTable="nombreCargoColumn" msprop:Generator_ColumnVarNameInTable="columnnombreCargo" msprop:Generator_UserColumnName="nombreCargo" type="xs:string" minOccurs="0" />
+              <xs:element name="salario" msprop:Generator_ColumnPropNameInRow="salario" msprop:Generator_ColumnPropNameInTable="salarioColumn" msprop:Generator_ColumnVarNameInTable="columnsalario" msprop:Generator_UserColumnName="salario" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tieneUsuario" msprop:Generator_ColumnPropNameInRow="tieneUsuario" msprop:Generator_ColumnPropNameInTable="tieneUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columntieneUsuario" msprop:Generator_UserColumnName="tieneUsuario" type="xs:string" minOccurs="0" />
+              <xs:element name="nombreUsuario" msprop:Generator_ColumnPropNameInRow="nombreUsuario" msprop:Generator_ColumnPropNameInTable="nombreUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columnnombreUsuario" msprop:Generator_UserColumnName="nombreUsuario" type="xs:string" minOccurs="0" />
+              <xs:element name="rolUsuario" msprop:Generator_ColumnPropNameInRow="rolUsuario" msprop:Generator_ColumnPropNameInTable="rolUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columnrolUsuario" msprop:Generator_UserColumnName="rolUsuario" type="xs:string" minOccurs="0" />
+              <xs:element name="estadoUsuario" msprop:Generator_ColumnPropNameInRow="estadoUsuario" msprop:Generator_ColumnPropNameInTable="estadoUsuarioColumn" msprop:Generator_ColumnVarNameInTable="columnestadoUsuario" msprop:Generator_UserColumnName="estadoUsuario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="DataTable1Key1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:vista_empleados_activos" />
+      <xs:field xpath="mstns:idEmpleado" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
