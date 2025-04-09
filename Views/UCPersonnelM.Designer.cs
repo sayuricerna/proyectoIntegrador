@@ -33,7 +33,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAddEmployee = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSearchEmployee = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -119,12 +119,12 @@
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.pictureBox4);
             this.tabPage3.Controls.Add(this.btnAddEmployee);
-            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.btnSearchEmployee);
             this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(this.dgvEmployee);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1635, 916);
+            this.tabPage3.Size = new System.Drawing.Size(1635, 965);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Empleados";
             // 
@@ -164,17 +164,18 @@
             this.btnAddEmployee.UseVisualStyleBackColor = false;
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
-            // button3
+            // btnSearchEmployee
             // 
-            this.button3.BackColor = System.Drawing.Color.SeaGreen;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(968, 34);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(231, 50);
-            this.button3.TabIndex = 109;
-            this.button3.Text = "Buscar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSearchEmployee.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSearchEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchEmployee.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSearchEmployee.Location = new System.Drawing.Point(968, 34);
+            this.btnSearchEmployee.Name = "btnSearchEmployee";
+            this.btnSearchEmployee.Size = new System.Drawing.Size(231, 50);
+            this.btnSearchEmployee.TabIndex = 109;
+            this.btnSearchEmployee.Text = "Buscar";
+            this.btnSearchEmployee.UseVisualStyleBackColor = false;
+            this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
             // 
             // textBox2
             // 
@@ -210,7 +211,7 @@
             this.tabPage2.Controls.Add(this.pnlDpt);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1635, 916);
+            this.tabPage2.Size = new System.Drawing.Size(1635, 965);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Departamentos";
             // 
@@ -795,7 +796,7 @@
         private System.Windows.Forms.CheckBox chkActive;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnAddEmployee;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSearchEmployee;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox3;

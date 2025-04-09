@@ -216,7 +216,7 @@ namespace proyectoIntegrador.Controllers
                             employeeList.Add(new employee_model
                             {
                                 IdEmpleado = reader.GetInt32("IdEmpleado"),
-                                NombreEmpleado = reader.GetString("Nombre"),
+                                NombreEmpleado = reader.GetString("NombreEmpleado"),
                                 Cedula = reader.GetString("Cedula"),
                                 Direccion = reader.GetString("Direccion"),
                                 Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),

@@ -6,27 +6,40 @@ using System.Threading.Tasks;
 
 namespace proyectoIntegrador.Models
 {
-    internal class payroll_model
+    public class payroll_model // ▶️ Cambia de class a public class
     {
         public int IdRol { get; set; }
         public int NumRol { get; set; }
-        public bool IsDeleted { get; set; }
         public string Mes { get; set; }
         public int Anio { get; set; }
         public DateTime FechaEmision { get; set; }
         public int IdEmpleado { get; set; }
-        // Ingresos
         public decimal Sueldo { get; set; }
         public decimal HorasSuplementarias { get; set; }
         public decimal HorasExtras { get; set; }
         public decimal DecimotercerSueldo { get; set; }
         public decimal DecimocuartoSueldo { get; set; }
         public decimal FondoReserva { get; set; }
-        // Egresos
         public decimal AporteIess { get; set; }
+        public decimal Anticipos { get; set; }
+        public decimal OtrosDescuentos { get; set; }
+        public decimal DescuentoTardanzas { get; set; }
         public decimal TotalEgresos { get; set; }
-        // Totales
-        public decimal TotalIngresos => Sueldo + HorasSuplementarias + HorasExtras + DecimotercerSueldo + DecimocuartoSueldo + FondoReserva;
-        public decimal NetoPagar => TotalIngresos - TotalEgresos;
+        public decimal TotalIngresos { get; set; }
+        public decimal NetoPagar { get; set; }
+
+
+
+
+        //vista vista_rol_pago_detallada
+        public string NombreEmpleado { get; set; }
+        public string Cedula { get; set; }
+        public string NombreCargo { get; set; }
+        public string NombreDepartamento { get; set; }
+
+
+
+
+
     }
 }

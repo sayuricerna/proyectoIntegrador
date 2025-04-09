@@ -38,8 +38,8 @@ namespace proyectoIntegrador.Views
             this.LoadGridEmployee(1);
         }
 
+        /********************************************************** DEPARTMENT **********************************************************/
 
-        /* Departments */
         public void LoadGridDpt(int numero)
         {
             dgvDpt.DataSource = null;
@@ -109,12 +109,13 @@ namespace proyectoIntegrador.Views
                 }
             }
         }
-        //BUSCAR DPT
+        
+        //Search Department
         private void button2_Click(object sender, EventArgs e)
         {
 
         }
-        //GUARDAR DPT
+        //Save Department
         private void btnSaveDpt_Click_1(object sender, EventArgs e)
         {
 
@@ -178,18 +179,18 @@ namespace proyectoIntegrador.Views
 
 
         }
-        //CANCELAR DPT
+        
+        //Button Cancel DPT
         private void btnCancelDpt_Click_1(object sender, EventArgs e)
         {
             pnlDpt.Enabled = false;
-            txtDpt.Text = ""; // Borra el campo de texto
-            this.editMode = false; // Resetea el modo de edición
-            this.id = 0; // Reinicia el ID
+            txtDpt.Text = "";
+            this.editMode = false;
+            this.id = 0;
         }
         private void btnAddDpt_Click_1(object sender, EventArgs e)
         {
             pnlDpt.Enabled = true;
-
         }
         public void EditDpt(int id)
         {
@@ -203,14 +204,12 @@ namespace proyectoIntegrador.Views
                     this.id = department.IdDepartamento;
                     pnlDpt.Enabled = true;
                     this.editMode = true;
-                    
                 }
                 else
                 {
                     MessageBox.Show("No se encontró el departamento.");
                 }
                 LoadGridDpt(1);
-
             }
             catch (Exception ex)
             {
@@ -221,7 +220,7 @@ namespace proyectoIntegrador.Views
         {
             DialogResult cuadroDialogo = MessageBox.Show("¿Está seguro de que desea eliminar este departamento?",
                 "Eliminar Departamento", MessageBoxButtons.YesNo);
-            if (cuadroDialogo == DialogResult.Yes)
+            if (cuadroDialogo == DialogResult.Yes)  
             {
                 var Position = new department_controller();
                 if (Position.Delete(id))
@@ -241,7 +240,7 @@ namespace proyectoIntegrador.Views
         }
 
 
-        /* POSITIONS */
+        /********************************************************** POSITION **********************************************************/
         public void LoadGridPosition(int numero)
         {
             loadDepartments();
@@ -489,7 +488,7 @@ namespace proyectoIntegrador.Views
         }
 
 
-        /* EMPLOYEES */
+        /********************************************************** EMPLOYEE **********************************************************/
         private void button5_Click(object sender, EventArgs e)
         {
             PersonnelM.frmEmployee frm = new PersonnelM.frmEmployee("n");
@@ -606,7 +605,7 @@ namespace proyectoIntegrador.Views
             }
         }
 
-        /* USERS */
+        /********************************************************** USER **********************************************************/
 
         private void dgvUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -844,8 +843,6 @@ namespace proyectoIntegrador.Views
             cmbEmployee.DisplayMember = "nombreEmpleado";  // Aquí pon el nombre correcto que quieras mostrar
         }
 
-
-
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -908,6 +905,12 @@ namespace proyectoIntegrador.Views
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSearchEmployee_Click(object sender, EventArgs e)
+        {
+            this.LoadGridEmployee(2);
 
         }
     }

@@ -34,7 +34,7 @@ namespace proyectoIntegrador.Views
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            LoadGridAttedance(2);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace proyectoIntegrador.Views
 
         {
             LoadGridAttedance(1);
-            
+
             /*
 
                         if (userID != -1)
@@ -118,18 +118,25 @@ namespace proyectoIntegrador.Views
 
             if (numero == 1)
             {
-                dgvAttendance.DataSource = logica.GetAll();
+                dgvAttendance.DataSource = logica.GetAllView();
             }
             else
             {
-                dgvAttendance.DataSource = logica.SearchByEmployee(txtSearch.Text.Trim());
+                dgvAttendance.DataSource = logica.SearchView(txtSearch.Text.Trim());
             }
-            dgvAttendance.Columns["idAsistencia"].HeaderText = "ID";
-            dgvAttendance.Columns["idEmpleado"].HeaderText = "EMPLEADO";
-            dgvAttendance.Columns["fecha"].HeaderText = "FECHA";
-            dgvAttendance.Columns["horaEntrada"].HeaderText = "ENTRADA";
-            dgvAttendance.Columns["horaSalida"].HeaderText = "SALIDA";
-            dgvAttendance.Columns["Justificado"].HeaderText = "JUSTIFICADO";
+            dgvAttendance.Columns["idAsistencia"].Visible = false;
+            dgvAttendance.Columns["idEmpleado"].Visible = false;
+            dgvAttendance.Columns["nombreEmpleado"].HeaderText = "Empleado";
+            dgvAttendance.Columns["fecha"].HeaderText = "Fecha";
+            dgvAttendance.Columns["horaEntrada"].HeaderText = "Hora Entrada";
+            dgvAttendance.Columns["horaSalida"].HeaderText = "Hora Salida";
+            dgvAttendance.Columns["horasTrabajadasTiempo"].HeaderText = "Horas Trabajadas";
+            dgvAttendance.Columns["horasSuplementariasTiempo"].HeaderText = "Horas Suplementarias";
+            dgvAttendance.Columns["horasExtrasTiempo"].HeaderText = "Horas Extraordinarias";
+            dgvAttendance.Columns["horasNOTrabajadasTiempo"].HeaderText = "Horas NO trabajadas";
+            dgvAttendance.Columns["justificadoStr"].HeaderText = "Justificado";
+            dgvAttendance.Columns["MotivoJustificacion"].HeaderText = "Motivo";
+            dgvAttendance.Columns["DetalleJustificacion"].HeaderText = "Detalle de Justificación";
         }
 
         private void dgvAttendance_Leave(object sender, EventArgs e)
@@ -160,5 +167,11 @@ namespace proyectoIntegrador.Views
             }
         }
 
+        private void dgvAttendance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+
+        }
+    
     }
 }

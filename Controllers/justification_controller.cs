@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,25 +66,35 @@ namespace proyectoIntegrador.Controllers
         {
             try
             {
-                // First, insert a new justification record into the justificacion table
-                int justificationId = InsertJustification(reason, detail);
-
-                // Then, update the attendance records to mark them as justified
                 using (var conn = _connection.GetConnection())
                 {
                     conn.Open();
-                    string query = "UPDATE asistencia SET justificado = TRUE, idJustificacion = @idJustificacion WHERE idEmpleado = @idEmpleado AND fecha BETWEEN @startDate AND @endDate AND justificado = FALSE";
-                    using (var cmd = new MySqlCommand(query, conn))
+
+                    // Ejecutar el procedimiento almacenado
+                    using (var cmd = new MySqlCommand("JustificarAsistencia", conn))
                     {
-                        cmd.Parameters.AddWithValue("@startDate", startDate);
-                        cmd.Parameters.AddWithValue("@endDate", endDate);
-                        cmd.Parameters.AddWithValue("@idEmpleado", employeeId);
-                        cmd.Parameters.AddWithValue("@idJustificacion", justificationId);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Parámetros de entrada
+                        cmd.Parameters.AddWithValue("@p_idEmpleado", employeeId);
+                        cmd.Parameters.AddWithValue("@p_fechaInicio", startDate.Date);
+                        cmd.Parameters.AddWithValue("@p_fechaFin", endDate.Date);
+                        cmd.Parameters.AddWithValue("@p_motivo", reason);
+                        cmd.Parameters.AddWithValue("@p_detalle", detail);
+
+                        // Parámetro de salida para el mensaje
+                        var resultParam = new MySqlParameter("@resultado", MySqlDbType.VarChar, 500)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(resultParam);
 
                         cmd.ExecuteNonQuery();
+
+                        // Obtener mensaje de salida
+                        return resultParam.Value?.ToString() ?? "Proceso completado sin mensaje.";
                     }
                 }
-                return "Justification applied successfully!";
             }
             catch (Exception ex)
             {

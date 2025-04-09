@@ -301,7 +301,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEmployee";
-            this.Text = "frmEmployee";
+            this.Text = "Empleado";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEmployee_FormClosing);
             this.Load += new System.EventHandler(this.frmEmployee_Load);
             this.ResumeLayout(false);

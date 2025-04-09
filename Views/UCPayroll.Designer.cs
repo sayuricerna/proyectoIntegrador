@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlAdvanceP = new System.Windows.Forms.Panel();
             this.btnCancelAdvanceP = new System.Windows.Forms.Button();
             this.btnSaveAdvanceP = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,40 +37,42 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlRoll = new System.Windows.Forms.Panel();
+            this.dateTimePickerMonth = new System.Windows.Forms.DateTimePicker();
             this.btnCancelRoll = new System.Windows.Forms.Button();
             this.btnSaveRoll = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxEmployee = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dgvPosition = new System.Windows.Forms.DataGridView();
+            this.dgvPayroll = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnGiveAdvance = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnGenROLL = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).BeginInit();
+            this.pnlAdvanceP.SuspendLayout();
+            this.pnlRoll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel3
+            // pnlAdvanceP
             // 
-            this.panel3.Controls.Add(this.btnCancelAdvanceP);
-            this.panel3.Controls.Add(this.btnSaveAdvanceP);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.txtAmount);
-            this.panel3.Controls.Add(this.txtReason);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.cmbEmployee);
-            this.panel3.Location = new System.Drawing.Point(19, 37);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(832, 286);
-            this.panel3.TabIndex = 117;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.pnlAdvanceP.BackColor = System.Drawing.Color.White;
+            this.pnlAdvanceP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAdvanceP.Controls.Add(this.btnCancelAdvanceP);
+            this.pnlAdvanceP.Controls.Add(this.btnSaveAdvanceP);
+            this.pnlAdvanceP.Controls.Add(this.label1);
+            this.pnlAdvanceP.Controls.Add(this.txtAmount);
+            this.pnlAdvanceP.Controls.Add(this.txtReason);
+            this.pnlAdvanceP.Controls.Add(this.label4);
+            this.pnlAdvanceP.Controls.Add(this.label3);
+            this.pnlAdvanceP.Controls.Add(this.cmbEmployee);
+            this.pnlAdvanceP.Location = new System.Drawing.Point(19, 37);
+            this.pnlAdvanceP.Name = "pnlAdvanceP";
+            this.pnlAdvanceP.Size = new System.Drawing.Size(832, 286);
+            this.pnlAdvanceP.TabIndex = 117;
+            this.pnlAdvanceP.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // btnCancelAdvanceP
             // 
@@ -156,18 +158,33 @@
             this.cmbEmployee.Size = new System.Drawing.Size(397, 33);
             this.cmbEmployee.TabIndex = 98;
             // 
-            // panel1
+            // pnlRoll
             // 
-            this.panel1.Controls.Add(this.btnCancelRoll);
-            this.panel1.Controls.Add(this.btnSaveRoll);
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(857, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(751, 286);
-            this.panel1.TabIndex = 118;
+            this.pnlRoll.BackColor = System.Drawing.Color.White;
+            this.pnlRoll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlRoll.Controls.Add(this.dateTimePickerMonth);
+            this.pnlRoll.Controls.Add(this.btnCancelRoll);
+            this.pnlRoll.Controls.Add(this.btnSaveRoll);
+            this.pnlRoll.Controls.Add(this.label2);
+            this.pnlRoll.Controls.Add(this.comboBoxEmployee);
+            this.pnlRoll.Controls.Add(this.label5);
+            this.pnlRoll.Location = new System.Drawing.Point(857, 37);
+            this.pnlRoll.Name = "pnlRoll";
+            this.pnlRoll.Size = new System.Drawing.Size(751, 286);
+            this.pnlRoll.TabIndex = 118;
+            // 
+            // dateTimePickerMonth
+            // 
+            this.dateTimePickerMonth.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerMonth.CustomFormat = "MM/yyyy";
+            this.dateTimePickerMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerMonth.Location = new System.Drawing.Point(307, 54);
+            this.dateTimePickerMonth.Name = "dateTimePickerMonth";
+            this.dateTimePickerMonth.ShowUpDown = true;
+            this.dateTimePickerMonth.Size = new System.Drawing.Size(303, 30);
+            this.dateTimePickerMonth.TabIndex = 104;
+            this.dateTimePickerMonth.ValueChanged += new System.EventHandler(this.dateTimePickerMonth_ValueChanged);
             // 
             // btnCancelRoll
             // 
@@ -195,15 +212,6 @@
             this.btnSaveRoll.UseVisualStyleBackColor = false;
             this.btnSaveRoll.Click += new System.EventHandler(this.btnSaveRoll_Click);
             // 
-            // comboBox3
-            // 
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(307, 59);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(303, 33);
-            this.comboBox3.TabIndex = 101;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -214,35 +222,38 @@
             this.label2.TabIndex = 100;
             this.label2.Text = "Empleado";
             // 
-            // comboBox2
+            // comboBoxEmployee
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(307, 108);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(303, 33);
-            this.comboBox2.TabIndex = 99;
+            this.comboBoxEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEmployee.FormattingEnabled = true;
+            this.comboBoxEmployee.Location = new System.Drawing.Point(307, 108);
+            this.comboBoxEmployee.Name = "comboBoxEmployee";
+            this.comboBoxEmployee.Size = new System.Drawing.Size(303, 33);
+            this.comboBoxEmployee.TabIndex = 99;
+            this.comboBoxEmployee.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployee_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(231, 67);
+            this.label5.Location = new System.Drawing.Point(173, 54);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 25);
+            this.label5.Size = new System.Drawing.Size(106, 25);
             this.label5.TabIndex = 98;
-            this.label5.Text = "Mes";
+            this.label5.Text = "Mes y Año";
             // 
-            // dgvPosition
+            // dgvPayroll
             // 
-            this.dgvPosition.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPosition.Location = new System.Drawing.Point(19, 385);
-            this.dgvPosition.Name = "dgvPosition";
-            this.dgvPosition.RowHeadersWidth = 51;
-            this.dgvPosition.RowTemplate.Height = 24;
-            this.dgvPosition.Size = new System.Drawing.Size(1589, 519);
-            this.dgvPosition.TabIndex = 119;
+            this.dgvPayroll.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPayroll.Location = new System.Drawing.Point(19, 385);
+            this.dgvPayroll.Name = "dgvPayroll";
+            this.dgvPayroll.RowHeadersWidth = 51;
+            this.dgvPayroll.RowTemplate.Height = 24;
+            this.dgvPayroll.Size = new System.Drawing.Size(1589, 519);
+            this.dgvPayroll.TabIndex = 119;
+            this.dgvPayroll.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayroll_CellContentClick);
+            this.dgvPayroll.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPayroll_DataBindingComplete);
             // 
             // btnSearch
             // 
@@ -310,17 +321,17 @@
             this.Controls.Add(this.btnGiveAdvance);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dgvPosition);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.dgvPayroll);
+            this.Controls.Add(this.pnlRoll);
+            this.Controls.Add(this.pnlAdvanceP);
             this.Name = "UCPayroll";
             this.Size = new System.Drawing.Size(1641, 923);
             this.Load += new System.EventHandler(this.UCPayroll_Load);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).EndInit();
+            this.pnlAdvanceP.ResumeLayout(false);
+            this.pnlAdvanceP.PerformLayout();
+            this.pnlRoll.ResumeLayout(false);
+            this.pnlRoll.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayroll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -328,19 +339,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlAdvanceP;
+        private System.Windows.Forms.Panel pnlRoll;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbEmployee;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxEmployee;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvPosition;
+        private System.Windows.Forms.DataGridView dgvPayroll;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnGiveAdvance;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -350,5 +360,6 @@
         private System.Windows.Forms.Button btnSaveAdvanceP;
         private System.Windows.Forms.Button btnCancelRoll;
         private System.Windows.Forms.Button btnSaveRoll;
+        private System.Windows.Forms.DateTimePicker dateTimePickerMonth;
     }
 }

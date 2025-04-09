@@ -46,9 +46,9 @@
             this.btnJustify.BackColor = System.Drawing.Color.SeaGreen;
             this.btnJustify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJustify.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnJustify.Location = new System.Drawing.Point(1208, 28);
+            this.btnJustify.Location = new System.Drawing.Point(1180, 28);
             this.btnJustify.Name = "btnJustify";
-            this.btnJustify.Size = new System.Drawing.Size(231, 50);
+            this.btnJustify.Size = new System.Drawing.Size(189, 50);
             this.btnJustify.TabIndex = 106;
             this.btnJustify.Text = "Justificar";
             this.btnJustify.UseVisualStyleBackColor = false;
@@ -61,7 +61,7 @@
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSearch.Location = new System.Drawing.Point(971, 28);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(231, 50);
+            this.btnSearch.Size = new System.Drawing.Size(203, 50);
             this.btnSearch.TabIndex = 105;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -89,6 +89,7 @@
             this.dgvAttendance.TabIndex = 103;
             this.dgvAttendance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttendance_CellClick);
             this.dgvAttendance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAttendance_CellContentClick);
+            this.dgvAttendance.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAttendance_CellFormatting);
             this.dgvAttendance.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAttendance_DataBindingComplete);
             this.dgvAttendance.Leave += new System.EventHandler(this.dgvAttendance_Leave);
             // 
@@ -130,11 +131,11 @@
             this.button1.BackColor = System.Drawing.Color.SeaGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(1445, 26);
+            this.button1.Location = new System.Drawing.Point(1375, 26);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 50);
+            this.button1.Size = new System.Drawing.Size(241, 50);
             this.button1.TabIndex = 108;
-            this.button1.Text = "Justificar";
+            this.button1.Text = "Tomar Asistencia";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
