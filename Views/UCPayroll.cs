@@ -274,13 +274,33 @@ namespace proyectoIntegrador.Views
                 dgvPayroll.DataSource = logica.Search(txtSearch.Text.Trim()); // Assuming SearchByName() searches employees by name
             }
 
-            dgvPayroll.Columns["IdRol"].HeaderText = "ID";
-            dgvPayroll.Columns["NumRol"].HeaderText = "NumRolo";
+            dgvPayroll.Columns["IdRol"].Visible = false;
+            dgvPayroll.Columns["IdEmpleado"].Visible = false;
+            dgvPayroll.Columns["NumRol"].HeaderText = "#Rol";
             dgvPayroll.Columns["Mes"].HeaderText = "Mes";
             dgvPayroll.Columns["Anio"].HeaderText = "Anio";
-            dgvPayroll.Columns["FechaEmision"].HeaderText = "FechaEmision";
+            dgvPayroll.Columns["FechaEmision"].HeaderText = "Fecha";
+            dgvPayroll.Columns["HorasSuplementarias"].HeaderText = "H.S";
+            dgvPayroll.Columns["HorasExtras"].HeaderText = "H.E";
+            dgvPayroll.Columns["DecimotercerSueldo"].HeaderText = "13.º";
+            dgvPayroll.Columns["DecimocuartoSueldo"].HeaderText = "14.º";
+            dgvPayroll.Columns["FondoReserva"].HeaderText = "Reserva";
+            dgvPayroll.Columns["AporteIess"].HeaderText = "IESS";
+            dgvPayroll.Columns["Anticipos"].HeaderText = "Anticipos";
+            dgvPayroll.Columns["OtrosDescuentos"].HeaderText = "Faltas";
+            dgvPayroll.Columns["DescuentoTardanzas"].HeaderText = "Tardanza";
+            dgvPayroll.Columns["TotalEgresos"].HeaderText = "Egresos";
+            dgvPayroll.Columns["TotalIngresos"].HeaderText = "Ingresos";
+            dgvPayroll.Columns["NetoPagar"].HeaderText = "A Pagar";
+            dgvPayroll.Columns["NombreEmpleado"].HeaderText = "Empleado";
+            dgvPayroll.Columns["NombreDepartamento"].HeaderText = "Dpt";
+            dgvPayroll.Columns["NombreCargo"].HeaderText = "Cargo";
 
 
+
+            dgvPayroll.ColumnHeadersDefaultCellStyle.Font = new Font(dgvPayroll.Font, FontStyle.Bold);
+
+            autoincremento.Width = 40;
             dgvPayroll.Columns.Add(btnEliminar);
             dgvPayroll.Refresh();
 
@@ -327,7 +347,10 @@ namespace proyectoIntegrador.Views
 
         private void dgvPayroll_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-
+            for (int i = 0; i < dgvPayroll.Rows.Count; i++)
+            {
+                dgvPayroll.Rows[i].Cells[0].Value = i + 1;
+            }
         }
 
         private void cmbEmployee_SelectedIndexChanged(object sender, EventArgs e)

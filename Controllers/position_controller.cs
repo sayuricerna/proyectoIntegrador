@@ -40,7 +40,7 @@ namespace proyectoIntegrador.Controllers
             var positionList = new List<position_model>();
             using (var connection = cn.GetConnection())
             {
-                string query = "SELECT IdCargo, NombreCargo, Salario, IdDepartamento FROM cargo WHERE isDeleted = 0";
+                string query = "SELECT * FROM vista_cargos";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -53,7 +53,7 @@ namespace proyectoIntegrador.Controllers
                                 IdCargo = reader.GetInt32("IdCargo"),
                                 NombreCargo = reader.GetString("NombreCargo"),
                                 Salario = reader.GetDecimal("Salario"),
-                                IdDepartamento = reader.GetInt32("IdDepartamento")
+                                NombreDepartamento = reader.GetString("nombreDepartamento")
                             });
                         }
                     }

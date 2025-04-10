@@ -189,8 +189,8 @@
             // 
             // dgvEmployee
             // 
-            this.dgvEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvEmployee.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvEmployee.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployee.Location = new System.Drawing.Point(22, 99);
             this.dgvEmployee.Name = "dgvEmployee";
@@ -264,6 +264,7 @@
             // 
             // dgvDpt
             // 
+            this.dgvDpt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDpt.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDpt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDpt.Location = new System.Drawing.Point(21, 359);
@@ -493,6 +494,7 @@
             // 
             // dgvPosition
             // 
+            this.dgvPosition.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPosition.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPosition.Location = new System.Drawing.Point(24, 358);
@@ -696,6 +698,7 @@
             // 
             // dgvUser
             // 
+            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.Location = new System.Drawing.Point(22, 356);

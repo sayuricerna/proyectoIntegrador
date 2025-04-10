@@ -21,5 +21,12 @@ namespace proyectoIntegrador.Models
         public int IdDepartamento { get; set; }
         public int IdCargo { get; set; }
         public bool IsDeleted { get; set; }
+
+
+        // View
+        public string HuellaRegistrada { get; set; }
+        public string Estado { get; set; }
+        public string NombreDepartamento { get; set; }  // Agregado para departamento
+        public string NombreCargo { get; set; }  // Agregado para cargo
     }
 }

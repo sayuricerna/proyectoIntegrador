@@ -17,9 +17,7 @@ namespace proyectoIntegrador.Models
 
 
         //Desde View posDpt ver en grid
-        public decimal Salario { get; set; }
-        public string Cargo { get; set; }
-        public string Departamento { get; set; }
+        public int NumeroCargos { get; set; }
 
     }
 }

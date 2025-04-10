@@ -247,6 +247,7 @@
             // 
             // dgvPayroll
             // 
+            this.dgvPayroll.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPayroll.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPayroll.Location = new System.Drawing.Point(19, 385);

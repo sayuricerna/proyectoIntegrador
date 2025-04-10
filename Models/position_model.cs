@@ -10,6 +10,7 @@ namespace proyectoIntegrador.Models
     {
         public int IdCargo { get; set; }
         public string NombreCargo { get; set; }
+        public string NombreDepartamento { get; set; }
         public decimal Salario { get; set; }
         public int IdDepartamento { get; set; }
         public bool IsDeleted { get; set; }

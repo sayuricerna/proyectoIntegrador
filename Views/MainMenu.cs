@@ -23,7 +23,6 @@ namespace proyectoIntegrador.Views
             this.WindowState = FormWindowState.Maximized; // Abre en pantalla completa
 
         }
-
         private void btnAsistencias_Click(object sender, EventArgs e)
         {
 
@@ -37,12 +36,6 @@ namespace proyectoIntegrador.Views
             pnlGeneral.Controls.Add(uCPersonnelM);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        /* Asistencia */
         private void button4_Click(object sender, EventArgs e)
         {
             UCAttendance uCAttendance = new UCAttendance();
@@ -88,7 +81,13 @@ namespace proyectoIntegrador.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Restart();
+        }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); //Evitar que quede en debugging al cerrar
+
         }
     }
 }

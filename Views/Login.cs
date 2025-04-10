@@ -17,13 +17,7 @@ namespace proyectoIntegrador.Views
         public Login()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedDialog; // Evita redimensionamiento
-            this.MaximizeBox = false; // Deshabilita el botón de maximizar
-            this.MinimizeBox = false; // (Opcional) Deshabilita minimizar
-            this.StartPosition = FormStartPosition.CenterScreen; // Centra la ventana
-
         }
-
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             string username = txtUser.Text.Trim();
@@ -52,11 +46,6 @@ namespace proyectoIntegrador.Views
             {
                 MessageBox.Show("Usuario no encontrado o inactivo", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            //MainMenu mainMenu = new MainMenu();
-            //mainMenu.Show();
-            //this.Hide();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

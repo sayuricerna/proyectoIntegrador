@@ -79,6 +79,7 @@
             // 
             // dgvAttendance
             // 
+            this.dgvAttendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAttendance.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttendance.Location = new System.Drawing.Point(25, 93);

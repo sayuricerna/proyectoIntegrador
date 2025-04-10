@@ -29,38 +29,39 @@ namespace proyectoIntegrador.Controllers
         }
         
         // Obtener todos los departamentos y crgos activos
-        public List<department_model> GetAll()
-        {
-            var departmentList = new List<department_model>();
-            using (var connection = cn.GetConnection())
-            {
-                string query = "SELECT Salario, Cargo, Departamento FROM vwPosDpt";
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    connection.Open();
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            departmentList.Add(new department_model
-                            {
-                                Salario = reader.GetDecimal("Salario"),
-                                Cargo = reader.GetString("Cargo"),
-                                Departamento = reader.GetString("Departamento")
-                            });
-                        }
-                    }
-                }
-            }
-            return departmentList;
-        }
+        //public List<department_model> GetAll()
+        //{
+        //    var departmentList = new List<department_model>();
+        //    using (var connection = cn.GetConnection())
+        //    {
+        //        string query = "SELECT * FROM vista_departamento_cargos";
+
+        //        using (var command = new MySqlCommand(query, connection))
+        //        {
+        //            connection.Open();
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    departmentList.Add(new department_model
+        //                    {
+        //                        IdDepartamento = reader.GetInt32("IdDepartamento"),
+        //                        NombreDepartamento = reader.GetString("NombreDepartamento"),
+        //                        NumeroCargos = reader.GetInt32("numeroCargos")
+        //                    });
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return departmentList;
+        //}
         // Obtener todos los departamentos activos para ComboBox
         public List<department_model> GetAllDepartments()
         {
             var departmentList = new List<department_model>();
             using (var connection = cn.GetConnection())
             {
-                string query = "SELECT IdDepartamento, NombreDepartamento FROM departamento WHERE isDeleted = 0";
+                string query = "SELECT * FROM vista_departamento_cargos";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -71,7 +72,8 @@ namespace proyectoIntegrador.Controllers
                             departmentList.Add(new department_model
                             {
                                 IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                NombreDepartamento = reader.GetString("NombreDepartamento")
+                                NombreDepartamento = reader.GetString("NombreDepartamento"),
+                                NumeroCargos = reader.GetInt32("numeroCargos")
                             });
                         }
                     }

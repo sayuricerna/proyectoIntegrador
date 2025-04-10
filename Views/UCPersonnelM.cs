@@ -78,8 +78,15 @@ namespace proyectoIntegrador.Views
                 dgvDpt.DataSource = logica.SearchByName(txtSearch.Text.Trim());
             }
             dgvDpt.Columns["idDepartamento"].HeaderText = "ID";
-            dgvDpt.Columns["nombreDepartamento"].HeaderText = "Nombre del Departamento";
-            dgvDpt.Columns["isDeleted"].HeaderText = "is deleted";
+            dgvDpt.Columns["nombreDepartamento"].HeaderText = "Departamento";
+            dgvDpt.Columns["numeroCargos"].HeaderText = "# Cargos";
+            dgvDpt.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDpt.Font, FontStyle.Bold);
+
+            autoincremento.Width = 40;
+
+            dgvDpt.Columns["idDepartamento"].Width = 65;
+            dgvDpt.Columns["isDeleted"].Visible = false;
+            dgvDpt.Columns["numeroCargos"].Width = 140;
             dgvDpt.Columns.Add(btnEditar);
             dgvDpt.Columns.Add(btnEliminar);
         }
@@ -280,11 +287,15 @@ namespace proyectoIntegrador.Views
                 dgvPosition.DataSource = logica.SearchByName(txtSearch.Text.Trim());
             }
 
-            dgvPosition.Columns["IdCargo"].HeaderText = "ID";
-            dgvPosition.Columns["NombreCargo"].HeaderText = "Nombre del Cargo";
+            dgvPosition.Columns["IdCargo"].Visible = false;
+            dgvPosition.Columns["IdDepartamento"].Visible = false;
+            dgvPosition.Columns["NombreDepartamento"].HeaderText = "Departamento";
             dgvPosition.Columns["Salario"].HeaderText = "Salario";
-            dgvPosition.Columns["IdDepartamento"].HeaderText = "ID Departamento";
-            dgvPosition.Columns["IsDeleted"].HeaderText = "Eliminado";
+            dgvPosition.Columns["NombreCargo"].HeaderText = "Cargo";
+            dgvPosition.Columns["IsDeleted"].Visible = false;
+            dgvPosition.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDpt.Font, FontStyle.Bold);
+
+            autoincremento.Width = 50;
 
             dgvPosition.Columns.Add(btnEditar);
             dgvPosition.Columns.Add(btnEliminar);
@@ -530,7 +541,7 @@ namespace proyectoIntegrador.Views
             dgvEmployee.Columns.Clear();
             loadEmployees();
 
-            var logica = new employee_controller();  // Use the controller for employee
+            var logica = new employee_controller();
 
             var autoincremento = new DataGridViewTextBoxColumn
             {
@@ -553,31 +564,43 @@ namespace proyectoIntegrador.Views
                 UseColumnTextForButtonValue = true
             };
 
-            // Obtener datos según el tipo solicitado
             if (numero == 1)
             {
-                dgvEmployee.DataSource = logica.GetAll(); // Assuming GetAll() gets all employees
+                dgvEmployee.DataSource = logica.GetAll();
             }
             else
             {
-                dgvEmployee.DataSource = logica.SearchByName(txtSearch.Text.Trim()); // Assuming SearchByName() searches employees by name
+                dgvEmployee.DataSource = logica.SearchByName(txtSearch.Text.Trim());
             }
-
-            dgvEmployee.Columns["IdEmpleado"].HeaderText = "ID";
-            dgvEmployee.Columns["NombreEmpleado"].HeaderText = "Nombre del Empleado";
+            dgvEmployee.Columns["NombreEmpleado"].HeaderText = "Empleado";
             dgvEmployee.Columns["Cedula"].HeaderText = "Cédula";
-            dgvEmployee.Columns["Huella"].HeaderText = "ID Huella";
-            dgvEmployee.Columns["Direccion"].HeaderText = "Direccion";
-            dgvEmployee.Columns["FechaNacimiento"].HeaderText = "Fecha de Nacimiento";
+            dgvEmployee.Columns["Direccion"].HeaderText = "Dirección";
+            dgvEmployee.Columns["huellaRegistrada"].HeaderText = "Huella";
+            dgvEmployee.Columns["FechaNacimiento"].HeaderText = "Nacimiento";
             dgvEmployee.Columns["Telefono"].HeaderText = "Teléfono";
-            dgvEmployee.Columns["FechaContratacion"].HeaderText = "Fecha de Contratación";
-            dgvEmployee.Columns["IdDepartamento"].HeaderText = "ID Departamento";
-            dgvEmployee.Columns["IdCargo"].HeaderText = "ID Cargo";
-            dgvEmployee.Columns["IsDeleted"].HeaderText = "Eliminado";
+            dgvEmployee.Columns["FechaContratacion"].HeaderText = "Contratación";
+            dgvEmployee.Columns["nombreDepartamento"].HeaderText = "Departamento";
+            dgvEmployee.Columns["nombreCargo"].HeaderText = "Cargo";
+            dgvEmployee.Columns["foto"].Visible = false;
+            dgvEmployee.Columns["IdEmpleado"].Visible = false;
+            dgvEmployee.Columns["Huella"].Visible = false;
+            dgvEmployee.Columns["IdDepartamento"].Visible = false;
+            dgvEmployee.Columns["IdCargo"].Visible = false;
+            dgvEmployee.Columns["IsDeleted"].Visible = false;
+
+            dgvEmployee.ColumnHeadersDefaultCellStyle.Font = new Font(dgvEmployee.Font, FontStyle.Bold);
+            dgvEmployee.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+
+            autoincremento.Width = 30;
+
+            dgvEmployee.Columns["HuellaRegistrada"].Width = 60;
+            dgvEmployee.Columns["Estado"].Width = 60;
 
             dgvEmployee.Columns.Add(btnEditar);
             dgvEmployee.Columns.Add(btnEliminar);
         }
+
+
         private void dgvEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
@@ -669,13 +692,20 @@ namespace proyectoIntegrador.Views
                 dgvUser.DataSource = logica.SearchByName(txtSearch.Text.Trim());
             }
 
-            dgvUser.Columns["IdUsuario"].HeaderText = "ID";
-            dgvUser.Columns["NombreUsuario"].HeaderText = "Nombre";
-            dgvUser.Columns["RolUsuario"].HeaderText = "Rol";
-            dgvUser.Columns["Estado"].HeaderText = "Estado";
-            dgvUser.Columns["IsDeleted"].HeaderText = "Eliminado";
-            dgvUser.Columns["IdEmpleado"].HeaderText = "ID Empleado";
+            dgvUser.Columns["IdUsuario"].Visible = false;
+            dgvUser.Columns["NombreUsuario"].HeaderText = "Usuario";
+            dgvUser.Columns["Contrasenia"].Visible = false;
+            dgvUser.Columns["NombreEmpleado"].HeaderText = "Empleado";
+            dgvUser.Columns["EstadoString"].HeaderText = "Estado";
 
+            dgvUser.Columns["RolUsuario"].HeaderText = "Rol";
+            dgvUser.Columns["Estado"].Visible = false;
+            dgvUser.Columns["IsDeleted"].Visible = false;
+            dgvUser.Columns["IdEmpleado"].Visible = false;
+            dgvUser.ColumnHeadersDefaultCellStyle.Font = new Font(dgvUser.Font, FontStyle.Bold);
+            dgvUser.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+
+            autoincremento.Width = 30;
             dgvUser.Columns.Add(btnEditar);
             dgvUser.Columns.Add(btnEliminar);
         }

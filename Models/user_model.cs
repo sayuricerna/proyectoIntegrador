@@ -15,5 +15,7 @@ namespace proyectoIntegrador.Models
         public bool Estado { get; set; }
         public bool IsDeleted { get; set; }
         public int IdEmpleado { get; set; }
+        public string NombreEmpleado { get; set; }
+        public string EstadoString { get; internal set; }
     }
 }

@@ -137,6 +137,9 @@ namespace proyectoIntegrador.Views
             dgvAttendance.Columns["justificadoStr"].HeaderText = "Justificado";
             dgvAttendance.Columns["MotivoJustificacion"].HeaderText = "Motivo";
             dgvAttendance.Columns["DetalleJustificacion"].HeaderText = "Detalle de Justificación";
+
+            dgvAttendance.ColumnHeadersDefaultCellStyle.Font = new Font(dgvAttendance.Font, FontStyle.Bold);
+
         }
 
         private void dgvAttendance_Leave(object sender, EventArgs e)

@@ -205,7 +205,6 @@
             this.pnlGeneral.Name = "pnlGeneral";
             this.pnlGeneral.Size = new System.Drawing.Size(1523, 940);
             this.pnlGeneral.TabIndex = 1;
-            this.pnlGeneral.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // MainMenu
             // 
@@ -214,9 +213,15 @@
             this.ClientSize = new System.Drawing.Size(1924, 940);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SERVITEC - Sistema de Rol de Pagos con Lector de huellas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

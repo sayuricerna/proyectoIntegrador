@@ -13,12 +13,50 @@ namespace proyectoIntegrador.Controllers
     internal class employee_controller
     {
         private readonly connection _cn = new connection();
+
+
+        //public List<employee_model> GetAll()
+        //{
+        //    var employeeList = new List<employee_model>();
+        //    using (var connection = _cn.GetConnection())
+        //    {
+        //        string query = "SELECT IdEmpleado, NombreEmpleado, Huella, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella FROM empleado WHERE isDeleted = 0";
+        //        using (var command = new MySqlCommand(query, connection))
+        //        {
+        //            connection.Open();
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    employeeList.Add(new employee_model
+        //                    {
+        //                        IdEmpleado = reader.GetInt32("IdEmpleado"),
+        //                        NombreEmpleado = reader.GetString("NombreEmpleado"),
+        //                        Cedula = reader.GetString("Cedula"),
+        //                        Direccion = reader.GetString("Direccion"),
+        //                        Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),
+        //                        FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
+        //                        FechaContratacion = reader.GetDateTime("FechaContratacion"),
+        //                        IdDepartamento = reader.GetInt32("IdDepartamento"),
+        //                        IdCargo = reader.GetInt32("IdCargo"),
+        //                        Huella = reader.GetInt32("Huella")
+        //                    });
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return employeeList;
+        //}
+
+        // pal id
+
         public List<employee_model> GetAll()
         {
             var employeeList = new List<employee_model>();
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdEmpleado, NombreEmpleado, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella FROM empleado WHERE isDeleted = 0";
+                string query = "SELECT * FROM vista_empleados_gestion";  // Usando la vista
+
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -37,7 +75,11 @@ namespace proyectoIntegrador.Controllers
                                 FechaContratacion = reader.GetDateTime("FechaContratacion"),
                                 IdDepartamento = reader.GetInt32("IdDepartamento"),
                                 IdCargo = reader.GetInt32("IdCargo"),
-                                //Huella = reader.GetInt32("Huella")
+                                Huella = reader.GetInt32("Huella"),
+                                HuellaRegistrada = reader.GetString("HuellaRegistrada"),  // Valor calculado
+                                Estado = reader.GetString("Estado"),  // Valor calculado
+                                NombreDepartamento = reader.GetString("nombreDepartamento"),  // Recuperado de la vista
+                                NombreCargo = reader.GetString("nombreCargo")
                             });
                         }
                     }
@@ -46,7 +88,7 @@ namespace proyectoIntegrador.Controllers
             return employeeList;
         }
 
-        // pal id
+
         public employee_model GetById(int id)
         {
             employee_model employee = null;

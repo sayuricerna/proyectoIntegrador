@@ -142,6 +142,7 @@
     <Compile Include="Controllers\department_controller.cs" />
     <Compile Include="Controllers\employee_controller.cs" />
     <Compile Include="Controllers\justification_controller.cs" />
+    <Compile Include="Controllers\login_controller.cs" />
     <Compile Include="Controllers\payroll_controller.cs" />
     <Compile Include="Controllers\position_controller.cs" />
     <Compile Include="Controllers\user_controler.cs" />
@@ -152,6 +153,7 @@
     </Compile>
     <Compile Include="Helpers\encryptP.cs" />
     <Compile Include="Helpers\FingerprintHelper.cs" />
+    <Compile Include="Helpers\Session.cs" />
     <Compile Include="Models\advancep_model.cs" />
     <Compile Include="Models\attendance_model.cs" />
     <Compile Include="Models\audit_model.cs" />
@@ -254,6 +256,7 @@
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reports\Report.rdlc" />
+    <EmbeddedResource Include="Views\Reports\RolDePago.rdlc" />
     <EmbeddedResource Include="Views\Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>

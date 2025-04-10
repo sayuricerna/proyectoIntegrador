@@ -22,7 +22,8 @@ namespace proyectoIntegrador.Controllers
 
             using (MySqlConnection conn = cn.GetConnection()) // Suponiendo que GetConnection() devuelve una conexión MySQL
             {
-                string query = "SELECT * FROM Usuario WHERE IsDeleted = 0";
+                //string query = "SELECT * FROM Usuario WHERE IsDeleted = 0";
+                string query = "SELECT u.idUsuario, u.nombreUsuario, u.contrasenia, u.rolUsuario, u.estado, u.isDeleted, e.idEmpleado, e.nombreEmpleado, e.isDeleted AS empleadoIsDeleted FROM usuario u JOIN empleado e ON u.idEmpleado = e.idEmpleado";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 try
@@ -32,15 +33,21 @@ namespace proyectoIntegrador.Controllers
 
                     while (reader.Read())
                     {
+                        bool estado = reader.GetBoolean("estado"); // Aquí mantenemos el estado como booleano
+                        string estadoStr = estado ? "Activo" : "Inactivo";
                         usuarios.Add(new user_model
                         {
                             IdUsuario = reader.GetInt32("IdUsuario"),
                             NombreUsuario = reader.GetString("NombreUsuario"),
                             Contrasenia = reader.GetString("Contrasenia"),
                             RolUsuario = reader.GetString("RolUsuario"),
-                            Estado = reader.GetBoolean("Estado"),
+                            //Estado = reader.GetBoolean("Estado"),
+                            Estado = estado,  // Seguimos usando bool en el modelo
+                            EstadoString = estadoStr, //
                             IsDeleted = reader.GetBoolean("IsDeleted"),
-                            IdEmpleado = reader.GetInt32("IdEmpleado")
+                            IdEmpleado = reader.GetInt32("IdEmpleado"),
+                            NombreEmpleado = reader.GetString("NombreEmpleado")
+
                         });
                     }
                 }
@@ -52,13 +59,15 @@ namespace proyectoIntegrador.Controllers
             return usuarios;
         }
 
+
         public user_model GetById(int id)
         {
             user_model usuario = null;
 
             using (MySqlConnection conn = cn.GetConnection())
             {
-                string query = "SELECT * FROM Usuario WHERE IdUsuario = @IdUsuario AND IsDeleted = 0";
+                //string query = "SELECT * FROM Usuario WHERE IdUsuario = @IdUsuario AND IsDeleted = 0";
+                string query = "SELECT * FROM Usuario WHERE IdUsuario = @IdUsuario ";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@IdUsuario", id);
 
@@ -94,7 +103,8 @@ namespace proyectoIntegrador.Controllers
 
             using (MySqlConnection conn = cn.GetConnection())
             {
-                string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre AND IsDeleted = 0";
+                //string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre AND IsDeleted = 0";
+                string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre ";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Nombre", "%" + nombre + "%");
 
