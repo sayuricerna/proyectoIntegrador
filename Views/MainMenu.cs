@@ -63,7 +63,7 @@ namespace proyectoIntegrador.Views
 
         private void button6_Click(object sender, EventArgs e)
         {
-            UCReports uCReports = new UCReports();
+            UCReport uCReports = new UCReport();
             pnlGeneral.Controls.Clear();
             uCReports.Dock = DockStyle.Fill;
             pnlGeneral.Controls.Add(uCReports);

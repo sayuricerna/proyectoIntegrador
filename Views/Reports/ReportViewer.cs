@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace proyectoIntegrador.Views.Administration
+namespace proyectoIntegrador.Views.Reports
 {
-    public partial class UCReports : UserControl
+    public partial class ReportViewer : Form
     {
-        public UCReports()
+        public ReportViewer()
         {
             InitializeComponent();
         }
