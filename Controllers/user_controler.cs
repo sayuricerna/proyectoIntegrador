@@ -23,7 +23,7 @@ namespace proyectoIntegrador.Controllers
             using (MySqlConnection conn = cn.GetConnection()) // Suponiendo que GetConnection() devuelve una conexión MySQL
             {
                 //string query = "SELECT * FROM Usuario WHERE IsDeleted = 0";
-                string query = "SELECT u.idUsuario, u.nombreUsuario, u.contrasenia, u.rolUsuario, u.estado, u.isDeleted, e.idEmpleado, e.nombreEmpleado, e.isDeleted AS empleadoIsDeleted FROM usuario u JOIN empleado e ON u.idEmpleado = e.idEmpleado";
+                string query = "SELECT * from vista_usuarios_empleados";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 try
@@ -97,16 +97,57 @@ namespace proyectoIntegrador.Controllers
             }
             return usuario;
         }
+        //public List<user_model> SearchByName(string nombre)
+        //{
+        //    List<user_model> usuarios = new List<user_model>();
+
+        //    using (MySqlConnection conn = cn.GetConnection())
+        //    {
+        //        //string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre AND IsDeleted = 0";
+        //        string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre";
+        //        MySqlCommand cmd = new MySqlCommand(query, conn);
+        //        cmd.Parameters.AddWithValue("@Nombre", "%" + nombre + "%");
+
+        //        try
+        //        {
+        //            conn.Open();
+        //            MySqlDataReader reader = cmd.ExecuteReader();
+
+        //            while (reader.Read())
+        //            {
+        //                usuarios.Add(new user_model
+        //                {
+        //                    IdUsuario = reader.GetInt32("IdUsuario"),
+        //                    NombreUsuario = reader.GetString("NombreUsuario"),
+        //                    Contrasenia = reader.GetString("Contrasenia"),
+        //                    RolUsuario = reader.GetString("RolUsuario"),
+        //                    Estado = reader.GetBoolean("Estado"),
+        //                    IsDeleted = reader.GetBoolean("IsDeleted"),
+        //                    IdEmpleado = reader.GetInt32("IdEmpleado")
+        //                });
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine("Error al buscar usuario por nombre: " + ex.Message);
+        //        }
+        //    }
+        //    return usuarios;
+        //}
         public List<user_model> SearchByName(string nombre)
         {
             List<user_model> usuarios = new List<user_model>();
 
             using (MySqlConnection conn = cn.GetConnection())
             {
-                //string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre AND IsDeleted = 0";
-                string query = "SELECT * FROM Usuario WHERE NombreUsuario LIKE @Nombre ";
+                string query = @"SELECT * FROM vista_usuarios_empleados 
+                 WHERE LOWER(nombreEmpleado) LIKE @Nombre 
+                    OR LOWER(nombreUsuario) LIKE @Nombre";
+
+
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Nombre", "%" + nombre + "%");
+                //cmd.Parameters.AddWithValue("@Nombre", "%sayu%");
 
                 try
                 {
@@ -115,25 +156,32 @@ namespace proyectoIntegrador.Controllers
 
                     while (reader.Read())
                     {
+                        bool estado = reader.GetBoolean("estado");
+                        string estadoStr = estado ? "Activo" : "Inactivo";
+
                         usuarios.Add(new user_model
                         {
                             IdUsuario = reader.GetInt32("IdUsuario"),
                             NombreUsuario = reader.GetString("NombreUsuario"),
                             Contrasenia = reader.GetString("Contrasenia"),
                             RolUsuario = reader.GetString("RolUsuario"),
-                            Estado = reader.GetBoolean("Estado"),
+                            Estado = estado,
+                            EstadoString = estadoStr,
                             IsDeleted = reader.GetBoolean("IsDeleted"),
-                            IdEmpleado = reader.GetInt32("IdEmpleado")
+                            IdEmpleado = reader.GetInt32("IdEmpleado"),
+                            NombreEmpleado = reader.GetString("NombreEmpleado")
                         });
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error al buscar usuario por nombre: " + ex.Message);
+                    Console.WriteLine("Error al buscar usuario por nombre de empleado: " + ex.Message);
                 }
             }
+
             return usuarios;
         }
+
 
         public string Insert(user_model usuario)
         {

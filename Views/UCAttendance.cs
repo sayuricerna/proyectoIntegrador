@@ -175,6 +175,11 @@ namespace proyectoIntegrador.Views
 
 
         }
-    
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LoadGridAttedance(2);
+
+        }
     }
 }

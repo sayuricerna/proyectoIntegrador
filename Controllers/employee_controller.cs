@@ -243,7 +243,8 @@ namespace proyectoIntegrador.Controllers
 
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT idEmpleado, nombreEmpleado, cedula, direccion, telefono, fechaNacimiento, fechaContratacion, idDepartamento, idCargo FROM empleado where isDeleted = 0 AND nombreEmpleado LIKE @Nombre";
+                //string query = "SELECT idEmpleado, nombreEmpleado, cedula, direccion, telefono, fechaNacimiento, fechaContratacion, idDepartamento, idCargo FROM empleado where isDeleted = 0 AND nombreEmpleado LIKE @Nombre";
+                string query = "SELECT * FROM vista_empleados_gestion WHERE nombreEmpleado LIKE @Nombre";  // Usando la vista
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -264,7 +265,13 @@ namespace proyectoIntegrador.Controllers
                                 FechaNacimiento = reader.GetDateTime("fechaNacimiento"),
                                 FechaContratacion = reader.GetDateTime("fechaContratacion"),
                                 IdDepartamento = reader.GetInt32("idDepartamento"),
-                                IdCargo = reader.GetInt32("idCargo")
+                                IdCargo = reader.GetInt32("idCargo"),
+                                NombreCargo = reader.GetString("nombreCargo"),
+                                Huella = reader.GetInt32("Huella"),
+                                HuellaRegistrada = reader.GetString("HuellaRegistrada"),  // Valor calculado
+                                Estado = reader.GetString("Estado"),  // Valor calculado
+                                NombreDepartamento = reader.GetString("nombreDepartamento")
+
                             });
                         }
                     }

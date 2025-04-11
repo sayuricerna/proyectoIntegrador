@@ -282,31 +282,38 @@ namespace proyectoIntegrador.Views
 
             dgvPayroll.Columns["IdRol"].Visible = false;
             dgvPayroll.Columns["IdEmpleado"].Visible = false;
+            dgvPayroll.Columns["Cedula"].Visible = false;
+            dgvPayroll.Columns["NombreDepartamento"].Visible = false;
+
             dgvPayroll.Columns["NumRol"].HeaderText = "#Rol";
             dgvPayroll.Columns["Mes"].HeaderText = "Mes";
             dgvPayroll.Columns["Anio"].HeaderText = "Anio";
-            dgvPayroll.Columns["FechaEmision"].HeaderText = "Fecha";
+            dgvPayroll.Columns["NombreEmpleado"].HeaderText = "Empleado";
+            dgvPayroll.Columns["FechaEmision"].HeaderText = "Emisión";
             dgvPayroll.Columns["HorasSuplementarias"].HeaderText = "H.S";
             dgvPayroll.Columns["HorasExtras"].HeaderText = "H.E";
             dgvPayroll.Columns["DecimotercerSueldo"].HeaderText = "13.º";
             dgvPayroll.Columns["DecimocuartoSueldo"].HeaderText = "14.º";
-            dgvPayroll.Columns["FondoReserva"].HeaderText = "Reserva";
+            dgvPayroll.Columns["FondoReserva"].HeaderText = "Fondo.R";
             dgvPayroll.Columns["AporteIess"].HeaderText = "IESS";
-            dgvPayroll.Columns["Anticipos"].HeaderText = "Anticipos";
-            dgvPayroll.Columns["OtrosDescuentos"].HeaderText = "Faltas";
+            dgvPayroll.Columns["Anticipos"].HeaderText = "Anticipo";
+            dgvPayroll.Columns["OtrosDescuentos"].HeaderText = "Falta";
             dgvPayroll.Columns["DescuentoTardanzas"].HeaderText = "Tardanza";
             dgvPayroll.Columns["TotalEgresos"].HeaderText = "Egresos";
             dgvPayroll.Columns["TotalIngresos"].HeaderText = "Ingresos";
-            dgvPayroll.Columns["NetoPagar"].HeaderText = "A Pagar";
-            dgvPayroll.Columns["NombreEmpleado"].HeaderText = "Empleado";
-            dgvPayroll.Columns["NombreDepartamento"].HeaderText = "Dpt";
+            dgvPayroll.Columns["NetoPagar"].HeaderText = "Neto a Pagar";
             dgvPayroll.Columns["NombreCargo"].HeaderText = "Cargo";
 
-
+            dgvPayroll.Columns["DecimotercerSueldo"].Width = 40;
+            dgvPayroll.Columns["DecimocuartoSueldo"].Width = 40;
+            dgvPayroll.Columns["AporteIess"].Width = 40;
+            dgvPayroll.Columns["NumRol"].Width = 40;
+            dgvPayroll.Columns["Mes"].Width = 40;
+            dgvPayroll.Columns["Anio"].Width = 40;
+            dgvPayroll.Columns["HorasSuplementarias"].Width = 40;
+            dgvPayroll.Columns["HorasExtras"].Width = 40;
 
             dgvPayroll.ColumnHeadersDefaultCellStyle.Font = new Font(dgvPayroll.Font, FontStyle.Bold);
-
-            autoincremento.Width = 40;
             dgvPayroll.Columns.Add(btnEliminar);
             dgvPayroll.Columns.Add(btnImprimir);
 
@@ -335,6 +342,7 @@ namespace proyectoIntegrador.Views
                 frmPrintPayroll imprimirRol = new frmPrintPayroll(idRol);
                 imprimirRol.ShowDialog();
             }
+
 
         }
 
@@ -381,6 +389,17 @@ namespace proyectoIntegrador.Views
 
         private void txtReason_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LoadGridPayrolls(2);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadGridPayrolls(2);
 
         }
     }

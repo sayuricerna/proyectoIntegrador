@@ -138,7 +138,7 @@ namespace proyectoIntegrador.Controllers
             var positionList = new List<position_model>();
             using (var connection = cn.GetConnection())
             {
-                string query = "SELECT * FROM cargo WHERE NombreCargo LIKE @Name AND isDeleted = 0";
+                string query = "SELECT * FROM vista_cargos WHERE NombreCargo LIKE @Name";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Name", "%" + name + "%");
@@ -152,8 +152,8 @@ namespace proyectoIntegrador.Controllers
                                 IdCargo = reader.GetInt32("IdCargo"),
                                 NombreCargo = reader.GetString("NombreCargo"),
                                 Salario = reader.GetDecimal("Salario"),
-                                IdDepartamento = reader.GetInt32("IdDepartamento"),
-                                IsDeleted = reader.GetBoolean("isDeleted")
+                                NombreDepartamento = reader.GetString("nombreDepartamento")
+
                             });
                         }
                     }

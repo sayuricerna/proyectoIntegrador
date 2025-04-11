@@ -75,7 +75,7 @@ namespace proyectoIntegrador.Views
             }
             else
             {
-                dgvDpt.DataSource = logica.SearchByName(txtSearch.Text.Trim());
+                dgvDpt.DataSource = logica.SearchByName(txtSearchDpt.Text.Trim());
             }
             dgvDpt.Columns["idDepartamento"].HeaderText = "ID";
             dgvDpt.Columns["nombreDepartamento"].HeaderText = "Departamento";
@@ -119,7 +119,7 @@ namespace proyectoIntegrador.Views
         //Search Department
         private void button2_Click(object sender, EventArgs e)
         {
-
+            LoadGridDpt(2);
         }
         //Save Department
         private void btnSaveDpt_Click_1(object sender, EventArgs e)
@@ -284,7 +284,7 @@ namespace proyectoIntegrador.Views
             }
             else
             {
-                dgvPosition.DataSource = logica.SearchByName(txtSearch.Text.Trim());
+                dgvPosition.DataSource = logica.SearchByName(txtSearchPos.Text.Trim());
             }
 
             dgvPosition.Columns["IdCargo"].Visible = false;
@@ -570,7 +570,7 @@ namespace proyectoIntegrador.Views
             }
             else
             {
-                dgvEmployee.DataSource = logica.SearchByName(txtSearch.Text.Trim());
+                dgvEmployee.DataSource = logica.SearchByName(txtSearchEmployee.Text.Trim());
             }
             dgvEmployee.Columns["NombreEmpleado"].HeaderText = "Empleado";
             dgvEmployee.Columns["Cedula"].HeaderText = "Cédula";
@@ -689,7 +689,7 @@ namespace proyectoIntegrador.Views
             }
             else
             {
-                dgvUser.DataSource = logica.SearchByName(txtSearch.Text.Trim());
+                dgvUser.DataSource = logica.SearchByName(txtSearchUser.Text.Trim());
             }
 
             dgvUser.Columns["IdUsuario"].Visible = false;
@@ -946,6 +946,29 @@ namespace proyectoIntegrador.Views
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.LoadGridEmployee(2);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadGridPosition(2);
+        }
+
+        private void txtSearchDpt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.LoadGridDpt(2);
+
+        }
+
+        private void txtSearchPos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LoadGridPosition(2);
+
+        }
+
+        private void txtSearchUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LoadGridUsers(2);
+
         }
     }
 }

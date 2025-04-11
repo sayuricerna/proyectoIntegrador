@@ -33,17 +33,18 @@
             // 
             // reportViewerPayroll
             // 
-            this.reportViewerPayroll.Location = new System.Drawing.Point(23, 58);
+            this.reportViewerPayroll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewerPayroll.Location = new System.Drawing.Point(0, 0);
             this.reportViewerPayroll.Name = "reportViewerPayroll";
             this.reportViewerPayroll.ServerReport.BearerToken = null;
-            this.reportViewerPayroll.Size = new System.Drawing.Size(878, 603);
+            this.reportViewerPayroll.Size = new System.Drawing.Size(1102, 762);
             this.reportViewerPayroll.TabIndex = 0;
             // 
             // frmPrintPayroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 684);
+            this.ClientSize = new System.Drawing.Size(1102, 762);
             this.Controls.Add(this.reportViewerPayroll);
             this.Name = "frmPrintPayroll";
             this.Text = "Form1";

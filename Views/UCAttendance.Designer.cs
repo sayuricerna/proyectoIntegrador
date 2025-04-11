@@ -76,6 +76,7 @@
             this.txtSearch.Size = new System.Drawing.Size(874, 38);
             this.txtSearch.TabIndex = 104;
             this.txtSearch.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // dgvAttendance
             // 

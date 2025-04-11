@@ -169,7 +169,7 @@ namespace proyectoIntegrador.Controllers
             var departmentList = new List<department_model>();
             using (var connection = cn.GetConnection())
             {
-                string query = "SELECT * FROM departamento WHERE NombreDepartamento LIKE @Name AND isDeleted = 0";
+                string query = "SELECT * FROM vista_departamento_cargos WHERE NombreDepartamento LIKE @Name";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Name", "%" + name + "%");
@@ -182,7 +182,7 @@ namespace proyectoIntegrador.Controllers
                             {
                                 IdDepartamento = reader.GetInt32("IdDepartamento"),
                                 NombreDepartamento = reader.GetString("NombreDepartamento"),
-                                IsDeleted = reader.GetBoolean("isDeleted")
+                                NumeroCargos = reader.GetInt32("numeroCargos")
                             });
                         }
                     }

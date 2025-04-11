@@ -34,10 +34,10 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnSearchEmployee = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSearchEmployee = new System.Windows.Forms.TextBox();
             this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchDpt = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnAddDpt = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.btnCancelDpt = new System.Windows.Forms.Button();
             this.btnSaveDpt = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtSearchPos = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnAddPosition = new System.Windows.Forms.Button();
             this.pnlPosition = new System.Windows.Forms.Panel();
@@ -63,7 +63,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvPosition = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSearchUser = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.pnlUser = new System.Windows.Forms.Panel();
@@ -120,7 +120,7 @@
             this.tabPage3.Controls.Add(this.pictureBox4);
             this.tabPage3.Controls.Add(this.btnAddEmployee);
             this.tabPage3.Controls.Add(this.btnSearchEmployee);
-            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.txtSearchEmployee);
             this.tabPage3.Controls.Add(this.dgvEmployee);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
@@ -177,15 +177,15 @@
             this.btnSearchEmployee.UseVisualStyleBackColor = false;
             this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
             // 
-            // textBox2
+            // txtSearchEmployee
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(88, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(874, 38);
-            this.textBox2.TabIndex = 108;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.txtSearchEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchEmployee.Location = new System.Drawing.Point(88, 39);
+            this.txtSearchEmployee.Name = "txtSearchEmployee";
+            this.txtSearchEmployee.Size = new System.Drawing.Size(874, 38);
+            this.txtSearchEmployee.TabIndex = 108;
+            this.txtSearchEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // dgvEmployee
             // 
@@ -205,7 +205,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txtSearchDpt);
             this.tabPage2.Controls.Add(this.pictureBox3);
             this.tabPage2.Controls.Add(this.btnAddDpt);
             this.tabPage2.Controls.Add(this.button2);
@@ -217,14 +217,15 @@
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Departamentos";
             // 
-            // textBox1
+            // txtSearchDpt
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(87, 296);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1054, 38);
-            this.textBox1.TabIndex = 115;
+            this.txtSearchDpt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchDpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchDpt.Location = new System.Drawing.Point(87, 296);
+            this.txtSearchDpt.Name = "txtSearchDpt";
+            this.txtSearchDpt.Size = new System.Drawing.Size(1054, 38);
+            this.txtSearchDpt.TabIndex = 115;
+            this.txtSearchDpt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchDpt_KeyPress);
             // 
             // pictureBox3
             // 
@@ -335,7 +336,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage1.Controls.Add(this.txtSearch);
+            this.tabPage1.Controls.Add(this.txtSearchPos);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.btnAddPosition);
             this.tabPage1.Controls.Add(this.pnlPosition);
@@ -348,14 +349,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cargos";
             // 
-            // txtSearch
+            // txtSearchPos
             // 
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(89, 295);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(1049, 38);
-            this.txtSearch.TabIndex = 117;
+            this.txtSearchPos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchPos.Location = new System.Drawing.Point(89, 295);
+            this.txtSearchPos.Name = "txtSearchPos";
+            this.txtSearchPos.Size = new System.Drawing.Size(1049, 38);
+            this.txtSearchPos.TabIndex = 117;
+            this.txtSearchPos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchPos_KeyPress);
             // 
             // pictureBox2
             // 
@@ -491,6 +493,7 @@
             this.btnSearch.TabIndex = 106;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvPosition
             // 
@@ -509,7 +512,7 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage4.Controls.Add(this.textBox3);
+            this.tabPage4.Controls.Add(this.txtSearchUser);
             this.tabPage4.Controls.Add(this.pictureBox1);
             this.tabPage4.Controls.Add(this.btnAddUser);
             this.tabPage4.Controls.Add(this.pnlUser);
@@ -522,14 +525,15 @@
             this.tabPage4.Text = "Usuarios";
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
-            // textBox3
+            // txtSearchUser
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(91, 296);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(1049, 38);
-            this.textBox3.TabIndex = 119;
+            this.txtSearchUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchUser.Location = new System.Drawing.Point(91, 296);
+            this.txtSearchUser.Name = "txtSearchUser";
+            this.txtSearchUser.Size = new System.Drawing.Size(1049, 38);
+            this.txtSearchUser.TabIndex = 119;
+            this.txtSearchUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearchUser_KeyPress);
             // 
             // pictureBox1
             // 
@@ -802,13 +806,13 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button btnSearchEmployee;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSearchEmployee;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtSearchDpt;
+        private System.Windows.Forms.TextBox txtSearchPos;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSearchUser;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

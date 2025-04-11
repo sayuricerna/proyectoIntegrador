@@ -270,6 +270,7 @@
             this.btnSearch.TabIndex = 121;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnGiveAdvance
             // 
@@ -302,6 +303,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(811, 38);
             this.txtSearch.TabIndex = 120;
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // btnGenROLL
             // 
