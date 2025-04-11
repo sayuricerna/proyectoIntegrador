@@ -18,7 +18,7 @@ namespace proyectoIntegrador.Controllers
             var auditList = new List<audit_model>();
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdAuditoria, TipoAccion, FechaHora, IdUsuario, Descripcion FROM auditoria ";
+                string query = "SELECT idAuditoria, tipoAccion, fechaHora, idUsuario, descripcion FROM auditoria ";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -28,11 +28,11 @@ namespace proyectoIntegrador.Controllers
                         {
                             auditList.Add(new audit_model
                             {
-                                IdAuditoria = reader.GetInt32("IdAuditoria"),
-                                TipoAccion = reader.GetString("TipoAccion"),
-                                FechaHora = reader.GetDateTime("FechaHora"),
-                                IdUsuario = reader.GetInt32("IdUsuario"),
-                                Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? null : reader.GetString("Descripcion")
+                                IdAuditoria = reader.GetInt32("idAuditoria"),
+                                TipoAccion = reader.GetString("tipoAccion"),
+                                FechaHora = reader.GetDateTime("fechaHora"),
+                                IdUsuario = reader.GetInt32("idUsuario"),
+                                Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString("Descripcion")
                             });
                         }
                     }

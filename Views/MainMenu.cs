@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Views.Administration;
 
 namespace proyectoIntegrador.Views
@@ -16,6 +17,12 @@ namespace proyectoIntegrador.Views
         public MainMenu()
         {
             InitializeComponent();
+            if (Session.IdUsuario == 0)
+            {
+                MessageBox.Show("No hay sesión activa. Por favor inicie sesión.");
+                this.Close(); // O redirigir al formulario de login
+                return;
+            }
             UCDashboard uCDashboard = new UCDashboard();
             pnlGeneral.Controls.Clear();
             uCDashboard.Dock = DockStyle.Fill;
@@ -81,6 +88,8 @@ namespace proyectoIntegrador.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Session.IdUsuario = 0; // O el valor que utilices para indicar que no hay sesión
+
             Application.Restart();
         }
 

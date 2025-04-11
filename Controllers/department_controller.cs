@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using proyectoIntegrador.Config;
 using proyectoIntegrador.Models;
+using proyectoIntegrador.Helpers;
+using System.Windows.Forms;
 
 namespace proyectoIntegrador.Controllers
 {
@@ -19,12 +21,25 @@ namespace proyectoIntegrador.Controllers
             using (var connection = cn.GetConnection())
             {
                 string query = "INSERT INTO departamento (NombreDepartamento, isDeleted) VALUES (@NombreDepartamento, @IsDeleted)";
+                string resultado;
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@NombreDepartamento", department.NombreDepartamento);
                     command.Parameters.AddWithValue("@IsDeleted", department.IsDeleted);
-                    return ExecuteCommand(command, connection);
+                    resultado = ExecuteCommand(command, connection); // Guarda el resultado en una variable
+
                 }
+                MessageBox.Show("ID Usuario actual: " + Session.IdUsuario);
+
+                AuditHelper.RegistrarAuditoria(
+                    connection,
+                    Session.IdUsuario,
+                    "INSERT",
+                    "departamento",
+                    $"Se creó el departamento: {department.NombreDepartamento}"
+                );
+                return resultado; // Finalmente retorna el resultado
+
             }
         }
         

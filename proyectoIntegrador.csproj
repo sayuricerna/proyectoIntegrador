@@ -146,11 +146,28 @@
     <Compile Include="Controllers\payroll_controller.cs" />
     <Compile Include="Controllers\position_controller.cs" />
     <Compile Include="Controllers\user_controler.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet3.cs">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AuditHelper.cs" />
     <Compile Include="Helpers\encryptP.cs" />
     <Compile Include="Helpers\FingerprintHelper.cs" />
     <Compile Include="Helpers\Session.cs" />
@@ -172,6 +189,13 @@
     <Compile Include="Views\Attendance\frmJustification.Designer.cs">
       <DependentUpon>frmJustification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Payroll\frmPrintPayroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payroll\frmPrintPayroll.Designer.cs">
+      <DependentUpon>frmPrintPayroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payroll\PayrollClass.cs" />
     <Compile Include="Views\PersonnelM\frmEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,12 +203,6 @@
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reports\ReportClass.cs" />
-    <Compile Include="Views\Reports\ReportViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Reports\ReportViewer.Designer.cs">
-      <DependentUpon>ReportViewer.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\UCAudits.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -252,14 +270,16 @@
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\frmPrintPayroll.resx">
+      <DependentUpon>frmPrintPayroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payroll\ReportPayroll.rdlc" />
     <EmbeddedResource Include="Views\PersonnelM\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\Report1.rdlc" />
     <EmbeddedResource Include="Views\Reports\Report.rdlc" />
-    <EmbeddedResource Include="Views\Reports\RolDePago.rdlc" />
-    <EmbeddedResource Include="Views\Reports\ReportViewer.resx">
-      <DependentUpon>ReportViewer.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\Report2.rdlc" />
     <EmbeddedResource Include="Views\UCAttendance.resx">
       <DependentUpon>UCAttendance.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +308,28 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet3.xsc">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet3.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet3.xss">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

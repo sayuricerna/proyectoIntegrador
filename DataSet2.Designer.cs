@@ -20,17 +20,17 @@ namespace proyectoIntegrador {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSet2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet1 : global::System.Data.DataSet {
+    public partial class DataSet2 : global::System.Data.DataSet {
         
-        private vista_empleados_activosDataTable tablevista_empleados_activos;
+        private vista_asistencia_diariaDataTable tablevista_asistencia_diaria;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DataSet1() {
+        public DataSet2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace proyectoIntegrador {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace proyectoIntegrador {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["vista_empleados_activos"] != null)) {
-                    base.Tables.Add(new vista_empleados_activosDataTable(ds.Tables["vista_empleados_activos"]));
+                if ((ds.Tables["vista_asistencia_diaria"] != null)) {
+                    base.Tables.Add(new vista_asistencia_diariaDataTable(ds.Tables["vista_asistencia_diaria"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace proyectoIntegrador {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public vista_empleados_activosDataTable vista_empleados_activos {
+        public vista_asistencia_diariaDataTable vista_asistencia_diaria {
             get {
-                return this.tablevista_empleados_activos;
+                return this.tablevista_asistencia_diaria;
             }
         }
         
@@ -127,7 +127,7 @@ namespace proyectoIntegrador {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet1 cln = ((DataSet1)(base.Clone()));
+            DataSet2 cln = ((DataSet2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace proyectoIntegrador {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["vista_empleados_activos"] != null)) {
-                    base.Tables.Add(new vista_empleados_activosDataTable(ds.Tables["vista_empleados_activos"]));
+                if ((ds.Tables["vista_asistencia_diaria"] != null)) {
+                    base.Tables.Add(new vista_asistencia_diariaDataTable(ds.Tables["vista_asistencia_diaria"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace proyectoIntegrador {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablevista_empleados_activos = ((vista_empleados_activosDataTable)(base.Tables["vista_empleados_activos"]));
+            this.tablevista_asistencia_diaria = ((vista_asistencia_diariaDataTable)(base.Tables["vista_asistencia_diaria"]));
             if ((initTable == true)) {
-                if ((this.tablevista_empleados_activos != null)) {
-                    this.tablevista_empleados_activos.InitVars();
+                if ((this.tablevista_asistencia_diaria != null)) {
+                    this.tablevista_asistencia_diaria.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace proyectoIntegrador {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet1";
+            this.DataSetName = "DataSet2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet1.xsd";
+            this.Namespace = "http://tempuri.org/DataSet2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablevista_empleados_activos = new vista_empleados_activosDataTable();
-            base.Tables.Add(this.tablevista_empleados_activos);
+            this.tablevista_asistencia_diaria = new vista_asistencia_diariaDataTable();
+            base.Tables.Add(this.tablevista_asistencia_diaria);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializevista_empleados_activos() {
+        private bool ShouldSerializevista_asistencia_diaria() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace proyectoIntegrador {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet1 ds = new DataSet1();
+            DataSet2 ds = new DataSet2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,47 +270,39 @@ namespace proyectoIntegrador {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void vista_empleados_activosRowChangeEventHandler(object sender, vista_empleados_activosRowChangeEvent e);
+        public delegate void vista_asistencia_diariaRowChangeEventHandler(object sender, vista_asistencia_diariaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class vista_empleados_activosDataTable : global::System.Data.TypedTableBase<vista_empleados_activosRow> {
+        public partial class vista_asistencia_diariaDataTable : global::System.Data.TypedTableBase<vista_asistencia_diariaRow> {
             
             private global::System.Data.DataColumn columnidEmpleado;
             
-            private global::System.Data.DataColumn columncedula;
-            
             private global::System.Data.DataColumn columnnombreEmpleado;
-            
-            private global::System.Data.DataColumn columnfechaNacimiento;
-            
-            private global::System.Data.DataColumn columndireccion;
-            
-            private global::System.Data.DataColumn columntelefono;
             
             private global::System.Data.DataColumn columnnombreDepartamento;
             
-            private global::System.Data.DataColumn columnnombreCargo;
+            private global::System.Data.DataColumn columnfecha;
             
-            private global::System.Data.DataColumn columnsalario;
+            private global::System.Data.DataColumn columnhoraEntrada;
             
-            private global::System.Data.DataColumn columntieneUsuario;
+            private global::System.Data.DataColumn columnhoraSalida;
             
-            private global::System.Data.DataColumn columnnombreUsuario;
+            private global::System.Data.DataColumn columnhorasTrabajadas;
             
-            private global::System.Data.DataColumn columnrolUsuario;
+            private global::System.Data.DataColumn columnhorasExtras;
             
-            private global::System.Data.DataColumn columnestadoUsuario;
+            private global::System.Data.DataColumn columnhorasSuplementarias;
             
-            private global::System.Data.DataColumn columnfechaContratacion;
+            private global::System.Data.DataColumn columnhorasNOTrabajadas;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosDataTable() {
-                this.TableName = "vista_empleados_activos";
+            public vista_asistencia_diariaDataTable() {
+                this.TableName = "vista_asistencia_diaria";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -318,7 +310,7 @@ namespace proyectoIntegrador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vista_empleados_activosDataTable(global::System.Data.DataTable table) {
+            internal vista_asistencia_diariaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -335,7 +327,7 @@ namespace proyectoIntegrador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected vista_empleados_activosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected vista_asistencia_diariaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -350,41 +342,9 @@ namespace proyectoIntegrador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn cedulaColumn {
-                get {
-                    return this.columncedula;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn nombreEmpleadoColumn {
                 get {
                     return this.columnnombreEmpleado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn fechaNacimientoColumn {
-                get {
-                    return this.columnfechaNacimiento;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn direccionColumn {
-                get {
-                    return this.columndireccion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn telefonoColumn {
-                get {
-                    return this.columntelefono;
                 }
             }
             
@@ -398,57 +358,57 @@ namespace proyectoIntegrador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nombreCargoColumn {
+            public global::System.Data.DataColumn fechaColumn {
                 get {
-                    return this.columnnombreCargo;
+                    return this.columnfecha;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn salarioColumn {
+            public global::System.Data.DataColumn horaEntradaColumn {
                 get {
-                    return this.columnsalario;
+                    return this.columnhoraEntrada;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn tieneUsuarioColumn {
+            public global::System.Data.DataColumn horaSalidaColumn {
                 get {
-                    return this.columntieneUsuario;
+                    return this.columnhoraSalida;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nombreUsuarioColumn {
+            public global::System.Data.DataColumn horasTrabajadasColumn {
                 get {
-                    return this.columnnombreUsuario;
+                    return this.columnhorasTrabajadas;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn rolUsuarioColumn {
+            public global::System.Data.DataColumn horasExtrasColumn {
                 get {
-                    return this.columnrolUsuario;
+                    return this.columnhorasExtras;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn estadoUsuarioColumn {
+            public global::System.Data.DataColumn horasSuplementariasColumn {
                 get {
-                    return this.columnestadoUsuario;
+                    return this.columnhorasSuplementarias;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn fechaContratacionColumn {
+            public global::System.Data.DataColumn horasNOTrabajadasColumn {
                 get {
-                    return this.columnfechaContratacion;
+                    return this.columnhorasNOTrabajadas;
                 }
             }
             
@@ -463,65 +423,61 @@ namespace proyectoIntegrador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosRow this[int index] {
+            public vista_asistencia_diariaRow this[int index] {
                 get {
-                    return ((vista_empleados_activosRow)(this.Rows[index]));
+                    return ((vista_asistencia_diariaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vista_empleados_activosRowChangeEventHandler vista_empleados_activosRowChanging;
+            public event vista_asistencia_diariaRowChangeEventHandler vista_asistencia_diariaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vista_empleados_activosRowChangeEventHandler vista_empleados_activosRowChanged;
+            public event vista_asistencia_diariaRowChangeEventHandler vista_asistencia_diariaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vista_empleados_activosRowChangeEventHandler vista_empleados_activosRowDeleting;
+            public event vista_asistencia_diariaRowChangeEventHandler vista_asistencia_diariaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event vista_empleados_activosRowChangeEventHandler vista_empleados_activosRowDeleted;
+            public event vista_asistencia_diariaRowChangeEventHandler vista_asistencia_diariaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Addvista_empleados_activosRow(vista_empleados_activosRow row) {
+            public void Addvista_asistencia_diariaRow(vista_asistencia_diariaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosRow Addvista_empleados_activosRow(int idEmpleado, string cedula, string nombreEmpleado, System.DateTime fechaNacimiento, string direccion, string telefono, string nombreDepartamento, string nombreCargo, decimal salario, string tieneUsuario, string nombreUsuario, string rolUsuario, string estadoUsuario, string fechaContratacion) {
-                vista_empleados_activosRow rowvista_empleados_activosRow = ((vista_empleados_activosRow)(this.NewRow()));
+            public vista_asistencia_diariaRow Addvista_asistencia_diariaRow(string idEmpleado, string nombreEmpleado, string nombreDepartamento, string fecha, string horaEntrada, string horaSalida, string horasTrabajadas, string horasExtras, string horasSuplementarias, string horasNOTrabajadas) {
+                vista_asistencia_diariaRow rowvista_asistencia_diariaRow = ((vista_asistencia_diariaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idEmpleado,
-                        cedula,
                         nombreEmpleado,
-                        fechaNacimiento,
-                        direccion,
-                        telefono,
                         nombreDepartamento,
-                        nombreCargo,
-                        salario,
-                        tieneUsuario,
-                        nombreUsuario,
-                        rolUsuario,
-                        estadoUsuario,
-                        fechaContratacion};
-                rowvista_empleados_activosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowvista_empleados_activosRow);
-                return rowvista_empleados_activosRow;
+                        fecha,
+                        horaEntrada,
+                        horaSalida,
+                        horasTrabajadas,
+                        horasExtras,
+                        horasSuplementarias,
+                        horasNOTrabajadas};
+                rowvista_asistencia_diariaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvista_asistencia_diariaRow);
+                return rowvista_asistencia_diariaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosRow FindByidEmpleado(int idEmpleado) {
-                return ((vista_empleados_activosRow)(this.Rows.Find(new object[] {
+            public vista_asistencia_diariaRow FindByidEmpleado(string idEmpleado) {
+                return ((vista_asistencia_diariaRow)(this.Rows.Find(new object[] {
                             idEmpleado})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                vista_empleados_activosDataTable cln = ((vista_empleados_activosDataTable)(base.Clone()));
+                vista_asistencia_diariaDataTable cln = ((vista_asistencia_diariaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -529,60 +485,48 @@ namespace proyectoIntegrador {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new vista_empleados_activosDataTable();
+                return new vista_asistencia_diariaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnidEmpleado = base.Columns["idEmpleado"];
-                this.columncedula = base.Columns["cedula"];
                 this.columnnombreEmpleado = base.Columns["nombreEmpleado"];
-                this.columnfechaNacimiento = base.Columns["fechaNacimiento"];
-                this.columndireccion = base.Columns["direccion"];
-                this.columntelefono = base.Columns["telefono"];
                 this.columnnombreDepartamento = base.Columns["nombreDepartamento"];
-                this.columnnombreCargo = base.Columns["nombreCargo"];
-                this.columnsalario = base.Columns["salario"];
-                this.columntieneUsuario = base.Columns["tieneUsuario"];
-                this.columnnombreUsuario = base.Columns["nombreUsuario"];
-                this.columnrolUsuario = base.Columns["rolUsuario"];
-                this.columnestadoUsuario = base.Columns["estadoUsuario"];
-                this.columnfechaContratacion = base.Columns["fechaContratacion"];
+                this.columnfecha = base.Columns["fecha"];
+                this.columnhoraEntrada = base.Columns["horaEntrada"];
+                this.columnhoraSalida = base.Columns["horaSalida"];
+                this.columnhorasTrabajadas = base.Columns["horasTrabajadas"];
+                this.columnhorasExtras = base.Columns["horasExtras"];
+                this.columnhorasSuplementarias = base.Columns["horasSuplementarias"];
+                this.columnhorasNOTrabajadas = base.Columns["horasNOTrabajadas"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnidEmpleado = new global::System.Data.DataColumn("idEmpleado", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnidEmpleado = new global::System.Data.DataColumn("idEmpleado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidEmpleado);
-                this.columncedula = new global::System.Data.DataColumn("cedula", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncedula);
                 this.columnnombreEmpleado = new global::System.Data.DataColumn("nombreEmpleado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreEmpleado);
-                this.columnfechaNacimiento = new global::System.Data.DataColumn("fechaNacimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfechaNacimiento);
-                this.columndireccion = new global::System.Data.DataColumn("direccion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndireccion);
-                this.columntelefono = new global::System.Data.DataColumn("telefono", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntelefono);
                 this.columnnombreDepartamento = new global::System.Data.DataColumn("nombreDepartamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreDepartamento);
-                this.columnnombreCargo = new global::System.Data.DataColumn("nombreCargo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombreCargo);
-                this.columnsalario = new global::System.Data.DataColumn("salario", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsalario);
-                this.columntieneUsuario = new global::System.Data.DataColumn("tieneUsuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntieneUsuario);
-                this.columnnombreUsuario = new global::System.Data.DataColumn("nombreUsuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombreUsuario);
-                this.columnrolUsuario = new global::System.Data.DataColumn("rolUsuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrolUsuario);
-                this.columnestadoUsuario = new global::System.Data.DataColumn("estadoUsuario", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnestadoUsuario);
-                this.columnfechaContratacion = new global::System.Data.DataColumn("fechaContratacion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfechaContratacion);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("DataTable1Key1", new global::System.Data.DataColumn[] {
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
+                this.columnhoraEntrada = new global::System.Data.DataColumn("horaEntrada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhoraEntrada);
+                this.columnhoraSalida = new global::System.Data.DataColumn("horaSalida", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhoraSalida);
+                this.columnhorasTrabajadas = new global::System.Data.DataColumn("horasTrabajadas", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorasTrabajadas);
+                this.columnhorasExtras = new global::System.Data.DataColumn("horasExtras", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorasExtras);
+                this.columnhorasSuplementarias = new global::System.Data.DataColumn("horasSuplementarias", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorasSuplementarias);
+                this.columnhorasNOTrabajadas = new global::System.Data.DataColumn("horasNOTrabajadas", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhorasNOTrabajadas);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidEmpleado}, true));
                 this.columnidEmpleado.AllowDBNull = false;
                 this.columnidEmpleado.Unique = true;
@@ -590,28 +534,28 @@ namespace proyectoIntegrador {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosRow Newvista_empleados_activosRow() {
-                return ((vista_empleados_activosRow)(this.NewRow()));
+            public vista_asistencia_diariaRow Newvista_asistencia_diariaRow() {
+                return ((vista_asistencia_diariaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new vista_empleados_activosRow(builder);
+                return new vista_asistencia_diariaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(vista_empleados_activosRow);
+                return typeof(vista_asistencia_diariaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.vista_empleados_activosRowChanged != null)) {
-                    this.vista_empleados_activosRowChanged(this, new vista_empleados_activosRowChangeEvent(((vista_empleados_activosRow)(e.Row)), e.Action));
+                if ((this.vista_asistencia_diariaRowChanged != null)) {
+                    this.vista_asistencia_diariaRowChanged(this, new vista_asistencia_diariaRowChangeEvent(((vista_asistencia_diariaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -619,8 +563,8 @@ namespace proyectoIntegrador {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.vista_empleados_activosRowChanging != null)) {
-                    this.vista_empleados_activosRowChanging(this, new vista_empleados_activosRowChangeEvent(((vista_empleados_activosRow)(e.Row)), e.Action));
+                if ((this.vista_asistencia_diariaRowChanging != null)) {
+                    this.vista_asistencia_diariaRowChanging(this, new vista_asistencia_diariaRowChangeEvent(((vista_asistencia_diariaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -628,8 +572,8 @@ namespace proyectoIntegrador {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.vista_empleados_activosRowDeleted != null)) {
-                    this.vista_empleados_activosRowDeleted(this, new vista_empleados_activosRowChangeEvent(((vista_empleados_activosRow)(e.Row)), e.Action));
+                if ((this.vista_asistencia_diariaRowDeleted != null)) {
+                    this.vista_asistencia_diariaRowDeleted(this, new vista_asistencia_diariaRowChangeEvent(((vista_asistencia_diariaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -637,14 +581,14 @@ namespace proyectoIntegrador {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.vista_empleados_activosRowDeleting != null)) {
-                    this.vista_empleados_activosRowDeleting(this, new vista_empleados_activosRowChangeEvent(((vista_empleados_activosRow)(e.Row)), e.Action));
+                if ((this.vista_asistencia_diariaRowDeleting != null)) {
+                    this.vista_asistencia_diariaRowDeleting(this, new vista_asistencia_diariaRowChangeEvent(((vista_asistencia_diariaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Removevista_empleados_activosRow(vista_empleados_activosRow row) {
+            public void Removevista_asistencia_diariaRow(vista_asistencia_diariaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -653,7 +597,7 @@ namespace proyectoIntegrador {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
+                DataSet2 ds = new DataSet2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -671,7 +615,7 @@ namespace proyectoIntegrador {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "vista_empleados_activosDataTable";
+                attribute2.FixedValue = "vista_asistencia_diariaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -715,41 +659,25 @@ namespace proyectoIntegrador {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class vista_empleados_activosRow : global::System.Data.DataRow {
+        public partial class vista_asistencia_diariaRow : global::System.Data.DataRow {
             
-            private vista_empleados_activosDataTable tablevista_empleados_activos;
+            private vista_asistencia_diariaDataTable tablevista_asistencia_diaria;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal vista_empleados_activosRow(global::System.Data.DataRowBuilder rb) : 
+            internal vista_asistencia_diariaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablevista_empleados_activos = ((vista_empleados_activosDataTable)(this.Table));
+                this.tablevista_asistencia_diaria = ((vista_asistencia_diariaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int idEmpleado {
+            public string idEmpleado {
                 get {
-                    return ((int)(this[this.tablevista_empleados_activos.idEmpleadoColumn]));
+                    return ((string)(this[this.tablevista_asistencia_diaria.idEmpleadoColumn]));
                 }
                 set {
-                    this[this.tablevista_empleados_activos.idEmpleadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string cedula {
-                get {
-                    try {
-                        return ((string)(this[this.tablevista_empleados_activos.cedulaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cedula\' in table \'vista_empleados_activos\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevista_empleados_activos.cedulaColumn] = value;
+                    this[this.tablevista_asistencia_diaria.idEmpleadoColumn] = value;
                 }
             }
             
@@ -758,64 +686,15 @@ namespace proyectoIntegrador {
             public string nombreEmpleado {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.nombreEmpleadoColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.nombreEmpleadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nombreEmpleado\' in table \'vista_empleados_activos\' is DBNul" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombreEmpleado\' in table \'vista_asistencia_diaria\' is DBNul" +
                                 "l.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.nombreEmpleadoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime fechaNacimiento {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablevista_empleados_activos.fechaNacimientoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fechaNacimiento\' in table \'vista_empleados_activos\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tablevista_empleados_activos.fechaNacimientoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string direccion {
-                get {
-                    try {
-                        return ((string)(this[this.tablevista_empleados_activos.direccionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'direccion\' in table \'vista_empleados_activos\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevista_empleados_activos.direccionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string telefono {
-                get {
-                    try {
-                        return ((string)(this[this.tablevista_empleados_activos.telefonoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'telefono\' in table \'vista_empleados_activos\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevista_empleados_activos.telefonoColumn] = value;
+                    this[this.tablevista_asistencia_diaria.nombreEmpleadoColumn] = value;
                 }
             }
             
@@ -824,288 +703,239 @@ namespace proyectoIntegrador {
             public string nombreDepartamento {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.nombreDepartamentoColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.nombreDepartamentoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nombreDepartamento\' in table \'vista_empleados_activos\' is D" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombreDepartamento\' in table \'vista_asistencia_diaria\' is D" +
                                 "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.nombreDepartamentoColumn] = value;
+                    this[this.tablevista_asistencia_diaria.nombreDepartamentoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string nombreCargo {
+            public string fecha {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.nombreCargoColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.fechaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nombreCargo\' in table \'vista_empleados_activos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'fecha\' in table \'vista_asistencia_diaria\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.nombreCargoColumn] = value;
+                    this[this.tablevista_asistencia_diaria.fechaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal salario {
+            public string horaEntrada {
                 get {
                     try {
-                        return ((decimal)(this[this.tablevista_empleados_activos.salarioColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.horaEntradaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'salario\' in table \'vista_empleados_activos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'horaEntrada\' in table \'vista_asistencia_diaria\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.salarioColumn] = value;
+                    this[this.tablevista_asistencia_diaria.horaEntradaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string tieneUsuario {
+            public string horaSalida {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.tieneUsuarioColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.horaSalidaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'tieneUsuario\' in table \'vista_empleados_activos\' is DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'horaSalida\' in table \'vista_asistencia_diaria\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.tieneUsuarioColumn] = value;
+                    this[this.tablevista_asistencia_diaria.horaSalidaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string nombreUsuario {
+            public string horasTrabajadas {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.nombreUsuarioColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.horasTrabajadasColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nombreUsuario\' in table \'vista_empleados_activos\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'horasTrabajadas\' in table \'vista_asistencia_diaria\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.nombreUsuarioColumn] = value;
+                    this[this.tablevista_asistencia_diaria.horasTrabajadasColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string rolUsuario {
+            public string horasExtras {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.rolUsuarioColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.horasExtrasColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'rolUsuario\' in table \'vista_empleados_activos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'horasExtras\' in table \'vista_asistencia_diaria\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.rolUsuarioColumn] = value;
+                    this[this.tablevista_asistencia_diaria.horasExtrasColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string estadoUsuario {
+            public string horasSuplementarias {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.estadoUsuarioColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.horasSuplementariasColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'estadoUsuario\' in table \'vista_empleados_activos\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'horasSuplementarias\' in table \'vista_asistencia_diaria\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.estadoUsuarioColumn] = value;
+                    this[this.tablevista_asistencia_diaria.horasSuplementariasColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string fechaContratacion {
+            public string horasNOTrabajadas {
                 get {
                     try {
-                        return ((string)(this[this.tablevista_empleados_activos.fechaContratacionColumn]));
+                        return ((string)(this[this.tablevista_asistencia_diaria.horasNOTrabajadasColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fechaContratacion\' in table \'vista_empleados_activos\' is DB" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'horasNOTrabajadas\' in table \'vista_asistencia_diaria\' is DB" +
                                 "Null.", e);
                     }
                 }
                 set {
-                    this[this.tablevista_empleados_activos.fechaContratacionColumn] = value;
+                    this[this.tablevista_asistencia_diaria.horasNOTrabajadasColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IscedulaNull() {
-                return this.IsNull(this.tablevista_empleados_activos.cedulaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetcedulaNull() {
-                this[this.tablevista_empleados_activos.cedulaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnombreEmpleadoNull() {
-                return this.IsNull(this.tablevista_empleados_activos.nombreEmpleadoColumn);
+                return this.IsNull(this.tablevista_asistencia_diaria.nombreEmpleadoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnombreEmpleadoNull() {
-                this[this.tablevista_empleados_activos.nombreEmpleadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsfechaNacimientoNull() {
-                return this.IsNull(this.tablevista_empleados_activos.fechaNacimientoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetfechaNacimientoNull() {
-                this[this.tablevista_empleados_activos.fechaNacimientoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsdireccionNull() {
-                return this.IsNull(this.tablevista_empleados_activos.direccionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetdireccionNull() {
-                this[this.tablevista_empleados_activos.direccionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IstelefonoNull() {
-                return this.IsNull(this.tablevista_empleados_activos.telefonoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SettelefonoNull() {
-                this[this.tablevista_empleados_activos.telefonoColumn] = global::System.Convert.DBNull;
+                this[this.tablevista_asistencia_diaria.nombreEmpleadoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnombreDepartamentoNull() {
-                return this.IsNull(this.tablevista_empleados_activos.nombreDepartamentoColumn);
+                return this.IsNull(this.tablevista_asistencia_diaria.nombreDepartamentoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnombreDepartamentoNull() {
-                this[this.tablevista_empleados_activos.nombreDepartamentoColumn] = global::System.Convert.DBNull;
+                this[this.tablevista_asistencia_diaria.nombreDepartamentoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnombreCargoNull() {
-                return this.IsNull(this.tablevista_empleados_activos.nombreCargoColumn);
+            public bool IsfechaNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.fechaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnombreCargoNull() {
-                this[this.tablevista_empleados_activos.nombreCargoColumn] = global::System.Convert.DBNull;
+            public void SetfechaNull() {
+                this[this.tablevista_asistencia_diaria.fechaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IssalarioNull() {
-                return this.IsNull(this.tablevista_empleados_activos.salarioColumn);
+            public bool IshoraEntradaNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.horaEntradaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetsalarioNull() {
-                this[this.tablevista_empleados_activos.salarioColumn] = global::System.Convert.DBNull;
+            public void SethoraEntradaNull() {
+                this[this.tablevista_asistencia_diaria.horaEntradaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IstieneUsuarioNull() {
-                return this.IsNull(this.tablevista_empleados_activos.tieneUsuarioColumn);
+            public bool IshoraSalidaNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.horaSalidaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SettieneUsuarioNull() {
-                this[this.tablevista_empleados_activos.tieneUsuarioColumn] = global::System.Convert.DBNull;
+            public void SethoraSalidaNull() {
+                this[this.tablevista_asistencia_diaria.horaSalidaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnombreUsuarioNull() {
-                return this.IsNull(this.tablevista_empleados_activos.nombreUsuarioColumn);
+            public bool IshorasTrabajadasNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.horasTrabajadasColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnombreUsuarioNull() {
-                this[this.tablevista_empleados_activos.nombreUsuarioColumn] = global::System.Convert.DBNull;
+            public void SethorasTrabajadasNull() {
+                this[this.tablevista_asistencia_diaria.horasTrabajadasColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsrolUsuarioNull() {
-                return this.IsNull(this.tablevista_empleados_activos.rolUsuarioColumn);
+            public bool IshorasExtrasNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.horasExtrasColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetrolUsuarioNull() {
-                this[this.tablevista_empleados_activos.rolUsuarioColumn] = global::System.Convert.DBNull;
+            public void SethorasExtrasNull() {
+                this[this.tablevista_asistencia_diaria.horasExtrasColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsestadoUsuarioNull() {
-                return this.IsNull(this.tablevista_empleados_activos.estadoUsuarioColumn);
+            public bool IshorasSuplementariasNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.horasSuplementariasColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetestadoUsuarioNull() {
-                this[this.tablevista_empleados_activos.estadoUsuarioColumn] = global::System.Convert.DBNull;
+            public void SethorasSuplementariasNull() {
+                this[this.tablevista_asistencia_diaria.horasSuplementariasColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsfechaContratacionNull() {
-                return this.IsNull(this.tablevista_empleados_activos.fechaContratacionColumn);
+            public bool IshorasNOTrabajadasNull() {
+                return this.IsNull(this.tablevista_asistencia_diaria.horasNOTrabajadasColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetfechaContratacionNull() {
-                this[this.tablevista_empleados_activos.fechaContratacionColumn] = global::System.Convert.DBNull;
+            public void SethorasNOTrabajadasNull() {
+                this[this.tablevista_asistencia_diaria.horasNOTrabajadasColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1113,22 +943,22 @@ namespace proyectoIntegrador {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class vista_empleados_activosRowChangeEvent : global::System.EventArgs {
+        public class vista_asistencia_diariaRowChangeEvent : global::System.EventArgs {
             
-            private vista_empleados_activosRow eventRow;
+            private vista_asistencia_diariaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosRowChangeEvent(vista_empleados_activosRow row, global::System.Data.DataRowAction action) {
+            public vista_asistencia_diariaRowChangeEvent(vista_asistencia_diariaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vista_empleados_activosRow Row {
+            public vista_asistencia_diariaRow Row {
                 get {
                     return this.eventRow;
                 }

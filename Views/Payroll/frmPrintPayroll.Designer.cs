@@ -1,6 +1,6 @@
-﻿namespace proyectoIntegrador.Views.Reports
+﻿namespace proyectoIntegrador.Views.Payroll
 {
-    partial class ReportViewer
+    partial class frmPrintPayroll
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.reportViewerPayroll = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // mySqlCommand1
+            // reportViewerPayroll
             // 
-            this.mySqlCommand1.CacheAge = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.EnableCaching = false;
-            this.mySqlCommand1.Transaction = null;
+            this.reportViewerPayroll.Location = new System.Drawing.Point(23, 58);
+            this.reportViewerPayroll.Name = "reportViewerPayroll";
+            this.reportViewerPayroll.ServerReport.BearerToken = null;
+            this.reportViewerPayroll.Size = new System.Drawing.Size(878, 603);
+            this.reportViewerPayroll.TabIndex = 0;
             // 
-            // ReportViewer
+            // frmPrintPayroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1086, 594);
-            this.Name = "ReportViewer";
-            this.Text = "ReportViewer";
+            this.ClientSize = new System.Drawing.Size(937, 684);
+            this.Controls.Add(this.reportViewerPayroll);
+            this.Name = "frmPrintPayroll";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmPrintPayroll_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-        private System.Windows.Forms.HelpProvider helpProvider1;
+        public Microsoft.Reporting.WinForms.ReportViewer reportViewerPayroll;
     }
 }

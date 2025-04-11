@@ -12,6 +12,7 @@ using Org.BouncyCastle.Asn1.X509;
 using proyectoIntegrador.Config;
 using proyectoIntegrador.Controllers;
 using proyectoIntegrador.Models;
+using proyectoIntegrador.Views.Payroll;
 
 namespace proyectoIntegrador.Views
 {
@@ -255,7 +256,12 @@ namespace proyectoIntegrador.Views
                 ReadOnly = true
             };
             dgvPayroll.Columns.Add(autoincremento);
-
+            var btnImprimir = new DataGridViewButtonColumn
+            {
+                HeaderText = "Imprimir",
+                Text = "Imprimir",
+                UseColumnTextForButtonValue = true
+            };
 
             var btnEliminar = new DataGridViewButtonColumn
             {
@@ -302,6 +308,8 @@ namespace proyectoIntegrador.Views
 
             autoincremento.Width = 40;
             dgvPayroll.Columns.Add(btnEliminar);
+            dgvPayroll.Columns.Add(btnImprimir);
+
             dgvPayroll.Refresh();
 
 
@@ -320,6 +328,14 @@ namespace proyectoIntegrador.Views
                     Delete((int)id);
                 }
             }
+            if (dgvPayroll.Columns[e.ColumnIndex].HeaderText == "Imprimir")
+            {
+                var filaSeleccionada = dgvPayroll.Rows[e.RowIndex];
+                int idRol = (int)filaSeleccionada.Cells["IdRol"].Value;
+                frmPrintPayroll imprimirRol = new frmPrintPayroll(idRol);
+                imprimirRol.ShowDialog();
+            }
+
         }
 
         public void Delete(int id)

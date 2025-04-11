@@ -33,6 +33,12 @@ namespace proyectoIntegrador.Views
 
                 if (isValid)
                 {
+                    Session.IdUsuario = usuario.IdUsuario;
+                    Session.NombreUsuario = usuario.NombreUsuario;
+                    Session.RolUsuario = usuario.RolUsuario;
+                    Session.IdEmpleado = usuario.IdEmpleado;
+                    Session.NombreEmpleado = usuario.NombreEmpleado;
+
                     MainMenu mainMenu = new MainMenu();
                     mainMenu.Show();
                     this.Hide();
