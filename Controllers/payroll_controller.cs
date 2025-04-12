@@ -221,7 +221,37 @@ namespace proyectoIntegrador.Controllers
 
         internal bool Delete(int id)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection conn = _connection.GetConnection())
+            {
+                string query = "UPDATE rolPago SET IsDeleted = 1 WHERE IdRol = @IdRol";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@IdRol", id);
+
+                try
+                {
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        // Auditoría
+                        AuditHelper.RegistrarAuditoria(
+                            conn,
+                            Session.IdUsuario,
+                            "DELETE",
+                            "rolPago",
+                            $"Se eliminó (lógicamente) el rol de pago con ID: {id}"
+                        );
+                        return true;
+                    }
+
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al eliminar rol: " + ex.Message);
+                    return false;
+                }
+            }
         }
     }
 }
