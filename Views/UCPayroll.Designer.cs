@@ -187,7 +187,6 @@
             this.dateTimePickerMonth.ShowUpDown = true;
             this.dateTimePickerMonth.Size = new System.Drawing.Size(303, 30);
             this.dateTimePickerMonth.TabIndex = 104;
-            this.dateTimePickerMonth.ValueChanged += new System.EventHandler(this.dateTimePickerMonth_ValueChanged);
             // 
             // btnCancelRoll
             // 
@@ -233,7 +232,6 @@
             this.comboBoxEmployee.Name = "comboBoxEmployee";
             this.comboBoxEmployee.Size = new System.Drawing.Size(303, 33);
             this.comboBoxEmployee.TabIndex = 99;
-            this.comboBoxEmployee.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployee_SelectedIndexChanged);
             // 
             // label5
             // 

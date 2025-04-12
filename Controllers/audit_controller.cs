@@ -18,7 +18,7 @@ namespace proyectoIntegrador.Controllers
             var auditList = new List<audit_model>();
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT idAuditoria, tipoAccion, fechaHora, idUsuario, descripcion FROM auditoria ";
+                string query = "SELECT * FROM vista_auditorias ";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
@@ -28,11 +28,14 @@ namespace proyectoIntegrador.Controllers
                         {
                             auditList.Add(new audit_model
                             {
+                                // idAuditoria tablaAfectada tipoAccion descripcion fechaHora usuarioResponsable rolUsuario
                                 IdAuditoria = reader.GetInt32("idAuditoria"),
+                                TablaAfectada = reader.GetString("tablaAfectada"),
                                 TipoAccion = reader.GetString("tipoAccion"),
+                                Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString("descripcion"),
                                 FechaHora = reader.GetDateTime("fechaHora"),
-                                IdUsuario = reader.GetInt32("idUsuario"),
-                                Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString("Descripcion")
+                                UsuarioResponsable = reader.GetString("usuarioResponsable"),
+                                RolUsuario = reader.GetString("rolUsuario")
                             });
                         }
                     }
@@ -46,7 +49,7 @@ namespace proyectoIntegrador.Controllers
             audit_model audit = null;
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdAuditoria, TipoAccion, FechaHora, IdUsuario, Descripcion FROM auditoria WHERE IdAuditoria = @IdAuditoria AND isDeleted = 0";
+                string query = "SELECT * FROM vista_auditorias  WHERE IdAuditoria = @IdAuditoria";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@IdAuditoria", id);
@@ -57,11 +60,13 @@ namespace proyectoIntegrador.Controllers
                         {
                             audit = new audit_model
                             {
-                                IdAuditoria = reader.GetInt32("IdAuditoria"),
-                                TipoAccion = reader.GetString("TipoAccion"),
-                                FechaHora = reader.GetDateTime("FechaHora"),
-                                IdUsuario = reader.GetInt32("IdUsuario"),
-                                Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? null : reader.GetString("Descripcion")
+                                IdAuditoria = reader.GetInt32("idAuditoria"),
+                                TablaAfectada = reader.GetString("tablaAfectada"),
+                                TipoAccion = reader.GetString("tipoAccion"),
+                                Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString("descripcion"),
+                                FechaHora = reader.GetDateTime("fechaHora"),
+                                UsuarioResponsable = reader.GetString("usuarioResponsable"),
+                                RolUsuario = reader.GetString("rolUsuario")
                             };
                         }
                     }
@@ -75,7 +80,7 @@ namespace proyectoIntegrador.Controllers
             var auditList = new List<audit_model>();
             using (var connection = _cn.GetConnection())
             {
-                string query = "SELECT IdAuditoria, TipoAccion, FechaHora, IdUsuario, Descripcion FROM auditoria WHERE Accion LIKE @Accion";
+                string query = "SELECT * FROM vista_auditorias WHERE tipoAccion LIKE @Accion";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Accion", "%" + action + "%");
@@ -86,11 +91,13 @@ namespace proyectoIntegrador.Controllers
                         {
                             auditList.Add(new audit_model
                             {
-                                IdAuditoria = reader.GetInt32("IdAuditoria"),
-                                TipoAccion = reader.GetString("TipoAccion"),
-                                FechaHora = reader.GetDateTime("FechaHora"),
-                                IdUsuario = reader.GetInt32("IdUsuario"),
-                                Descripcion = reader.IsDBNull(reader.GetOrdinal("Descripcion")) ? null : reader.GetString("Descripcion")
+                                IdAuditoria = reader.GetInt32("idAuditoria"),
+                                TablaAfectada = reader.GetString("tablaAfectada"),
+                                TipoAccion = reader.GetString("tipoAccion"),
+                                Descripcion = reader.IsDBNull(reader.GetOrdinal("descripcion")) ? null : reader.GetString("descripcion"),
+                                FechaHora = reader.GetDateTime("fechaHora"),
+                                UsuarioResponsable = reader.GetString("usuarioResponsable"),
+                                RolUsuario = reader.GetString("rolUsuario")
                             });
                         }
                     }

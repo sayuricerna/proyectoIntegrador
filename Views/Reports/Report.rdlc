@@ -541,7 +541,7 @@
             </TablixRowHierarchy>
             <KeepTogether>true</KeepTogether>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.205in</Top>
+            <Top>0.355in</Top>
             <Left>0.17111in</Left>
             <Height>0.5in</Height>
             <Width>7.05278in</Width>
@@ -553,6 +553,40 @@
               <FontSize>8pt</FontSize>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox24">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>LISTA DE EMPLEADOS DE EMPLEADOS ACTIVOS</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox24</rd:DefaultName>
+            <Top>0.01389in</Top>
+            <Left>0.17111in</Left>
+            <Height>0.25in</Height>
+            <Width>7.05278in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>5.20116cm</Height>
         <Style>
@@ -564,7 +598,7 @@
       <Width>21.85671cm</Width>
       <Page>
         <PageHeader>
-          <Height>1.26541in</Height>
+          <Height>1.21541in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -592,7 +626,7 @@
                       <Value>="Página " &amp; Globals!PageNumber &amp; " de " &amp; Globals!TotalPages</Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Normal</FontWeight>
                         <TextDecoration>None</TextDecoration>
                         <Color>#000000</Color>
@@ -627,7 +661,7 @@
                     <TextRun>
                       <Value>="Fecha de generación del Reporte: "+Format(Now())</Value>
                       <Style>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -635,7 +669,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0.80105in</Top>
+              <Top>0.67777in</Top>
               <Left>0.17111in</Left>
               <Height>0.25in</Height>
               <Width>4.63889in</Width>
@@ -659,7 +693,7 @@
                     <TextRun>
                       <Value>="Generado por el Usuario: " &amp; Parameters!pNombreUsuario.Value &amp; " (" &amp; Parameters!pNombreEmpleado.Value &amp; ")"</Value>
                       <Style>
-                        <FontSize>9pt</FontSize>
+                        <FontSize>8pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -667,7 +701,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.48161in</Top>
+              <Top>0.4in</Top>
               <Left>0.17111in</Left>
               <Height>0.25in</Height>
               <Width>4.63889in</Width>

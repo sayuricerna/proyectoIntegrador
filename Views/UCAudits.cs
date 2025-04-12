@@ -41,14 +41,6 @@ namespace proyectoIntegrador.Views.Administration
             dgvAudits.Columns.Clear();
 
             var controller = new audit_controller();
-
-            var autoincremento = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "N.-",
-                ReadOnly = true
-            };
-            dgvAudits.Columns.Add(autoincremento);
-
             if (modo == 1)
             {
                 dgvAudits.DataSource = controller.GetAll();
@@ -58,12 +50,20 @@ namespace proyectoIntegrador.Views.Administration
                 dgvAudits.DataSource = controller.SearchByAction(txtSearch.Text.Trim());
             }
 
-            // Cambiar encabezados para que se vean mejor
-            dgvAudits.Columns["IdAuditoria"].HeaderText = "ID";
-            dgvAudits.Columns["TipoAccion"].HeaderText = "ACCIÓN";
-            dgvAudits.Columns["FechaHora"].HeaderText = "FECHA Y HORA";
-            dgvAudits.Columns["IdUsuario"].HeaderText = "USUARIO";
-            dgvAudits.Columns["Descripcion"].HeaderText = "DESCRIPCIÓN";
+            // idAuditoria tablaAfectada tipoAccion descripcion fechaHora usuarioResponsable rolUsuario
+
+            dgvAudits.Columns["IdAuditoria"].HeaderText = "Id";
+            dgvAudits.Columns["tablaAfectada"].HeaderText = "Tabla";
+            dgvAudits.Columns["tipoAccion"].HeaderText = "Accion";
+            dgvAudits.Columns["fechaHora"].HeaderText = "Fecha";
+            dgvAudits.Columns["descripcion"].HeaderText = "Descripción";
+            dgvAudits.Columns["usuarioResponsable"].HeaderText = "Usuario";
+            dgvAudits.Columns["rolUsuario"].HeaderText = "Rol";
+            dgvAudits.ColumnHeadersDefaultCellStyle.Font = new Font(dgvAudits.Font, FontStyle.Bold);
+            dgvAudits.Columns["IdAuditoria"].Width = 40;
+            dgvAudits.Columns["IdUsuario"].Visible = false;
+
+
         }
 
         private void UCAudits_Load(object sender, EventArgs e)

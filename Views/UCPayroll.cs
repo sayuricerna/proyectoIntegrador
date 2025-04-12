@@ -176,20 +176,7 @@ namespace proyectoIntegrador.Views
             pnlRoll.Enabled = false;
         }
 
-        private void comboBoxMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void comboBoxEmployee_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerMonth_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
         public void cleanRollFields()
         {
             dateTimePickerMonth.Text="";
@@ -203,43 +190,6 @@ namespace proyectoIntegrador.Views
             cmbEmployee.SelectedIndex = -1;
             pnlAdvanceP.Enabled = false;
         }
-
-        //public void LoadGridPayrolls(int numero)
-        //{
-        //    dgvPayroll.DataSource = null;
-        //    dgvPayroll.Rows.Clear();
-        //    dgvPayroll.Columns.Clear();
-
-        //    var logica = new payroll_controller();
-        //    var payrollList = (numero == 1) ? logica.GetAll() : logica.Search(txtSearch.Text.Trim());
-
-        //    var autoincremento = new DataGridViewTextBoxColumn
-        //    {
-        //        HeaderText = "N.-",
-        //        ReadOnly = true
-        //    };
-        //    dgvPayroll.Columns.Add(autoincremento);
-
-        //    var btnEliminar = new DataGridViewButtonColumn
-        //    {
-        //        HeaderText = "Eliminar",
-        //        Text = "Eliminar",
-        //        UseColumnTextForButtonValue = true
-        //    };
-
-        //    dgvPayroll.DataSource = payrollList;
-
-        //    dgvPayroll.Columns["IdRol"].HeaderText = "ID Rol";
-        //    dgvPayroll.Columns["NumRol"].HeaderText = "Número de Rol";
-        //    dgvPayroll.Columns["Mes"].HeaderText = "Mes";
-        //    dgvPayroll.Columns["Anio"].HeaderText = "Año";
-        //    dgvPayroll.Columns["FechaEmision"].HeaderText = "Fecha de Emisión";
-        //    dgvPayroll.Columns["IdEmpleado"].HeaderText = "ID Empleado";
-        //    dgvPayroll.Columns["Sueldo"].HeaderText = "Sueldo";
-        //    // Agregar más columnas según sea necesario
-
-        //    dgvPayroll.Columns.Add(btnEliminar);
-        //}
 
 
         public void LoadGridPayrolls(int numero)

@@ -154,20 +154,38 @@ namespace proyectoIntegrador.Views
         }
 
         //modo asistencia
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            
-            var controller = new attendance_controller();
-            int userID = FingerprintHelper.UserIDForAttendance();
-            if (userID != -1)
+            await Task.Run(() =>
             {
-                controller.InsertAttendance(userID);
-            }
-            else
-            {
-                Console.WriteLine("No se pudo detectar la huella.");
+                var controller = new attendance_controller();
+                int userID = FingerprintHelper.UserIDForAttendance();
 
-            }
+                if (userID != -1)
+                {
+                    controller.InsertAttendance(userID);
+                }
+                else
+                {
+                    // Mostrar un mensaje en la UI debe hacerse en el hilo principal
+                    MessageBox.Show("No se pudo detectar la huella.");
+                }
+            });
+
+            // Una vez termina la asistencia, recarga la tabla
+            LoadGridAttedance(1);
+
+            //var controller = new attendance_controller();
+            //int userID = FingerprintHelper.UserIDForAttendance();
+            //if (userID != -1)
+            //{
+            //    controller.InsertAttendance(userID);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No se pudo detectar la huella.");
+
+            //}
         }
 
         private void dgvAttendance_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
