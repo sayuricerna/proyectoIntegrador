@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using proyectoIntegrador.Config;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Models;
 
 namespace proyectoIntegrador.Controllers
@@ -30,6 +31,14 @@ namespace proyectoIntegrador.Controllers
                         cmd.Parameters.AddWithValue("@p_motivo", motivo);
 
                         cmd.ExecuteNonQuery();
+                        // Auditoría: Registro de la acción de crear un anticipo
+                        AuditHelper.RegistrarAuditoria(
+                            conn,
+                            Session.IdUsuario, // Usuario que crea el anticipo
+                            "INSERT",
+                            "anticipo",
+                            $"Se creó un anticipo de {monto} para el empleado con ID: {idEmpleado}. Motivo: {motivo}"
+                        );
                     }
                 }
                 return "Anticipo creado correctamente.";
@@ -45,42 +54,6 @@ namespace proyectoIntegrador.Controllers
             }
         }
 
-        // Opcional: Método para obtener los anticipos de un empleado (por ejemplo, para mostrar en un grid)
-        public List<advancep_model> GetAnticiposByEmpleado(int idEmpleado)
-        {
-            var list = new List<advancep_model>();
-            try
-            {
-                using (var conn = _connection.GetConnection())
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM anticipo WHERE idEmpleado = @idEmpleado AND isDeleted = FALSE";
-                    using (var cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@idEmpleado", idEmpleado);
-                        using (var reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                list.Add(new advancep_model
-                                {
-                                    IdAnticipo = reader.GetInt32("idAnticipo"),
-                                    IdEmpleado = reader.GetInt32("idEmpleado"),
-                                    Fecha = reader.GetDateTime("fecha"),
-                                    Monto = reader.GetDecimal("monto"),
-                                    Motivo = reader.GetString("motivo"),
-                                    IsDeleted = reader.GetBoolean("isDeleted")
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al obtener anticipos: " + ex.Message);
-            }
-            return list;
-        }
+        
     }
 }

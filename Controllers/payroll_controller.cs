@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using proyectoIntegrador.Config;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Models;
 using proyectoIntegrador.Views;
 
@@ -40,6 +41,15 @@ namespace proyectoIntegrador.Controllers
                         cmd.Parameters.AddWithValue("@p_anio", anio);
 
                         cmd.ExecuteNonQuery();
+
+                        // Auditoría: Se registra la acción en el sistema de auditoría
+                        AuditHelper.RegistrarAuditoria(
+                            conn,
+                            Session.IdUsuario, // Usuario que genera el rol de pago
+                            "INSERT",
+                            "rol_pago",
+                            $"Se generó,rol de pago {numRol} para idempleado: {employeeId}, fecha: {mes}/{anio}"
+                        );
 
                         return "Rol de pago generado correctamente.";
                     }

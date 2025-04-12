@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using proyectoIntegrador.Config;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Models;
 
 namespace proyectoIntegrador.Controllers
@@ -13,43 +14,6 @@ namespace proyectoIntegrador.Controllers
     internal class employee_controller
     {
         private readonly connection _cn = new connection();
-
-
-        //public List<employee_model> GetAll()
-        //{
-        //    var employeeList = new List<employee_model>();
-        //    using (var connection = _cn.GetConnection())
-        //    {
-        //        string query = "SELECT IdEmpleado, NombreEmpleado, Huella, Cedula, Direccion, Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella FROM empleado WHERE isDeleted = 0";
-        //        using (var command = new MySqlCommand(query, connection))
-        //        {
-        //            connection.Open();
-        //            using (var reader = command.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    employeeList.Add(new employee_model
-        //                    {
-        //                        IdEmpleado = reader.GetInt32("IdEmpleado"),
-        //                        NombreEmpleado = reader.GetString("NombreEmpleado"),
-        //                        Cedula = reader.GetString("Cedula"),
-        //                        Direccion = reader.GetString("Direccion"),
-        //                        Telefono = reader.IsDBNull(reader.GetOrdinal("Telefono")) ? null : reader.GetString("Telefono"),
-        //                        FechaNacimiento = reader.GetDateTime("FechaNacimiento"),
-        //                        FechaContratacion = reader.GetDateTime("FechaContratacion"),
-        //                        IdDepartamento = reader.GetInt32("IdDepartamento"),
-        //                        IdCargo = reader.GetInt32("IdCargo"),
-        //                        Huella = reader.GetInt32("Huella")
-        //                    });
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return employeeList;
-        //}
-
-        // pal id
-
         public List<employee_model> GetAll()
         {
             var employeeList = new List<employee_model>();
@@ -83,6 +47,7 @@ namespace proyectoIntegrador.Controllers
                             });
                         }
                     }
+
                 }
             }
             return employeeList;
@@ -134,6 +99,7 @@ namespace proyectoIntegrador.Controllers
             {
                 string query = @"INSERT INTO empleado (NombreEmpleado, Cedula, Direccion,Telefono, FechaNacimiento, FechaContratacion, IdDepartamento, IdCargo, Huella) 
                                  VALUES (@NombreEmpleado, @Cedula, @Direccion,@Telefono, @FechaNacimiento, @FechaContratacion, @IdDepartamento, @IdCargo,@Huella)";
+                string resultado;
 
                 using (var command = new MySqlCommand(query, connection))
                 {
@@ -147,8 +113,20 @@ namespace proyectoIntegrador.Controllers
                     command.Parameters.AddWithValue("@IdCargo", employee.IdCargo);
                     command.Parameters.AddWithValue("@Huella", employee.Huella);
 
-                    return ExecuteCommand(command, connection);
+                    resultado = ExecuteCommand(command, connection); // Ejecuta el comando y guarda el resultado
                 }
+                if (resultado == "ok")
+                {
+                    AuditHelper.RegistrarAuditoria(
+                        connection,
+                        Session.IdUsuario,
+                        "INSERT",
+                        "empleado",
+                        $"Se insertó un nuevo empleado: {employee.NombreEmpleado}, cédula: {employee.Cedula}"
+                    );
+                }
+
+                return resultado;
             }
         }
 
@@ -157,17 +135,6 @@ namespace proyectoIntegrador.Controllers
         {
             using (var connection = _cn.GetConnection())
             {
-                /*string query = @"UPDATE empleado 
-                                 SET NombreEmpleado = @NombreEmpleado, 
-                                     Cedula = @Cedula, 
-                                     Direccion = @Direccion,
-                                     Telefono = @Telefono, 
-                                     FechaNacimiento = @FechaNacimiento, 
-                                     FechaContratacion = @FechaContratacion, 
-                                     IdDepartamento = @IdDepartamento, 
-                                     IdCargo = @IdCargo
-                                 WHERE IdEmpleado = @IdEmpleado";
-                */
                 string query = @"UPDATE empleado 
                  SET NombreEmpleado = @NombreEmpleado, 
                      Cedula = @Cedula, 
@@ -179,6 +146,8 @@ namespace proyectoIntegrador.Controllers
                      IdCargo = @IdCargo,
                      Huella = @Huella
                  WHERE IdEmpleado = @IdEmpleado";
+                string resultado;
+
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@IdEmpleado", employee.IdEmpleado);
@@ -192,8 +161,20 @@ namespace proyectoIntegrador.Controllers
                     command.Parameters.AddWithValue("@IdDepartamento", employee.IdDepartamento);
                     command.Parameters.AddWithValue("@IdCargo", employee.IdCargo);
                     command.Parameters.AddWithValue("@Huella", employee.Huella);
-                    return ExecuteCommand(command, connection);
+                    resultado = ExecuteCommand(command, connection);
                 }
+                if (resultado == "ok")
+                {
+                    AuditHelper.RegistrarAuditoria(
+                        connection,
+                        Session.IdUsuario,
+                        "UPDATE",
+                        "empleado",
+                        $"Se actualizó el empleado con ID: {employee.IdEmpleado}"
+                    );
+                }
+
+                return resultado;
             }
         }
 
@@ -227,7 +208,19 @@ namespace proyectoIntegrador.Controllers
                     {
                         connection.Open();
                         int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0; // Si se afectó al menos una fila, retorna true
+                        if (rowsAffected > 0)
+                        {
+                            AuditHelper.RegistrarAuditoria(
+                                connection,
+                                Session.IdUsuario,
+                                "DELETE",
+                                "empleado",
+                                $"Se eliminó (isDeleted = 1) el empleado con ID: {id}"
+                            );
+                            return true;
+                        }
+
+                        return false;
                     }
                     catch (Exception e)
                     {
@@ -295,43 +288,6 @@ namespace proyectoIntegrador.Controllers
                 return e.Message;
             }
         }
-        /*
-        public bool HuellaExiste(int huellaId)
-        {
-            using (var connection = _cn.GetConnection())
-            {
-                string query = "SELECT COUNT(*) FROM empleado WHERE Huella = @Huella AND isDeleted = 0";
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Huella", huellaId);
-                    connection.Open();
-                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
-                }
-            }
-        }
-
-        public bool ActualizarHuella(int empleadoId, int nuevaHuella)
-        {
-            using (var connection = _cn.GetConnection())
-            {
-                string query = "UPDATE empleado SET Huella = @Huella WHERE IdEmpleado = @Id";
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Huella", nuevaHuella);
-                    command.Parameters.AddWithValue("@Id", empleadoId);
-
-                    try
-                    {
-                        connection.Open();
-                        return command.ExecuteNonQuery() > 0;
-                    }
-                    catch
-                    {
-                        return false;
-                    }
-                }
-            }
-        }*/
         public int GenerateFingerprintID()
         {
             for (int id = 1; id <= 127; id++)

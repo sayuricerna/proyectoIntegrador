@@ -88,8 +88,17 @@ namespace proyectoIntegrador.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Session.IdUsuario = 0; // O el valor que utilices para indicar que no hay sesión
+            // Registrar auditoría antes de cerrar sesión
+            using (var conn = new MySql.Data.MySqlClient.MySqlConnection(new Config.connection().GetConnection().ConnectionString))
+            {
+                conn.Open();
+                AuditHelper.RegistrarAuditoria(conn, Session.IdUsuario, "LOGOUT", "Usuario", "Usuario cerró sesión");
+            }
 
+            // Limpiar la sesión
+            Session.IdUsuario = 0;
+
+            // Reiniciar la aplicación (esto te lleva al login)
             Application.Restart();
         }
 

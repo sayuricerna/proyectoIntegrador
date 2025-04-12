@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using proyectoIntegrador.Config;
+using proyectoIntegrador.Helpers;
 using proyectoIntegrador.Models;
 
 namespace proyectoIntegrador.Controllers
@@ -13,28 +14,6 @@ namespace proyectoIntegrador.Controllers
     internal class justification_controller
     {
         private readonly connection _connection = new connection();
-
-        private int InsertJustification(string reason, string detail)
-        {
-            using (var conn = _connection.GetConnection())
-            {
-                conn.Open();
-                string query = "INSERT INTO justificacion (motivo, detalle, isDeleted) VALUES (@motivo, @detalle, FALSE)";
-                using (var cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@motivo", reason);
-                    cmd.Parameters.AddWithValue("@detalle", detail);
-
-                    cmd.ExecuteNonQuery();
-
-                    // Get the last inserted Justification ID
-                    cmd.CommandText = "SELECT LAST_INSERT_ID()";
-                    return Convert.ToInt32(cmd.ExecuteScalar());
-                }
-            }
-        }
-
-        // Get all justifications (can be used to view justification details)
         public List<justification_model> GetAllJustifications()
         {
             var list = new List<justification_model>();
@@ -70,19 +49,14 @@ namespace proyectoIntegrador.Controllers
                 {
                     conn.Open();
 
-                    // Ejecutar el procedimiento almacenado
                     using (var cmd = new MySqlCommand("JustificarAsistencia", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Parámetros de entrada
                         cmd.Parameters.AddWithValue("@p_idEmpleado", employeeId);
                         cmd.Parameters.AddWithValue("@p_fechaInicio", startDate.Date);
                         cmd.Parameters.AddWithValue("@p_fechaFin", endDate.Date);
                         cmd.Parameters.AddWithValue("@p_motivo", reason);
                         cmd.Parameters.AddWithValue("@p_detalle", detail);
-
-                        // Parámetro de salida para el mensaje
                         var resultParam = new MySqlParameter("@resultado", MySqlDbType.VarChar, 500)
                         {
                             Direction = ParameterDirection.Output
@@ -90,9 +64,22 @@ namespace proyectoIntegrador.Controllers
                         cmd.Parameters.Add(resultParam);
 
                         cmd.ExecuteNonQuery();
+                        string resultMessage = resultParam.Value?.ToString() ?? "Proceso completado sin mensaje.";
 
-                        // Obtener mensaje de salida
-                        return resultParam.Value?.ToString() ?? "Proceso completado sin mensaje.";
+                        // Verifica si el proceso fue exitoso
+                        if (resultMessage == "Proceso completado sin mensaje." || !string.IsNullOrEmpty(resultMessage))
+                        {
+                            // Aquí agregamos la auditoría
+                            AuditHelper.RegistrarAuditoria(
+                                conn,
+                                Session.IdUsuario, // Asumiendo que hay un Session.IdUsuario
+                                "UPDATE",
+                                "asistencia", // Aquí indicamos que estamos actualizando la asistencia
+                                $"Se justificó la asistencia del empleado con ID: {employeeId} para las fechas del {startDate.ToShortDateString()} al {endDate.ToShortDateString()}. Motivo: {reason}, Detalles: {detail}"
+                            );
+                        }
+
+                        return resultMessage;
                     }
                 }
             }

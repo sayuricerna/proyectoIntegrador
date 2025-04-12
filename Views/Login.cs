@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using proyectoIntegrador.Config;
 using proyectoIntegrador.Controllers;
 using proyectoIntegrador.Helpers;
 
@@ -14,6 +16,8 @@ namespace proyectoIntegrador.Views
 {
     public partial class Login : Form
     {
+        private readonly connection _connection = new connection();
+
         public Login()
         {
             InitializeComponent();
@@ -33,6 +37,13 @@ namespace proyectoIntegrador.Views
 
                 if (isValid)
                 {
+                    // Registrar auditoría de ingreso
+                    using (var conn = _connection.GetConnection())
+                    {
+                        conn.Open();
+                        AuditHelper.RegistrarAuditoria(conn, usuario.IdUsuario, "LOGIN", "Usuario", "Usuario ha iniciado sesión");
+                    }
+
                     Session.IdUsuario = usuario.IdUsuario;
                     Session.NombreUsuario = usuario.NombreUsuario;
                     Session.RolUsuario = usuario.RolUsuario;

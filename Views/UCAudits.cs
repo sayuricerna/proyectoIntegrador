@@ -61,6 +61,9 @@ namespace proyectoIntegrador.Views.Administration
             dgvAudits.Columns["rolUsuario"].HeaderText = "Rol";
             dgvAudits.ColumnHeadersDefaultCellStyle.Font = new Font(dgvAudits.Font, FontStyle.Bold);
             dgvAudits.Columns["IdAuditoria"].Width = 40;
+            dgvAudits.Columns["tablaAfectada"].Width = 50;
+            dgvAudits.Columns["tipoAccion"].Width = 50;
+
             dgvAudits.Columns["IdUsuario"].Visible = false;
 
 

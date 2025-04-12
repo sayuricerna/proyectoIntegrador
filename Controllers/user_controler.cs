@@ -201,6 +201,15 @@ namespace proyectoIntegrador.Controllers
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                    // Auditoría
+                    AuditHelper.RegistrarAuditoria(
+                        conn,
+                        Session.IdUsuario, // El usuario que está haciendo la operación
+                        "INSERT",
+                        "usuario",
+                        $"Se creó un nuevo usuario con nombre: {usuario.NombreUsuario}, rol: {usuario.RolUsuario}"
+                    );
+
                     return "ok";
                 }
                 catch (Exception ex)
@@ -229,6 +238,15 @@ namespace proyectoIntegrador.Controllers
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                    // Auditoría
+                    AuditHelper.RegistrarAuditoria(
+                        conn,
+                        Session.IdUsuario,
+                        "UPDATE",
+                        "usuario",
+                        $"Se actualizó el usuario con ID: {usuario.IdUsuario}, nuevo nombre: {usuario.NombreUsuario}, nuevo rol: {usuario.RolUsuario}"
+                    );
+
                     return "ok";
                 }
                 catch (Exception ex)
@@ -250,7 +268,20 @@ namespace proyectoIntegrador.Controllers
                 {
                     conn.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
+                    if (rowsAffected > 0)
+                    {
+                        // Auditoría
+                        AuditHelper.RegistrarAuditoria(
+                            conn,
+                            Session.IdUsuario,
+                            "DELETE",
+                            "usuario",
+                            $"Se eliminó (lógicamente) el usuario con ID: {id}"
+                        );
+                        return true;
+                    }
+
+                    return false;
                 }
                 catch (Exception ex)
                 {

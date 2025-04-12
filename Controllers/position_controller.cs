@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using proyectoIntegrador.Models;
 using proyectoIntegrador.Config;
 using MySql.Data.MySqlClient;
+using proyectoIntegrador.Helpers;
 
 namespace proyectoIntegrador.Controllers
 {
@@ -23,14 +24,30 @@ namespace proyectoIntegrador.Controllers
             using (var connection = cn.GetConnection())
             {
                 string query = "INSERT INTO cargo (NombreCargo, Salario, IdDepartamento, isDeleted) VALUES (@NombreCargo, @Salario, @IdDepartamento, @IsDeleted)";
+                string resultado;
+
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@NombreCargo", position.NombreCargo);
                     command.Parameters.AddWithValue("@Salario", position.Salario);
                     command.Parameters.AddWithValue("@IdDepartamento", position.IdDepartamento);
                     command.Parameters.AddWithValue("@IsDeleted", position.IsDeleted);
-                    return ExecuteCommand(command, connection);
+                    resultado = ExecuteCommand(command, connection);
+
+
                 }
+                if (resultado == "ok")
+                {
+                    AuditHelper.RegistrarAuditoria(
+                        connection,
+                        Session.IdUsuario,
+                        "INSERT",
+                        "cargo",
+                        $"Se creó el cargo: {position.NombreCargo}, salario: {position.Salario}"
+                    );
+                }
+
+                return resultado;
             }
         }
 
@@ -97,15 +114,29 @@ namespace proyectoIntegrador.Controllers
             using (var connection = cn.GetConnection())
             {
                 string query = "UPDATE cargo SET NombreCargo = @NombreCargo, Salario = @Salario, IdDepartamento = @IdDepartamento WHERE IdCargo = @IdCargo";
+                string resultado;
+
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@IdCargo", position.IdCargo);
                     command.Parameters.AddWithValue("@NombreCargo", position.NombreCargo);
                     command.Parameters.AddWithValue("@Salario", position.Salario);
                     command.Parameters.AddWithValue("@IdDepartamento", position.IdDepartamento);
-                    return ExecuteCommand(command, connection);
+                    resultado = ExecuteCommand(command, connection);
 
                 }
+                if (resultado == "ok")
+                {
+                    AuditHelper.RegistrarAuditoria(
+                        connection,
+                        Session.IdUsuario,
+                        "UPDATE",
+                        "cargo",
+                        $"Se actualizó el cargo ID {position.IdCargo} a: {position.NombreCargo}, salario: {position.Salario}"
+                    );
+                }
+
+                return resultado;
             }
         }
 
@@ -122,6 +153,14 @@ namespace proyectoIntegrador.Controllers
                     {
                         connection.Open();
                         command.ExecuteNonQuery();
+                        AuditHelper.RegistrarAuditoria(
+                            connection,
+                            Session.IdUsuario,
+                            "DELETE",
+                            "cargo",
+                            $"Se eliminó (soft delete) el cargo con ID: {id}"
+                        );
+
                         return true;
                     }
                     catch (Exception)

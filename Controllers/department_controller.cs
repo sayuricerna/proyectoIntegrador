@@ -29,8 +29,6 @@ namespace proyectoIntegrador.Controllers
                     resultado = ExecuteCommand(command, connection); // Guarda el resultado en una variable
 
                 }
-                MessageBox.Show("ID Usuario actual: " + Session.IdUsuario);
-
                 AuditHelper.RegistrarAuditoria(
                     connection,
                     Session.IdUsuario,
@@ -107,7 +105,20 @@ namespace proyectoIntegrador.Controllers
                 {
                     command.Parameters.AddWithValue("@IdDepartamento", department.IdDepartamento);
                     command.Parameters.AddWithValue("@NombreDepartamento", department.NombreDepartamento);
-                    return ExecuteCommand(command, connection);
+                    string resultado = ExecuteCommand(command, connection);
+
+                    if (resultado == "ok")
+                    {
+                        AuditHelper.RegistrarAuditoria(
+                            connection,
+                            Session.IdUsuario,
+                            "UPDATE",
+                            "departamento",
+                            $"Se actualizó el departamento ID {department.IdDepartamento} con nuevo nombre: {department.NombreDepartamento}"
+                        );
+                    }
+
+                    return resultado;
                 }
             }
         }
@@ -125,6 +136,14 @@ namespace proyectoIntegrador.Controllers
                     {
                         connection.Open();
                         command.ExecuteNonQuery();
+                        AuditHelper.RegistrarAuditoria(
+                            connection,
+                            Session.IdUsuario,
+                            "DELETE",
+                            "departamento",
+                            $"Se marcó como eliminado el departamento con ID: {id}"
+                        );
+
                         return true;
                     }
                     catch (Exception)
