@@ -217,8 +217,6 @@ namespace proyectoIntegrador.Controllers
             }
             return payrollList;
         }
-
-
         internal bool Delete(int id)
         {
             using (MySqlConnection conn = _connection.GetConnection())

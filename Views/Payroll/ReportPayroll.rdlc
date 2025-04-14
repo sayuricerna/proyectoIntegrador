@@ -380,7 +380,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Horas Trabajadas:</Value>
+                    <Value>Días y Horas Trabajadas:</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -467,7 +467,7 @@
             <Top>3.88278in</Top>
             <Left>3.8757in</Left>
             <Height>0.58889in</Height>
-            <Width>1.74694in</Width>
+            <Width>1.99694in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>

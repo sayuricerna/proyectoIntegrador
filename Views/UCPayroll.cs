@@ -202,7 +202,7 @@ namespace proyectoIntegrador.Views
 
             var autoincremento = new DataGridViewTextBoxColumn
             {
-                HeaderText = "N.-",
+                HeaderText = "#",
                 ReadOnly = true
             };
             dgvPayroll.Columns.Add(autoincremento);
@@ -262,7 +262,7 @@ namespace proyectoIntegrador.Views
             dgvPayroll.Columns["Anio"].Width = 40;
             dgvPayroll.Columns["HorasSuplementarias"].Width = 40;
             dgvPayroll.Columns["HorasExtras"].Width = 40;
-
+            autoincremento.Width = 24;
             dgvPayroll.ColumnHeadersDefaultCellStyle.Font = new Font(dgvPayroll.Font, FontStyle.Bold);
             dgvPayroll.Columns.Add(btnEliminar);
             dgvPayroll.Columns.Add(btnImprimir);

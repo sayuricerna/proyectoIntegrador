@@ -73,7 +73,7 @@
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.SeaGreen;
+            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button7.Dock = System.Windows.Forms.DockStyle.Top;
             this.button7.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -81,6 +81,7 @@
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.Location = new System.Drawing.Point(0, 370);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(401, 74);
             this.button7.TabIndex = 10;
@@ -90,7 +91,7 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.SeaGreen;
+            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button6.Dock = System.Windows.Forms.DockStyle.Top;
             this.button6.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -98,6 +99,7 @@
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(0, 296);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(401, 74);
             this.button6.TabIndex = 9;
@@ -107,7 +109,7 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.SeaGreen;
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button5.Dock = System.Windows.Forms.DockStyle.Top;
             this.button5.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -115,6 +117,7 @@
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(0, 222);
+            this.button5.Margin = new System.Windows.Forms.Padding(0);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(401, 74);
             this.button5.TabIndex = 8;
@@ -124,7 +127,7 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.SeaGreen;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -132,6 +135,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(0, 148);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(401, 74);
             this.button4.TabIndex = 7;
@@ -141,7 +145,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.SeaGreen;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -149,6 +153,7 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(0, 74);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(401, 74);
             this.button3.TabIndex = 6;
@@ -158,7 +163,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -166,6 +171,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(401, 74);
             this.button2.TabIndex = 5;
@@ -175,14 +181,14 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SeaGreen;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(141)))), ((int)(((byte)(143)))));
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(0, 883);
+            this.button1.Location = new System.Drawing.Point(0, 872);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(401, 57);
+            this.button1.Size = new System.Drawing.Size(401, 68);
             this.button1.TabIndex = 3;
             this.button1.Text = "Salir";
             this.button1.UseVisualStyleBackColor = false;
