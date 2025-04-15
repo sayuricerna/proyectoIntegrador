@@ -15,6 +15,31 @@ namespace proyectoIntegrador.Controllers
     {
         private readonly connection _connection = new connection();
 
+        public List<advancep_model> getAll()
+        {
+            var lista = new List<advancep_model>();
+            using (var conn = _connection.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM vista_anticipos";
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        lista.Add(new advancep_model
+                        {
+                            IdAnticipo = reader.GetInt32("idAnticipo"),
+                            NombreEmpleado = reader.GetString("nombreEmpleado"),
+                            Fecha = reader.GetDateTime("fecha"),
+                            Monto = reader.GetDecimal("monto"),
+                            Motivo = reader.GetString("motivo")
+                        });
+                    }
+                }
+            }
+            return lista;
+        }
         // Método para crear un anticipo utilizando el procedimiento almacenado "CrearAnticipo"
         public string CrearAnticipo(int idEmpleado, decimal monto, string motivo)
         {
@@ -54,6 +79,43 @@ namespace proyectoIntegrador.Controllers
             }
         }
 
-        
+        public string deleteAdvance(int idAnticipo)
+        {
+            try
+            {
+                using (var conn = _connection.GetConnection())
+                {
+                    conn.Open();
+                    using (var cmd = new MySqlCommand("EliminarAnticipo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_idAnticipo", idAnticipo);
+
+                        cmd.ExecuteNonQuery();
+
+                        // Auditoría: Registro de la acción de eliminar un anticipo
+                        AuditHelper.RegistrarAuditoria(
+                            conn,
+                            Session.IdUsuario, // Usuario que elimina el anticipo
+                            "UPDATE",
+                            "anticipo",
+                            $"Se eliminó (marcó como eliminado) el anticipo con ID: {idAnticipo}."
+                        );
+                    }
+                }
+                return "Anticipo eliminado correctamente.";
+            }
+            catch (MySqlException ex)
+            {
+                // Si se genera un SIGNAL en el SP se lanzará una excepción MySqlException.
+                return "Error al eliminar anticipo: " + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Error inesperado: " + ex.Message;
+            }
+        }
+
+
     }
 }

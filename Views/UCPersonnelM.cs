@@ -868,8 +868,8 @@ namespace proyectoIntegrador.Views
         {
             var list = new employee_controller();
             cmbEmployee.DataSource = list.GetAll();
-            cmbEmployee.ValueMember = "IdEmpleado";   // Aquí asegúrate que este sea el nombre correcto del campo
-            cmbEmployee.DisplayMember = "nombreEmpleado";  // Aquí pon el nombre correcto que quieras mostrar
+            cmbEmployee.ValueMember = "IdEmpleado";   
+            cmbEmployee.DisplayMember = "nombreEmpleado";
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)

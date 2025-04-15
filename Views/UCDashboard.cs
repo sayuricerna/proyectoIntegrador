@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using proyectoIntegrador.Config;
 using proyectoIntegrador.Controllers;
 using proyectoIntegrador.Models;
 
@@ -16,12 +18,27 @@ namespace proyectoIntegrador.Views
     public partial class UCDashboard : UserControl
     {
         private holiday_controller controller = new holiday_controller();
+        private advancep_controller controllerAd = new advancep_controller();
         private List<holiday_model> feriados = new List<holiday_model>();
+        private List<advancep_model> anticipos = new List<advancep_model>();
+
+        private readonly connection _connection = new connection();
+
         public UCDashboard()
         {
             InitializeComponent();
             CargarFeriados();
+            CargarAnticipos();
+        }
 
+        private void CargarAnticipos()
+        {
+            anticipos = controllerAd.getAll();
+            listBoxAdvanced.Items.Clear();
+            foreach (var a in anticipos) 
+            {
+                listBoxAdvanced.Items.Add($"{a.NombreEmpleado}({a.Fecha:dd/MM/yyyy}) - {a.Monto} - {a.Motivo}");
+            }
         }
         private void CargarFeriados()
         {
@@ -72,7 +89,6 @@ namespace proyectoIntegrador.Views
         {
             string nombre = txtHoliday.Text.Trim();
             DateTime fecha = dtpHoliday.Value;
-
             if (!string.IsNullOrEmpty(nombre))
             {
                 controller.addHoliday(nombre, fecha);
@@ -81,10 +97,8 @@ namespace proyectoIntegrador.Views
             }
             else
             {
-                MessageBox.Show("Por favor, ingresa un nombre válido.");
-            }
-            MessageBox.Show("Fecha no válida.");
-            
+                MessageBox.Show("Por favor, ingresa datos.");
+            }            
         }
 
         private void listBoxHolidays_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,5 +114,20 @@ namespace proyectoIntegrador.Views
                 dtpHoliday.Value = DateTime.ParseExact(fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             }
         }
+
+        private void btnDeleteAd_Click(object sender, EventArgs e)
+        {
+            if (listBoxAdvanced.SelectedIndex >= 0)
+            {
+                var anticipo = anticipos[listBoxAdvanced.SelectedIndex];
+                var confirm = MessageBox.Show($"¿Eliminar '{anticipo.NombreEmpleado}'?", "Confirmar", MessageBoxButtons.YesNo);
+                if (confirm == DialogResult.Yes)
+                {
+                    controllerAd.deleteAdvance(anticipo.IdAnticipo);
+                    CargarAnticipos(); // Esta es la función correcta para recargar los anticipos
+                }
+            }
+        }
+
     }
 }

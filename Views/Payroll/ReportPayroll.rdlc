@@ -1099,6 +1099,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1119,6 +1130,17 @@
                   </TextRun>
                   <TextRun>
                     <Value>=Fields!totalEgresos.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -1157,6 +1179,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1165,9 +1198,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox26</rd:DefaultName>
             <Top>3.88278in</Top>
-            <Left>2.27167in</Left>
+            <Left>1.37167in</Left>
             <Height>0.60556in</Height>
-            <Width>1.34166in</Width>
+            <Width>2.24166in</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -1196,6 +1229,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1205,6 +1249,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Fields!anticipos.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -1232,6 +1287,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1241,6 +1307,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Fields!descuentoTardanzas.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -1322,6 +1399,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1330,9 +1418,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
             <Top>2.01111in</Top>
-            <Left>5.60071in</Left>
+            <Left>5.17126in</Left>
             <Height>1.53in</Height>
-            <Width>1.5636in</Width>
+            <Width>1.99304in</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -1397,6 +1485,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1406,6 +1505,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Fields!horasSuplementarias.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -1433,6 +1543,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1442,6 +1563,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Fields!decimotercerSueldo.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -1469,6 +1601,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1478,6 +1621,17 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Fields!fondoReserva.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -1523,6 +1677,17 @@
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style>
                   <TextAlign>Right</TextAlign>
@@ -1531,9 +1696,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox24</rd:DefaultName>
             <Top>1.64111in</Top>
-            <Left>1.755in</Left>
+            <Left>1.37167in</Left>
             <Height>2in</Height>
-            <Width>1.85833in</Width>
+            <Width>2.24166in</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>

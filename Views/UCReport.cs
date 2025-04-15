@@ -39,12 +39,12 @@ namespace proyectoIntegrador.Views
                     ReportClass.Lista_personal(this);
                     break;
 
-                case "Reporte de Técnicos":
-                    //ReportClass.Reporte_Tecnicos(this); // Este sería otro método similar en tu ReportClass
+                case "Reporte de Sueldos Mensuales":
+                    ReportClass.Lista_sueldos(this); // Este sería otro método similar en tu ReportClass
                     break;
 
                 case "Reporte de Asistencias":
-                    ReportClass.Lista_asistencia(this); // Otro método que tú creas para ese reporte
+                    ReportClass.Lista_asistencia(this); 
                     break;
 
                 default:
@@ -57,9 +57,9 @@ namespace proyectoIntegrador.Views
         {
             cmbSelectedReport.Items.Clear();
             cmbSelectedReport.Items.Add("Reporte de Empleados");
-            cmbSelectedReport.Items.Add("Reporte de Técnicos");
+            cmbSelectedReport.Items.Add("Reporte de Sueldos Mensuales");
             cmbSelectedReport.Items.Add("Reporte de Asistencias");
-            cmbSelectedReport.SelectedIndex = 0; // Para seleccionar por defecto
+            cmbSelectedReport.SelectedIndex = 0;
         }
     }
 }

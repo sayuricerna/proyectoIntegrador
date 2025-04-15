@@ -89,7 +89,43 @@ namespace proyectoIntegrador.Views.Reports
                 MessageBox.Show("Error al generar el reporte: " + ex.Message, "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public static void Lista_sueldos(UCReport F_Reporte)
+        {
+            try
+            {
+                connection conn = new connection();
+                using (MySqlConnection conectarBD = conn.GetConnection())
+                {
+                    conectarBD.Open();
 
+                    string consulta = "SELECT * FROM vw_sueldos_pagados_mensual";
+                    MySqlDataAdapter da = new MySqlDataAdapter(consulta, conectarBD);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+
+                    ReportDataSource reporte = new ReportDataSource("DataSet4", ds.Tables[0]);
+                    F_Reporte.ReportV_Lista_Datos.LocalReport.DataSources.Clear();
+                    F_Reporte.ReportV_Lista_Datos.LocalReport.DataSources.Add(reporte);
+                    F_Reporte.ReportV_Lista_Datos.LocalReport.ReportEmbeddedResource = "proyectoIntegrador.Views.Reports.Report2.rdlc";
+                    // ⬇️ Agregamos los dos parámetros
+                    ReportParameter[] parametros = new ReportParameter[]
+                    {
+                        new ReportParameter("pNombreUsuario", Session.NombreUsuario),
+                        new ReportParameter("pNombreEmpleado", Session.NombreEmpleado)
+                    };
+                    F_Reporte.ReportV_Lista_Datos.LocalReport.SetParameters(parametros);
+
+
+
+                    F_Reporte.ReportV_Lista_Datos.LocalReport.Refresh();
+                    F_Reporte.ReportV_Lista_Datos.RefreshReport();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte: " + ex.Message, "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
 }

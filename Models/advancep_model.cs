@@ -15,6 +15,9 @@ namespace proyectoIntegrador.Models
         public string Motivo { get; set; }
         public bool IsDeleted { get; set; }
 
+        public string NombreEmpleado { get; set; }
+
+
 
     }
 }

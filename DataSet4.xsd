@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet4" targetNamespace="http://tempuri.org/DataSet4.xsd" xmlns:mstns="http://tempuri.org/DataSet4.xsd" xmlns="http://tempuri.org/DataSet4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet4" msprop:Generator_DataSetName="DataSet4">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_sueldos_pagados_mensual" msprop:Generator_RowEvHandlerName="vw_sueldos_pagados_mensualRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_sueldos_pagados_mensualRowDeleted" msprop:Generator_RowDeletingName="vw_sueldos_pagados_mensualRowDeleting" msprop:Generator_RowEvArgName="vw_sueldos_pagados_mensualRowChangeEvent" msprop:Generator_TablePropName="vw_sueldos_pagados_mensual" msprop:Generator_RowChangedName="vw_sueldos_pagados_mensualRowChanged" msprop:Generator_RowChangingName="vw_sueldos_pagados_mensualRowChanging" msprop:Generator_TableClassName="vw_sueldos_pagados_mensualDataTable" msprop:Generator_RowClassName="vw_sueldos_pagados_mensualRow" msprop:Generator_TableVarName="tablevw_sueldos_pagados_mensual" msprop:Generator_UserTableName="vw_sueldos_pagados_mensual">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="anio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_UserColumnName="anio" type="xs:string" minOccurs="0" />
+              <xs:element name="mes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_UserColumnName="mes" type="xs:string" minOccurs="0" />
+              <xs:element name="totalSueldosPagados" msprop:Generator_ColumnPropNameInRow="totalSueldosPagados" msprop:Generator_ColumnPropNameInTable="totalSueldosPagadosColumn" msprop:Generator_ColumnVarNameInTable="columntotalSueldosPagados" msprop:Generator_UserColumnName="totalSueldosPagados" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
