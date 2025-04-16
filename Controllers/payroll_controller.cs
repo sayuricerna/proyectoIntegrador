@@ -25,13 +25,11 @@ namespace proyectoIntegrador.Controllers
                 {
                     conn.Open();
 
-                    // Ejecutar el procedimiento almacenado
                     using (var cmd = new MySqlCommand("generar_rol_pago_completo", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Obtener mes y año de la fecha seleccionada
-                        string mes = selectedDate.Month.ToString("D2"); // Asegura formato '01', '02', etc.  
+                        string mes = selectedDate.Month.ToString("D2");
                         int anio = selectedDate.Year;
 
                         // Parámetros del SP
@@ -65,7 +63,6 @@ namespace proyectoIntegrador.Controllers
             var list = new List<payroll_model>();
             using (var connection = _connection.GetConnection())
             {
-                // Asegúrate de que la vista incluya 'idRol' (puedes modificar la vista para que seleccione rp.idRol AS idRol)
                 string query = "SELECT * FROM vista_rol_pago_detallada";
                 using (var command = new MySqlCommand(query, connection))
                 {

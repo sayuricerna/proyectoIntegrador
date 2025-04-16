@@ -55,7 +55,10 @@ namespace proyectoIntegrador.Views
 
         private void dgvAttendance_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-
+            for (int i = 0; i < dgvAttendance.Rows.Count; i++)
+            {
+                dgvAttendance.Rows[i].Cells[0].Value = i + 1;
+            }
         }
         private void UCAttendance_Load(object sender, EventArgs e)
 

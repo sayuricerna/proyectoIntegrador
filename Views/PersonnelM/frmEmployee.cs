@@ -115,7 +115,6 @@ namespace proyectoIntegrador.Views.PersonnelM
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
 
-            
         }
 
         // Método para cargar el grid (si tienes uno para mostrar los empleados)

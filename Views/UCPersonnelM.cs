@@ -934,6 +934,7 @@ namespace proyectoIntegrador.Views
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            this.LoadGridEmployee(2);
 
         }
 

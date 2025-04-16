@@ -40,7 +40,6 @@ namespace proyectoIntegrador.Controllers
             }
             return lista;
         }
-        // Método para crear un anticipo utilizando el procedimiento almacenado "CrearAnticipo"
         public string CrearAnticipo(int idEmpleado, decimal monto, string motivo)
         {
             try
@@ -56,10 +55,9 @@ namespace proyectoIntegrador.Controllers
                         cmd.Parameters.AddWithValue("@p_motivo", motivo);
 
                         cmd.ExecuteNonQuery();
-                        // Auditoría: Registro de la acción de crear un anticipo
                         AuditHelper.RegistrarAuditoria(
                             conn,
-                            Session.IdUsuario, // Usuario que crea el anticipo
+                            Session.IdUsuario,
                             "INSERT",
                             "anticipo",
                             $"Se creó un anticipo de {monto} para el empleado con ID: {idEmpleado}. Motivo: {motivo}"
@@ -70,7 +68,6 @@ namespace proyectoIntegrador.Controllers
             }
             catch (MySqlException ex)
             {
-                // Si se genera un SIGNAL en el SP se lanzará una excepción MySqlException.
                 return "Error al crear anticipo: " + ex.Message;
             }
             catch (Exception ex)
@@ -93,10 +90,10 @@ namespace proyectoIntegrador.Controllers
 
                         cmd.ExecuteNonQuery();
 
-                        // Auditoría: Registro de la acción de eliminar un anticipo
+                        // Auditori
                         AuditHelper.RegistrarAuditoria(
                             conn,
-                            Session.IdUsuario, // Usuario que elimina el anticipo
+                            Session.IdUsuario, 
                             "UPDATE",
                             "anticipo",
                             $"Se eliminó (marcó como eliminado) el anticipo con ID: {idAnticipo}."
@@ -107,7 +104,7 @@ namespace proyectoIntegrador.Controllers
             }
             catch (MySqlException ex)
             {
-                // Si se genera un SIGNAL en el SP se lanzará una excepción MySqlException.
+               
                 return "Error al eliminar anticipo: " + ex.Message;
             }
             catch (Exception ex)
